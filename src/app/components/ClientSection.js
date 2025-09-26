@@ -40,7 +40,7 @@ const ClientsSection = () => {
             Trusted by Industry Leaders
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            We're proud to collaborate with a diverse range of businesses, from innovative fintech startups to established industry giants.
+            We are proud to collaborate with a diverse range of businesses, from innovative fintech startups to established industry giants.
           </p>
         </div>
 
