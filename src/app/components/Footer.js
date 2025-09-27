@@ -79,8 +79,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-white mb-3">Address</h3>
             <p className="text-sm leading-relaxed">
-              Casaverde Office Building, Jl. Mampang Prapatan No. 17, South
-              Jakarta, 12790
+              Dea Tower II, 15th Floor Suite, Jl. Mega Kuningan Barat Kav. E4.3
+              No. 1-2, South Jakarta, 12950
             </p>
           </div>
 
