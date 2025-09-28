@@ -27,19 +27,19 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <Link
             href="/"
-            className="text-gray-600 hover:text-cyan-500 transition-colors"
+            className="text-gray-600 hover:text-cyan-500 transition-colors font-bold"
           >
             HOME
           </Link>
           <Link
             href="/about"
-            className="text-gray-600 hover:text-cyan-500 transition-colors"
+            className="text-gray-600 hover:text-cyan-500 transition-colors font-bold"
           >
             ABOUT
           </Link>
           <Link
             href="/contact-us"
-            className="text-gray-600 hover:text-cyan-500 transition-colors"
+            className="text-gray-600 hover:text-cyan-500 transition-colors font-bold"
           >
             CONTACT US
           </Link>
@@ -110,21 +110,21 @@ const Navbar = () => {
         <div className="md:hidden bg-white shadow-md px-6 pb-4 space-y-4">
           <Link
             href="/"
-            className="block text-gray-600 hover:text-cyan-500 transition-colors"
+            className="block text-gray-600 hover:text-cyan-500 transition-colors font-bold"
             onClick={() => setIsOpen(false)}
           >
             HOME
           </Link>
           <Link
             href="/about"
-            className="block text-gray-600 hover:text-cyan-500 transition-colors"
+            className="block text-gray-600 hover:text-cyan-500 transition-colors font-bold"
             onClick={() => setIsOpen(false)}
           >
             ABOUT
           </Link>
           <Link
             href="/contact-us"
-            className="block text-gray-600 hover:text-cyan-500 transition-colors"
+            className="block text-gray-600 hover:text-cyan-500 transition-colors font-bold"
             onClick={() => setIsOpen(false)}
           >
             CONTACT US

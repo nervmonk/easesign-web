@@ -70,9 +70,13 @@ const Footer = () => {
               width={150}
               height={40}
             />
-            <button className="bg-cyan-400 text-slate-900 font-bold py-2 px-5 rounded hover:bg-cyan-300 transition-colors">
+
+            <Link
+              href="/privacy-policy"
+              className="bg-cyan-400 text-slate-900 font-bold py-2 px-5 rounded hover:bg-cyan-300 transition-colors"
+            >
               Privacy Notice
-            </button>
+            </Link>
           </div>
 
           {/* Column 2: Address */}

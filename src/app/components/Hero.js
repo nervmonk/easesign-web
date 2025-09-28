@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -9,9 +10,12 @@ const Hero = () => {
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
           Digital Solution for Modern Business
         </h1>
-        <button className="mt-8 bg-green-500 text-white font-bold py-3 px-8 rounded-md hover:bg-green-600 transition-all duration-300">
-          Learn More
-        </button>
+        <Link href="#products">
+          {" "}
+          <button className="mt-8 bg-green-500 text-white font-bold py-3 px-8 rounded-md hover:bg-green-600 transition-all duration-300">
+            Learn More
+          </button>
+        </Link>
       </div>
 
       {/* Right Column (Image) */}
