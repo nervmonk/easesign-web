@@ -40,8 +40,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Corporation',
+    'name': 'EaseSign',
+    'url': 'https://easesign.id',
+    'logo': 'https://easesign.id/easesign-logo.png',
+    'contactPoint': {
+      '@type': 'ContactPoint',
+      'telephone': '+62-21-38915110',
+      'contactType': 'Customer Service',
+      'email': 'info@easesign.id'
+    },
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'Dea Tower II, 15th Floor Suite, Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2',
+      'addressLocality': 'South Jakarta',
+      'postalCode': '12950',
+      'addressCountry': 'ID'
+    },
+    'sameAs': [
+      // Add links to your social media profiles here
+    ]
+  };
   return (
-    <html lang="en">
+    <html lang="id">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

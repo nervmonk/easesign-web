@@ -5,8 +5,8 @@ import VisionSection from '../components/VisionSection';
 import TeamSection from '../components/TeamSection';
 
 export const metadata = {
-  title: 'About Us | EaseSign',
-  description: 'Learn about EaseSign (PT Paramita Digital Nusantara), our vision, and the team dedicated to providing reliable and secure digital document solutions.',
+  title: 'Tentang Kami - Penyedia Tanda Tangan Digital Terpercaya | EaseSign',
+  description: 'Pelajari tentang EaseSign (PT Paramita Digital Nusantara), visi kami, dan tim profesional di balik solusi dokumen digital yang aman dan terpercaya untuk perusahaan di Indonesia.',
 };
 
 export default function AboutPage() {

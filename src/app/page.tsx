@@ -9,8 +9,8 @@ import Footer from './components/Footer';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'EaseSign: Digital Signature Solutions for Modern Business',
-  description: 'EaseSign offers secure and efficient digital signature and electronic stamp (e-meterai) solutions to streamline your business document workflows in Indonesia.'
+  title: 'Tanda Tangan Digital & E-Meterai Resmi untuk Bisnis | EaseSign',
+  description: 'EaseSign menyediakan solusi tanda tangan digital dan meterai elektronik (e-meterai) yang sah secara hukum dan diakui di Indonesia. Amankan dokumen dan percepat alur kerja bisnis Anda.'
 }
 
 export default function Home() {

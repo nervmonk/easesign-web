@@ -10,7 +10,7 @@ const AboutSection = () => {
           {/* Main Logo */}
           <Image
             src="/easesign-logo.png" // Replace with your logo file in /public
-            alt="EaseSign Logo"
+            alt="EaseSign penyedia tanda tangan digital Logo"
             width={300}
             height={80}
             className="h-auto"

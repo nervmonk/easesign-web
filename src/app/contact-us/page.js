@@ -3,8 +3,8 @@ import Footer from '../components/Footer';
 import ContactSection from '../components/ContactSection';
 
 export const metadata = {
-  title: 'Contact Us | EaseSign',
-  description: 'Learn about EaseSign (PT Paramita Digital Nusantara), our vision, and the team dedicated to providing reliable and secure digital document solutions.',
+  title: 'Hubungi Kami - Konsultasi Tanda Tangan Digital | EaseSign',
+  description: 'Hubungi tim EaseSign untuk konsultasi gratis mengenai kebutuhan tanda tangan digital, e-meterai, dan manajemen dokumen untuk perusahaan Anda.',
 };
 
 export default function ContactPage() {
