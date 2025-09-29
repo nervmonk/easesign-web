@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://easesign.id/</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://easesign.id/about</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://easesign.id/contact-us</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://easesign.id/privacy-policy</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.60</priority>
+  </url>
+   <url>
+    <loc>https://easesign.id/privacy-notice</loc>
+    <lastmod>2023-10-27</lastmod>
+    <priority>0.60</priority>
+  </url>
+</urlset>

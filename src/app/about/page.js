@@ -4,6 +4,11 @@ import AboutHero from '../components/AboutHero';
 import VisionSection from '../components/VisionSection';
 import TeamSection from '../components/TeamSection';
 
+export const metadata = {
+  title: 'About Us | EaseSign',
+  description: 'Learn about EaseSign (PT Paramita Digital Nusantara), our vision, and the team dedicated to providing reliable and secure digital document solutions.',
+};
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">

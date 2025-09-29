@@ -13,8 +13,26 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Signatures",
-  description: "Electronic Signatures Made Easy",
+  title: {
+    default: "EaseSign",
+    template: "%s | EaseSign"
+  },
+  description: "Electronic Signatures Made Easy in Indonesia.",
+  openGraph: {
+    title: 'EaseSign',
+    description: 'Secure and efficient digital signature solutions.',
+    url: 'https://easesign.id',
+    siteName: 'EaseSign',
+    images: [
+      {
+        url: 'https://easesign.id/og-image.png',
+        width: 1200,
+        height: 630
+      }
+    ],
+    locale: 'id_ID',
+    type: 'website'
+  }
 };
 
 export default function RootLayout({
