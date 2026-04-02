@@ -30,7 +30,7 @@ const signatureProducts = [
 // KYC & Onboarding products
 const kycProducts = [
   {
-    icon: "/graphic.png", // Placeholder icon, replace with actual ID icon
+    icon: "/identity-verification.png", // Placeholder icon, replace with actual ID icon
     title: "ID Card Documents OCR",
     description:
       "Automate your KYC onboarding with AI-powered OCR to seamlessly extract and validate identity documents in real-time.",
@@ -41,7 +41,7 @@ const kycProducts = [
     textHoverClass: "group-hover:text-purple-400",
   },
   {
-    icon: "/security.png", // Placeholder icon, replace with actual Face Verification icon
+    icon: "/user-verification.png", // Placeholder icon, replace with actual Face Verification icon
     title: "Face Verification",
     description:
       "Ensure the person behind the screen is genuine with high-accuracy facial recognition that compares live selfies to ID photos.",
@@ -52,7 +52,7 @@ const kycProducts = [
     textHoverClass: "group-hover:text-blue-400",
   },
   {
-    icon: "/efficiency.png", // Placeholder icon, replace with actual Liveness icon
+    icon: "/face-detection.png", // Placeholder icon, replace with actual Liveness icon
     title: "Liveness Detection",
     description:
       "Prevent spoofing and presentation attacks instantly with our advanced passive liveness detection algorithms.",
@@ -90,7 +90,7 @@ const ProductCard = ({ product, index, isKYC }) => (
         </p>
       </div>
     </div>
-    
+
     {/* Decorative shape for the second signature card */}
     {!isKYC && index === 1 && (
       <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-cyan-500/30 rounded-xl rounded-tr-[60px] z-0 opacity-40 bg-cyan-500/5 backdrop-blur-md" />
@@ -120,7 +120,7 @@ const ProductsSection = () => {
             From legally-binding electronic signatures to military-grade identity verification, we provide everything you need to digitize your onboarding and operations.
           </p>
         </div>
-        
+
         {/* Row 1: Document Signing & Stamping (2 Columns) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-stretch mb-12">
           {signatureProducts.map((product, index) => (

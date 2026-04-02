@@ -42,7 +42,7 @@ const AboutSection = () => {
 
                 <div className="h-14 w-24 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
                   <Image
-                    src="/psre-logo.png"
+                    src="/psre-footer.png"
                     alt="PSrE"
                     width={100}
                     height={100}
@@ -62,7 +62,7 @@ const AboutSection = () => {
 
                 <div className="h-14 w-28 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
                   <Image
-                    src="/peruri-logo.png"
+                    src="/peruri-footer.png"
                     alt="Peruri"
                     width={200}
                     height={50}
