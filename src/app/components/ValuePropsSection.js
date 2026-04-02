@@ -9,9 +9,9 @@ const CheckIcon = () => (
 
 const ValuePropsSection = () => {
   return (
-    <section className="relative bg-slate-900 text-white py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       {/* 1. Switched to a two-column grid layout on large screens */}
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto max-w-[1200px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* ========== Left Column (Text Content) ========== */}
         {/* 2. Grouped all text content here and made it left-aligned */}

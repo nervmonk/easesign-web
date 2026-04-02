@@ -15,16 +15,18 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-white text-gray-800">
-      <Navbar />
-      <Hero />
-      <AboutSection/>
-      <FeatureSection />
-      <ValuePropsSection/>
-      <ProductsSection/>
-      <ClientSection/>
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#180f33] via-[#0d0d1a] to-[#050505] text-white font-sans overflow-x-hidden">
+      <main className="flex-grow">
+        <Navbar />
+        <Hero />
+        <AboutSection/>
+        <FeatureSection />
+        <ValuePropsSection/>
+        <ProductsSection/>
+        <ClientSection/>
+      </main>
       <Footer/>
       {/* You can add the rest of your page sections here */}
-    </main>
+    </div>
   );
 }

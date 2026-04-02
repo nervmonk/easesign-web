@@ -9,14 +9,14 @@ export const metadata = {
   description: 'Pelajari tentang EaseSign (PT Paramita Digital Nusantara), visi kami, dan tim profesional di balik solusi dokumen digital yang aman dan terpercaya untuk perusahaan di Indonesia.',
 };
 
-export default function AboutPage() {
+export default function AboutPage() { 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow bg-white text-gray-800">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#180f33] via-[#0d0d1a] to-[#050505] text-white font-sans overflow-x-hidden">
+      <main className="flex-grow">
         <Navbar />
         <AboutHero />
-        <VisionSection/>
-        <TeamSection/>
+        <VisionSection />
+        <TeamSection />
         {/* You can add more sections for the about page here */}
       </main>
       <Footer />

@@ -7,7 +7,7 @@ const features = [
     icon: "/graphic.png",
     title: "Efficiency and Productivity",
     description:
-      "Our tailored platform for digital signatures and stamps based on customer needs will streamline document workflows, reducing the time and resources required for manual paperwork.",
+      "Our tailored platform for digital signatures and stamps based customer needs will streamline document workflows, reducing the time and resources required for manual paperwork.",
   },
   {
     icon: "/security.png",
@@ -24,24 +24,49 @@ const features = [
 ];
 
 const FeatureCard = ({ icon, title, description }) => (
-  <div className="border border-cyan-200 rounded-lg p-8 flex flex-col h-full">
-    <Image
-      src={icon}
-      alt={`${title} Icon`}
-      width={48} // Corresponds to the original h-12/w-12 size
-      height={48}
-      className="mb-6"
-    />
-    <h3 className="text-xl font-bold text-gray-800 mb-3">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
+  <div className="relative rounded-3xl border border-white/10 bg-[#0d0c1e]/60 backdrop-blur-md hover:bg-[#17143e]/80 shadow-[0_4px_30px_rgba(0,0,0,0.3)] transition-all duration-300 p-8 flex flex-col h-full group overflow-hidden">
+    {/* Subtle gradient hover effect inside the card */}
+    <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+    <div className="relative z-10">
+      <div className="h-16 w-16 mb-8 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
+        {/* Glow behind icon */}
+        <div className="absolute inset-0 bg-purple-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <Image
+          src={icon}
+          alt={`${title} Icon`}
+          width={40}
+          height={40}
+          className="relative z-10 brightness-0 invert"
+        />
+      </div>
+      <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors duration-300">{title}</h3>
+      <p className="text-gray-400 leading-relaxed font-light">{description}</p>
+    </div>
   </div>
 );
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-white py-20">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <section className="py-20 relative px-4">
+      {/* Glow Effects */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+      <div className="container mx-auto max-w-[1200px]">
+        {/* Header for Features Section */}
+        <div className="text-center mb-16 relative z-10">
+           <span className="inline-block bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase mb-6">
+              Platform Capabilities
+           </span>
+           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+             Why choose EaseSign?
+           </h2>
+           <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+             Experience a secure and legally-binding digital signature platform tailored for your modern business operations.
+           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
