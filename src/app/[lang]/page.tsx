@@ -10,9 +10,14 @@ import { getDictionary } from '../dictionaries';
 
 export async function generateMetadata({ params }: { params: { lang: string } }) {
   const { lang } = await params;
+  const isEn = lang === 'en';
   return {
-    title: lang === 'en' ? 'Digital Signature & Official e-Seal for Business | EaseSign' : 'Tanda Tangan Digital & E-Meterai Resmi untuk Bisnis | EaseSign',
-    description: lang === 'en' ? 'EaseSign provides legally binding digital signature and electronic seal (e-seal) solutions recognized in Indonesia. Secure documents and accelerate your business workflows.' : 'EaseSign menyediakan solusi tanda tangan digital dan meterai elektronik (e-meterai) yang sah secara hukum dan diakui di Indonesia. Amankan dokumen dan percepat alur kerja bisnis Anda.'
+    title: isEn 
+      ? 'Digital Signature & Official e-Seal (PSrE) Indonesia | EaseSign' 
+      : 'Tanda Tangan Digital & E-Meterai Resmi PSrE Kominfo | EaseSign',
+    description: isEn 
+      ? 'Secure, legally binding digital signatures and electronic seals (e-seal) recognized by Kominfo Indonesia. Fast, efficient, and PSrE-certified.' 
+      : 'EaseSign: Solusi tanda tangan digital dan e-meterai resmi yang diakui Kominfo & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
   }
 }
 

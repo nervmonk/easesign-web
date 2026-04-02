@@ -12,28 +12,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "EaseSign",
-    template: "%s | EaseSign"
-  },
-  description: "Electronic Signatures Made Easy in Indonesia.",
-  openGraph: {
-    title: 'EaseSign',
-    description: 'Secure and efficient digital signature solutions.',
-    url: 'https://easesign.id',
-    siteName: 'EaseSign',
-    images: [
-      {
-        url: 'https://easesign.id/og-image.png',
-        width: 1200,
-        height: 630
-      }
-    ],
-    locale: 'id_ID',
-    type: 'website'
-  }
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const isEn = lang === 'en';
+
+  return {
+    metadataBase: new URL('https://easesign.site'),
+    title: {
+      default: isEn ? "Digital Signature & Official e-Seal (PSrE) Indonesia" : "Tanda Tangan Digital & E-Meterai Resmi PSrE",
+      template: "%s | EaseSign"
+    },
+    description: isEn 
+      ? "EaseSign provides legally binding digital signature and electronic seal (e-seal) solutions recognized in Indonesia. PSrE & Kominfo certified." 
+      : "EaseSign menyediakan solusi tanda tangan digital dan meterai elektronik (e-meterai) resmi tersertifikasi PSrE & Kominfo. Sah secara hukum di Indonesia.",
+    alternates: {
+      canonical: `/${lang}/`,
+      languages: {
+        'en-ID': '/en/',
+        'id-ID': '/id/',
+        'x-default': '/id/',
+      },
+    },
+    openGraph: {
+      title: 'EaseSign',
+      description: isEn ? 'Secure and efficient digital signature solutions.' : 'Solusi tanda tangan digital yang aman dan efisien.',
+      url: `https://easesign.site/${lang}/`,
+      siteName: 'EaseSign',
+      images: [
+        {
+          url: 'https://easesign.site/og-image.png',
+          width: 1200,
+          height: 630
+        }
+      ],
+      locale: isEn ? 'en_US' : 'id_ID',
+      type: 'website'
+    }
+  };
+}
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'id' }];
@@ -51,8 +67,9 @@ export default async function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Corporation',
     'name': 'EaseSign',
-    'url': 'https://easesign.id',
-    'logo': 'https://easesign.id/easesign-logo.png',
+    'url': 'https://easesign.site',
+    'logo': 'https://easesign.site/easesign-logo.png',
+    'description': lang === 'en' ? 'Legally binding digital signature and electronic seal (e-seal) solutions in Indonesia.' : 'Solusi tanda tangan digital dan meterai elektronik (e-meterai) resmi di Indonesia.',
     'contactPoint': {
       '@type': 'ContactPoint',
       'telephone': '+62-21-38915110',
@@ -66,7 +83,9 @@ export default async function RootLayout({
       'postalCode': '12950',
       'addressCountry': 'ID'
     },
-    'sameAs': []
+    'sameAs': [
+      'https://www.linkedin.com/company/easesign-id/',
+    ]
   };
   return (
     <html lang={lang}>

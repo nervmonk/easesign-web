@@ -8,16 +8,16 @@
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Secure Documents. Signed and Sealed in Seconds.",
-    "subtitle": "Empower your business with PSrE & Kominfo-certified electronic seals. Guarantee document authenticity, prevent fraud, and maintain airtight compliance",
-    "ctaPrimary": "Sign your PDF",
+    "title": "Digital Signature & Official e-Seal (PSrE) Indonesia.",
+    "subtitle": "Legally sign PDF documents online with PSrE & Kominfo-certified electronic seals. Secure, fast, and compliant digital signatures for modern business.",
+    "ctaPrimary": "Sign PDF Online",
     "ctaSecondary": "Watch Video"
   },
   "signPdf": {
-    "title": "Sign Your PDF Document",
-    "subtitle": "Choose how you want to sign. Opt for a frictionless quick-sign, or elevate your document's legal standing with a Kominfo-certified digital seal.",
-    "simpleTitle": "Simple e-Signature",
-    "simpleDesc": "Fast, effortless client-side signing. Perfect for daily paperwork and internal approvals. Upload, sign, and download in seconds.",
+    "title": "Sign PDF Documents Online",
+    "subtitle": "Choose the best digital signature solution for your needs. Use our free PDF signature tool or elevate your document's legal standing with a Kominfo-certified PSrE seal.",
+    "simpleTitle": "Free PDF Signature",
+    "simpleDesc": "Fast, secure, and free online PDF signing. Perfect for daily paperwork and internal approvals. Upload, sign, and download in seconds.",
     "selectPdf": "Select PDF file",
     "certTitle": "Certified Digital Signature",
     "certBadge": "Kominfo Verified",

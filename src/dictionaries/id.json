@@ -8,16 +8,16 @@
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Tanda Tangan Digital Aman, Cepat, dan Tersertifikasi.",
-    "subtitle": "Rasakan mudahnya menandatangani dokumen anda secara digital. Aman dan cepat.",
-    "ctaPrimary": "Coba Sekarang",
+    "title": "Tanda Tangan Digital & E-Meterai Resmi PSrE Kominfo.",
+    "subtitle": "Tanda tangan PDF digital secara sah dan aman. Solusi e-meterai resmi untuk percepatan alur kerja bisnis Anda di Indonesia.",
+    "ctaPrimary": "Coba Tanda Tangan PDF",
     "ctaSecondary": "Tonton Video"
   },
   "signPdf": {
-    "title": "Tanda Tangan PDF",
-    "subtitle": "Pilih fitur tanda tangan digital sesuai kebutuhan Anda. Gunakan tanda tangan sederhana atau layanan tanda tangan dengan sertifikat digital yang terverifikasi Kementerian Komunikasi dan Digital (Komdigi) Indonesia.",
-    "simpleTitle": "Tanda Tangan Digital Sederhana",
-    "simpleDesc": "Tanda tangan pdf yang cepat dan mudah. Unggah PDF, bubuhkan tanda tangan, dokumen akan terunduh secara instan.",
+    "title": "Tanda Tangan PDF Online",
+    "subtitle": "Platform tanda tangan digital terbaik untuk kebutuhan Anda. Gunakan fitur tanda tangan digital gratis atau layanan tersertifikasi PSrE yang diakui Kominfo.",
+    "simpleTitle": "Tanda Tangan PDF Gratis",
+    "simpleDesc": "Cara tercepat tanda tangan PDF online. Unggah dokumen, bubuhkan tanda tangan digital, dan unduh hasilnya secara instan.",
     "selectPdf": "Pilih File PDF",
     "certTitle": "Tanda Tangan dengan Sertifikat Digital (PSrE)",
     "certBadge": "Terverifikasi Komdigi",
