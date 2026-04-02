@@ -1,26 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-// Data for the feature cards. This makes it easy to add, remove, or change content.
-const features = [
-  {
-    icon: "/graphic.png",
-    title: "Efficiency and Productivity",
-    description:
-      "Our tailored platform for digital signatures and stamps based customer needs will streamline document workflows, reducing the time and resources required for manual paperwork.",
-  },
-  {
-    icon: "/security.png",
-    title: "Enhanced Security Measures",
-    description:
-      "Our company has employed advanced encryption techniques and authentication methods to safeguard digital documents against unauthorized access and fraud.",
-  },
-  {
-    icon: "/efficiency.png",
-    title: "Government Support and Partnerships",
-    description:
-      "Our company has received Electronic System Operator permit from Kominfo Ministry of Communications and Informatics. Our Platform is fully supported by PERURI and Directorate General of Taxes. The validity of the document is certainly guaranteed.",
-  },
+// Data for the feature icons.
+const featureIcons = [
+  "/graphic.png",
+  "/security.png",
+  "/efficiency.png",
 ];
 
 const FeatureCard = ({ icon, title, description }) => (
@@ -46,7 +31,18 @@ const FeatureCard = ({ icon, title, description }) => (
   </div>
 );
 
-const FeaturesSection = () => {
+const FeaturesSection = ({ dict = {} }) => {
+  const dictFeatures = dict.features || [
+    { title: "Efficiency and Productivity", description: "Our tailored platform for digital signatures and stamps based customer needs will streamline document workflows, reducing the time and resources required for manual paperwork." },
+    { title: "Enhanced Security Measures", description: "Our company has employed advanced encryption techniques and authentication methods to safeguard digital documents against unauthorized access and fraud." },
+    { title: "Government Support and Partnerships", description: "Our company has received Electronic System Operator permit from Kominfo Ministry of Communications and Informatics. Our Platform is fully supported by PERURI and Directorate General of Taxes. The validity of the document is certainly guaranteed." }
+  ];
+
+  const features = dictFeatures.map((f, i) => ({
+    icon: featureIcons[i],
+    title: f.title,
+    description: f.description
+  }));
   return (
     <section className="py-20 relative px-4">
       {/* Glow Effects */}
@@ -56,13 +52,13 @@ const FeaturesSection = () => {
         {/* Header for Features Section */}
         <div className="text-center mb-16 relative z-10">
            <span className="inline-block bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase mb-6">
-              Platform Capabilities
+              {dict.badge || 'Platform Capabilities'}
            </span>
            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-             Why choose EaseSign?
+             {dict.title || 'Why choose EaseSign?'}
            </h2>
            <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
-             Experience a secure and legally-binding digital signature platform tailored for your modern business operations.
+             {dict.subtitle || 'Experience a secure and legally-binding digital signature platform tailored for your modern business operations.'}
            </p>
         </div>
 

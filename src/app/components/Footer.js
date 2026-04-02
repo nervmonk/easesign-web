@@ -56,7 +56,7 @@ const RssIcon = () => (
   </svg>
 );
 
-const Footer = () => {
+const Footer = ({ lang = 'id', dict = {} }) => {
   return (
     <footer className="relative border-t border-white/10 bg-[#050505] text-gray-400 overflow-hidden font-light">
       {/* Decorative Top Edge Glows */}
@@ -78,19 +78,19 @@ const Footer = () => {
               />
             </div>
             <p className="text-sm leading-relaxed max-w-[250px] opacity-80">
-              Transforming your document workflows with secure, legally valid digital signatures and e-meterai.
+              {dict.tagline || 'Transforming your document workflows with secure, legally valid digital signatures and e-meterai.'}
             </p>
             <Link
-              href="/privacy-policy"
+              href={`/${lang}/privacy-policy`}
               className="inline-block border border-cyan-500/30 text-cyan-400 font-bold py-2.5 px-6 rounded-full hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300 text-xs tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(6,182,212,0.1)] hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]"
             >
-              Privacy Notice
+              {dict.privacyNotice || 'Privacy Notice'}
             </Link>
           </div>
 
           {/* Column 2: Address */}
           <div>
-            <h3 className="font-bold text-white mb-6 uppercase tracking-[0.1em] text-sm">Address</h3>
+            <h3 className="font-bold text-white mb-6 uppercase tracking-[0.1em] text-sm">{dict.address || 'Address'}</h3>
             <p className="text-sm leading-relaxed opacity-80">
               Dea Tower II, 15th Floor Suite<br/>
               Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2<br/>
@@ -103,7 +103,7 @@ const Footer = () => {
             <div>
               <h3 className="font-bold text-white mb-3 uppercase tracking-[0.1em] text-sm flex items-center gap-2">
                 <svg className="w-4 h-4 text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-                Phone Number
+                {dict.phone || 'Phone Number'}
               </h3>
               <p className="text-sm opacity-80 transition-opacity hover:opacity-100 cursor-pointer">021 - 38915110</p>
             </div>

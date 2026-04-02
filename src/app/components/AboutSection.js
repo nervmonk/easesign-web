@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const AboutSection = () => {
+const AboutSection = ({ dict = {} }) => {
   return (
     <section className="py-20 relative px-4">
       {/* Glow Effects */}
@@ -24,7 +24,7 @@ const AboutSection = () => {
               />
 
               <p className="text-purple-400/80 text-xs font-bold tracking-[0.2em] mt-10 mb-6 uppercase">
-                Supported By
+                {dict.supportedBy || 'Supported By'}
               </p>
 
               {/* Supporter Logos */}
@@ -78,20 +78,20 @@ const AboutSection = () => {
               <div className="mb-6">
                 {/* Decorative Pill like Jetbrains tags */}
                 <span className="inline-block bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-bold px-3 py-1 rounded-full tracking-wider uppercase">
-                  ABOUT US
+                  {dict.badge || 'ABOUT US'}
                 </span>
               </div>
 
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                Building the foundation <br className="hidden md:block" /> of Digital Trust
+                {dict.title1 || 'Building the foundation'} <br className="hidden md:block" /> {dict.title2 || 'of Digital Trust'}
               </h3>
 
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed font-light">
                 <p>
-                  EaseSign, a product of PT Paramita Digital Nusantara, delivers enterprise-grade document authentication platforms built for the rigorous demands of the modern economy.
+                  {dict.desc1 || 'EaseSign, a product of PT Paramita Digital Nusantara, delivers enterprise-grade document authentication platforms built for the rigorous demands of the modern economy.'}
                 </p>
                 <p>
-                  We eliminate workflow bottlenecks by providing secure, legally compliant, and instantaneous digital signatures. Our mission is to empower teams to authenticate documents with absolute confidence and accelerate their digital transformation.
+                  {dict.desc2 || 'We eliminate workflow bottlenecks by providing secure, legally compliant, and instantaneous digital signatures. Our mission is to empower teams to authenticate documents with absolute confidence and accelerate their digital transformation.'}
                 </p>
               </div>
             </div>

@@ -7,7 +7,7 @@ const CheckIcon = () => (
   </svg>
 );
 
-const ValuePropsSection = () => {
+const ValuePropsSection = ({ dict = {} }) => {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* 1. Switched to a two-column grid layout on large screens */}
@@ -17,26 +17,26 @@ const ValuePropsSection = () => {
         {/* 2. Grouped all text content here and made it left-aligned */}
         <div className="text-center lg:text-left">
           <h2 className="text-3xl md:text-4xl font-bold">
-            Reliable, Secure, and Efficient
+            {dict.title || 'Reliable, Secure, and Efficient'}
           </h2>
-          
+
           {/* 3. Enhanced the feature list with icons and better spacing */}
           <ul className="space-y-4 mt-8 max-w-md mx-auto lg:mx-0">
             <li className="flex items-center gap-3 justify-center lg:justify-start">
               <CheckIcon />
-              <span className="text-lg">Legal Comply</span>
+              <span className="text-lg">{dict.feature1 || 'Legal Comply'}</span>
             </li>
             <li className="flex items-center gap-3 justify-center lg:justify-start">
               <CheckIcon />
-              <span className="text-lg">Geographic Dispersion</span>
+              <span className="text-lg">{dict.feature2 || 'Geographic Dispersion'}</span>
             </li>
             <li className="flex items-center gap-3 justify-center lg:justify-start">
               <CheckIcon />
-              <span className="text-lg">Security & Authentication</span>
+              <span className="text-lg">{dict.feature3 || 'Security & Authentication'}</span>
             </li>
             <li className="flex items-center gap-3 justify-center lg:justify-start">
               <CheckIcon />
-              <span className="text-lg">Environmental Sustainability</span>
+              <span className="text-lg">{dict.feature4 || 'Environmental Sustainability'}</span>
             </li>
           </ul>
         </div>
@@ -61,7 +61,7 @@ const ValuePropsSection = () => {
             />
           </div>
         </div>
-        
+
       </div>
     </section>
   );

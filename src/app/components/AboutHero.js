@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const AboutHero = () => {
+const AboutHero = ({ lang = 'id', dict = {} }) => {
   return (
     <section className="relative pt-10 pb-20 md:pt-28 md:pb-32 overflow-hidden px-4">
       {/* Decorative Glows */}
@@ -12,20 +12,14 @@ const AboutHero = () => {
           {/* Left Column: Text Block Glass Card */}
           <div className="relative z-10 lg:col-span-2 bg-[#0d0c1e]/60 backdrop-blur-xl border border-white/10 rounded-3xl text-white p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6">
-              About Us
+              {dict.heading || 'About Us'}
             </h1>
             <div className="space-y-6 text-gray-300 leading-relaxed font-light text-lg">
               <p>
-                EaseSign, a brand name of PT Paramita Digital Nusantara is a
-                company focuses in offering a platform based products and
-                services to meet the growing demands of businesses in the
-                digital era.
+                {dict.desc1 || 'EaseSign, a brand name of PT Paramita Digital Nusantara is a company focuses in offering a platform based products and services to meet the growing demands of businesses in the digital era.'}
               </p>
               <p>
-                With a focus on reliability, security, and efficiency, we
-                empower businesses to streamline our client’s document
-                authentication processes and embrace digital transformation for
-                sustainability.
+                {dict.desc2 || "With a focus on reliability, security, and efficiency, we empower businesses to streamline our client's document authentication processes and embrace digital transformation for sustainability."}
               </p>
             </div>
           </div>
@@ -35,7 +29,7 @@ const AboutHero = () => {
              {/* Background glow behind image */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-500/20 rounded-full blur-[80px]"></div>
             <Image
-              src="/abstract-background.png" // Ensure this image looks good on dark bg
+              src="/abstract-background.png"
               alt="Abstract decorative graphic"
               width={800}
               height={500}
@@ -54,7 +48,7 @@ const AboutHero = () => {
                {/* Dark cutout illusion */}
               <div className="absolute w-20 h-20 bg-[#0d0d1a] rounded-full"></div>
               <div className="relative z-10 w-20 h-20 bg-[#15132d] border border-white/10 shadow-[0_0_20px_rgba(168,85,247,0.3)] rounded-full flex items-center justify-center hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all cursor-pointer group">
-                <Link href="/contact-us">
+                <Link href={`/${lang}/contact-us`}>
                   <button className="w-14 h-14 bg-purple-600 text-white rounded-full flex items-center justify-center group-hover:bg-purple-500 transition-colors">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +69,7 @@ const AboutHero = () => {
               </div>
             </div>
           </div>
-          <p className="mt-4 text-gray-400 font-medium tracking-wide">Get in touch</p>
+          <p className="mt-4 text-gray-400 font-medium tracking-wide">{dict.getInTouch || 'Get in touch'}</p>
         </div>
       </div>
     </section>

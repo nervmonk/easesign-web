@@ -29,7 +29,7 @@ const clientCategories = [
 
 const allLogos = clientCategories.flatMap((category) => category.logos);
 
-const ClientsSection = () => {
+const ClientsSection = ({ dict = {} }) => {
   return (
     <section className="py-24 relative overflow-hidden px-4">
       {/* Dynamic Keyframes for the marquee */}
@@ -53,13 +53,13 @@ const ClientsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <span className="inline-block bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase mb-6 shadow-[0_0_15px_rgba(59,130,246,0.2)]">
-            Industry Leaders
+            {dict.badge || 'Industry Leaders'}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Trusted by World-Class Teams
+            {dict.title || 'Trusted by World-Class Teams'}
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-gray-400 font-light leading-relaxed">
-            We are proud to collaborate with a diverse range of businesses, from innovative fintech startups to established industry giants.
+            {dict.subtitle || 'We are proud to collaborate with a diverse range of businesses, from innovative fintech startups to established industry giants.'}
           </p>
         </div>
 

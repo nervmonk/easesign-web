@@ -3,29 +3,25 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+const Navbar = ({ lang = 'id', dict = {} }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const redirectedPathName = (locale) => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
 
   return (
     <header className="sticky top-0 z-50">
-      {/* Top Notification Bar like JetBrains */}
-      <div className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium py-3 px-4 text-center flex justify-center items-center gap-4 relative">
-        <span className="hidden sm:inline">Upcoming Livestream: <span className="font-bold">Scaling AI Without Losing Control</span></span>
-        <span className="sm:hidden font-bold">Scaling AI Livestream</span>
-        <span className="text-white/80 hidden md:inline ml-2 text-xs">Tuesday, April 7, 2026 22.00 - 22.45 local time</span>
-        <button className="font-bold hover:underline ml-4">Register</button>
-        <button className="absolute right-4 text-white/80 hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
-
       <nav className="bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10 flex items-center justify-between p-4 md:px-8">
         {/* Logo */}
         <div className="flex items-center gap-12">
-          <Link href="/">
+          <Link href={`/${lang}`}>
             <Image
               src="/easesign-logo.png"
               alt="EaseSign Logo"
@@ -39,54 +35,56 @@ const Navbar = () => {
           {/* Desktop Navigation moved to left next to logo */}
           <div className="hidden md:flex items-center space-x-6">
             <Link
-              href="/"
+              href={`/${lang}`}
               className="text-gray-300 hover:text-white transition-colors text-sm font-semibold"
             >
-              Home
+              {dict?.home || 'Home'}
             </Link>
             <Link
-              href="/about"
+              href={`/${lang}/sign-pdf`}
               className="text-gray-300 hover:text-white transition-colors text-sm font-semibold"
             >
-              About
+              {dict?.signPdf || 'Sign PDF'}
             </Link>
             <Link
-              href="/products"
+              href={`/${lang}/about`}
               className="text-gray-300 hover:text-white transition-colors text-sm font-semibold"
             >
-              Products
+              {dict?.about || 'About'}
             </Link>
             <Link
-              href="/contact-us"
+              href={`/${lang}/contact-us`}
               className="text-gray-300 hover:text-white transition-colors text-sm font-semibold"
             >
-              Contact Us
+              {dict?.contact || 'Contact Us'}
             </Link>
           </div>
         </div>
 
         {/* Desktop Right Side */}
         <div className="hidden md:flex items-center space-x-6">
-          <button className="text-gray-300 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-          <button className="text-gray-300 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-          </button>
-          <button className="text-gray-300 hover:text-white transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
-          </button>
+          <div className="text-sm font-semibold flex items-center gap-2">
+            <Link href={redirectedPathName('id')} className={`transition-all ${lang === 'id' ? 'text-white underline decoration-2 underline-offset-4 decoration-purple-500' : 'text-gray-500 hover:text-gray-300'}`}>ID</Link>
+            <span className="text-gray-600">|</span>
+            <Link href={redirectedPathName('en')} className={`transition-all ${lang === 'en' ? 'text-white underline decoration-2 underline-offset-4 decoration-purple-500' : 'text-gray-500 hover:text-gray-300'}`}>EN</Link>
+          </div>
+          <a
+            href="https://dev-console.easesign.site"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black hover:bg-gray-200 transition-colors px-4 py-2 rounded-full text-sm font-bold"
+          >
+            {dict?.consoleLogin || 'Console Login'}
+          </a>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button + Language Toggle */}
         <div className="md:hidden flex items-center gap-4">
-           <button className="text-gray-300 hover:text-white transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-           </button>
+          <div className="text-sm font-semibold flex items-center gap-2">
+            <Link href={redirectedPathName('id')} className={`transition-all ${lang === 'id' ? 'text-white underline decoration-2 underline-offset-4 decoration-purple-500' : 'text-gray-500 hover:text-gray-300'}`}>ID</Link>
+            <span className="text-gray-600">|</span>
+            <Link href={redirectedPathName('en')} className={`transition-all ${lang === 'en' ? 'text-white underline decoration-2 underline-offset-4 decoration-purple-500' : 'text-gray-500 hover:text-gray-300'}`}>EN</Link>
+          </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-300 hover:text-white focus:outline-none"
@@ -108,33 +106,44 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-[#0d0d1a] border-b border-white/10 shadow-lg px-6 pb-6 pt-4 space-y-5">
           <Link
-            href="/"
+            href={`/${lang}`}
             className="block text-gray-300 hover:text-white transition-colors font-semibold"
             onClick={() => setIsOpen(false)}
           >
-            Home
+            {dict?.home || 'Home'}
           </Link>
           <Link
-            href="/about"
+            href={`/${lang}/sign-pdf`}
             className="block text-gray-300 hover:text-white transition-colors font-semibold"
             onClick={() => setIsOpen(false)}
           >
-            About
+            {dict?.signPdf || 'Sign PDF'}
           </Link>
           <Link
-            href="/products"
+            href={`/${lang}/about`}
             className="block text-gray-300 hover:text-white transition-colors font-semibold"
             onClick={() => setIsOpen(false)}
           >
-            Products
+            {dict?.about || 'About'}
           </Link>
           <Link
-            href="/contact-us"
+            href={`/${lang}/contact-us`}
             className="block text-gray-300 hover:text-white transition-colors font-semibold"
             onClick={() => setIsOpen(false)}
           >
-            Contact Us
+            {dict?.contact || 'Contact Us'}
           </Link>
+          <div className="pt-4 mt-2 border-t border-white/10 space-y-4">
+            <a
+              href="https://dev-console.easesign.site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block flex items-center justify-center bg-white text-black hover:bg-gray-200 transition-colors px-4 py-2 mt-2 rounded-md text-sm font-bold"
+              onClick={() => setIsOpen(false)}
+            >
+              {dict?.consoleLogin || 'Console Login'}
+            </a>
+          </div>
         </div>
       )}
     </header>

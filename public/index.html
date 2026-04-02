@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <title>EaseSign</title>
+  <script>
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      var langs = navigator.languages || [navigator.language || 'id'];
+      var isEnglish = langs.some(function (lang) { return lang.toLowerCase().startsWith('en'); });
+      window.location.replace(isEnglish ? '/en/' : '/id/');
+    }
+  </script>
+  <style>
+    body {
+      background-color: #050505;
+      color: white;
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div>Loading...</div>
+</body>
+
+</html>

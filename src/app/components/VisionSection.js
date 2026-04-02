@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const VisionSection = () => {
+const VisionSection = ({ dict = {} }) => {
   return (
     <section className="py-24 relative px-4">
       {/* Background Glow */}
@@ -13,19 +13,19 @@ const VisionSection = () => {
           <div className="flex flex-col justify-center order-2 lg:order-1">
             <div className="flex items-center text-xs font-bold tracking-widest text-cyan-400 uppercase mb-4">
               <span className="w-8 h-px bg-cyan-500/50 mr-4"></span>
-              Who we are
+              {dict.eyebrow || 'Who we are'}
             </div>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-8 leading-tight">
-              Our Vision
+              {dict.title || 'Our Vision'}
             </h2>
             
             <div className="space-y-6 text-gray-400 leading-relaxed font-light text-lg">
               <p>
-                EaseSign aims to revolutionize document validation through the implementation of digital signatures and seals, enhancing security, speed, and compliance. By leveraging advanced technology and developing user-friendly solutions, EaseSign is committed to exceeding client expectations.
+                {dict.desc1 || 'EaseSign aims to revolutionize document validation through the implementation of digital signatures and seals, enhancing security, speed, and compliance.'}
               </p>
               <p>
-                By maintaining high standards of security and reliability, EaseSign enables companies to handle their documentation processes confidently. This dedication allows businesses to focus on their core activities, knowing that their validation needs are met with the utmost precision and care.
+                {dict.desc2 || 'By maintaining high standards of security and reliability, EaseSign enables companies to handle their documentation processes confidently.'}
               </p>
             </div>
           </div>
@@ -38,7 +38,7 @@ const VisionSection = () => {
                <div className="absolute -top-6 -right-6 w-32 h-32 border border-cyan-500/30 rounded-xl rounded-tr-[50px] z-0 opacity-40 bg-cyan-500/5 backdrop-blur-md pointer-events-none" />
               
               <Image
-                src="/team-tablet.png" // Ensure this image is high quality
+                src="/team-tablet.png"
                 alt="Team working on a tablet"
                 width={600}
                 height={400}

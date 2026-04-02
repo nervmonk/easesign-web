@@ -1,0 +1,152 @@
+{
+  "navbar": {
+    "home": "Home",
+    "signPdf": "Tanda Tangan PDF",
+    "about": "Tentang Kami",
+    "contact": "Kontak Kami",
+    "consoleLogin": "Masuk Konsol"
+  },
+  "hero": {
+    "badge": "PT Paramita Digital Nusantara",
+    "title": "Tanda Tangan Digital Aman, Cepat, dan Tersertifikasi.",
+    "subtitle": "Rasakan mudahnya menandatangani dokumen anda secara digital. Aman dan cepat.",
+    "ctaPrimary": "Coba Sekarang",
+    "ctaSecondary": "Tonton Video"
+  },
+  "signPdf": {
+    "title": "Tanda Tangan PDF",
+    "subtitle": "Pilih fitur tanda tangan digital sesuai kebutuhan Anda. Gunakan tanda tangan sederhana atau layanan tanda tangan dengan sertifikat digital yang terverifikasi Kementerian Komunikasi dan Digital (Komdigi) Indonesia.",
+    "simpleTitle": "Tanda Tangan Digital Sederhana",
+    "simpleDesc": "Tanda tangan pdf yang cepat dan mudah. Unggah PDF, bubuhkan tanda tangan, dokumen akan terunduh secara instan.",
+    "selectPdf": "Pilih File PDF",
+    "certTitle": "Tanda Tangan dengan Sertifikat Digital (PSrE)",
+    "certBadge": "Terverifikasi Komdigi",
+    "certDesc": "Tanda tangan digital yang aman dan mengikat secara hukum dengan Sertifikat PSrE Indonesia. Terverifikasi di portal root CA.",
+    "gotoConsole": "Buka Dev Console",
+    "requiresAccount": "Membutuhkan akun EaseSign",
+    "documentName": "Loading document...",
+    "addSignature": "Tambah Tanda Tangan",
+    "signButton": "Tanda Tangani",
+    "processing": "Memproses...",
+    "modalTitle": "Atur detail tanda tangan Anda",
+    "uploadTab": "Unggah Gambar",
+    "drawTab": "Gambar Tanda Tangan",
+    "uploadDesc": "Kami menyarankan file PNG transparan untuk hasil terbaik.",
+    "selectImage": "Pilih Gambar",
+    "clearArea": "Bersihkan Area",
+    "useSignature": "Gunakan Tanda Tangan"
+  },
+  "aboutSection": {
+    "supportedBy": "Didukung Oleh",
+    "badge": "TENTANG KAMI",
+    "title1": "Membangun fondasi",
+    "title2": "kepercayaan Digital",
+    "desc1": "EaseSign, produk dari PT Paramita Digital Nusantara, menghadirkan platform tanda tangan digital dan verifikasi identitas untuk membantu anda di era modern.",
+    "desc2": "Kami menyederhanakan alur kerja tradisional dengan menyediakan platform tanda tangan digital yang aman, legal, dan instan. Individu atau korporasi, semua dapat merasakan manfaatnya."
+  },
+  "featureSection": {
+    "badge": "Platform Kami",
+    "title": "Mengapa memilih EaseSign?",
+    "subtitle": "Rasakan platform tanda tangan digital yang aman, legal, dan fleksibel untuk kebutuhan Anda.",
+    "features": [
+      {
+        "title": "Efisiensi dan Produktivitas",
+        "description": "Platform verifikasi identitas, tanda tangan dan meterai digital kami bekerja secara cepat dan legal. Menghemat waktu dan sumber daya dibanding cara kerja administrasi tradisional."
+      },
+      {
+        "title": "Standar Keamanan Tinggi",
+        "description": "EaseSign mengimplementasikan teknik enkripsi terkini dan metode otentikasi berlapis untuk melindungi dokumen anda. Keamanan dokumen anda adalah prioritas kami."
+      },
+      {
+        "title": "Dukungan dan Kemitraan Pemerintah",
+        "description": "EaseSign telah menerima izin Penyelenggara Sistem Elektronik dari Kementerian Kominfo. Platform kami sepenuhnya didukung oleh PERURI dan Direktorat Jenderal Pajak. Keabsahan dokumen dipastikan terjamin."
+      }
+    ]
+  },
+  "valuePropsSection": {
+    "title": "Andal, Aman, dan Efisien",
+    "feature1": "Legal",
+    "feature2": "Hilangkan Jangkauan Jarak",
+    "feature3": "Aman",
+    "feature4": "Ramah Lingkungan"
+  },
+  "productsSection": {
+    "badge": "Solusi Kami",
+    "title": "Produk Kami",
+    "subtitle": "Dari tanda tangan elektronik legal hingga verifikasi identitas dengan akurasi tinggi, kami bantu anda atau bisnis anda agar lebih efisien.",
+    "signatureDivider": "KYC & Onboarding",
+    "signatureProducts": [
+      {
+        "title": "Easy Sign",
+        "description": "Solusi tanda tangan digital yang mudah, aman, dan legal. Rasakan mudahnya mengirim, menerima, hingga menandatangani dokumen secara digital."
+      },
+      {
+        "title": "Easy Stamp",
+        "description": "Bentuk digital dari meterai kertas yang mudah, aman, dan digunakan untuk keperluan dokumen elektronik. Easy Stamp didukung penuh oleh PERURI dan Direktorat Jenderal Pajak (DJP)."
+      }
+    ],
+    "kycProducts": [
+      {
+        "title": "OCR KTP",
+        "description": "Otomatisasi onboarding identitas dengan OCR bertenaga AI. Ekstrak dan validasi identitas secara cepat dan akurat."
+      },
+      {
+        "title": "Verifikasi Wajah",
+        "description": "Pastikan orang di balik layar sesuai dengan apa yang dia klaim dengan pengenalan wajah berakurasi tinggi. Bandingkan selfie dengan identitas resminya dari kartu identitas."
+      },
+      {
+        "title": "Deteksi Liveness",
+        "description": "Cegah penipuan secara instan dengan algoritma deteksi liveness kami."
+      }
+    ]
+  },
+  "clientSection": {
+    "badge": "Partner Kami",
+    "title": "Dipercaya oleh Perusahaan yang Anda Kenal",
+    "subtitle": "Kami bangga berkolaborasi dengan berbagai bisnis, dari startup fintech inovatif hingga perusahaan besar dengan pengalaman panjang."
+  },
+  "aboutHero": {
+    "heading": "Tentang Kami",
+    "desc1": "EaseSign, nama merek dari PT Paramita Digital Nusantara adalah perusahaan yang berfokus pada penawaran produk dan layanan berbasis platform untuk memenuhi tuntutan bisnis yang terus berkembang di era digital.",
+    "desc2": "Dengan fokus pada keandalan, keamanan, dan efisiensi, kami memberdayakan bisnis untuk menyederhanakan proses otentikasi dokumen klien dan merangkul transformasi digital untuk keberlanjutan.",
+    "getInTouch": "Hubungi Kami"
+  },
+  "visionSection": {
+    "eyebrow": "Siapa Kami",
+    "title": "Visi Kami",
+    "desc1": "EaseSign bertujuan merevolusi validasi dokumen melalui implementasi tanda tangan dan meterai digital, meningkatkan keamanan, kecepatan, dan kepatuhan. Dengan memanfaatkan teknologi canggih dan mengembangkan solusi yang ramah pengguna, EaseSign berkomitmen untuk melampaui ekspektasi klien.",
+    "desc2": "Dengan mempertahankan standar keamanan dan keandalan yang tinggi, EaseSign memungkinkan perusahaan menangani proses dokumentasi mereka dengan percaya diri. Dedikasi ini memungkinkan bisnis untuk fokus pada kegiatan inti mereka, mengetahui kebutuhan validasi mereka dipenuhi dengan presisi dan kepedulian tertinggi."
+  },
+  "teamSection": {
+    "eyebrow": "Tim",
+    "title": "Orang-orang Kami",
+    "desc": "Tim EaseSign terdiri dari para profesional berdedikasi yang bersemangat merevolusi skema bisnis. Dengan keahlian dalam teknologi canggih dan komitmen terhadap solusi yang ramah pengguna, kami berupaya meningkatkan keamanan, kecepatan, dan kepatuhan untuk bisnis dari semua ukuran."
+  },
+  "contactSection": {
+    "eyebrow": "Hubungi Kami",
+    "title1": "Kontak",
+    "title2": "Kami",
+    "subtitle": "Punya pertanyaan atau butuh bantuan? Tim kami siap membantu Anda merevolusi alur kerja dokumen digital Anda.",
+    "fieldName": "Nama",
+    "fieldEmail": "Alamat Email",
+    "fieldMessage": "Pesan",
+    "submit": "Kirim Pesan",
+    "submitting": "Mengirim...",
+    "successTitle": "Terima kasih!",
+    "successMsg": "Pesan Anda telah berhasil dikirim. Kami akan segera menghubungi Anda.",
+    "errorMsg": "Oops! Terjadi kesalahan. Silakan coba lagi.",
+    "errNameRequired": "Nama wajib diisi.",
+    "errNameInvalid": "Harap masukkan nama yang valid (hanya huruf dan spasi).",
+    "errEmailRequired": "Email wajib diisi.",
+    "errEmailInvalid": "Harap masukkan alamat email yang valid.",
+    "errMessageRequired": "Pesan wajib diisi.",
+    "errMessageShort": "Pesan harus terdiri dari minimal 10 karakter."
+  },
+  "footer": {
+    "tagline": "Transformasikan alur kerja dokumen Anda dengan tanda tangan dan e-meterai digital. Aman, cepat, dan sah secara hukum.",
+    "privacyNotice": "Kebijakan Privasi",
+    "address": "Alamat",
+    "phone": "Nomor Telepon",
+    "partners": "Mitra"
+  }
+}

@@ -1,24 +1,17 @@
 import Image from "next/image";
 
-// We'll define the team members in an array of objects.
-// This makes it easy to add more people in the future.
+// Names/titles stay the same across languages — they're proper nouns
 const teamMembers = [
   {
     name: "Irfan Muhammad Fauzian",
     title: "CEO",
-    image: "/ceo.png", // Replace with the actual image path
+    image: "/ceo.png",
   },
   {
     name: "Bayu Harudito",
     title: "COO",
-    image: "/coo.png", // Replace with the actual image path
+    image: "/coo.png",
   },
-  // You can easily add more team members here
-  // {
-  //   name: 'Another Person',
-  //   title: 'CTO',
-  //   image: '/team-another.jpg',
-  // },
 ];
 
 const TeamMemberCard = ({ member }) => (
@@ -28,7 +21,7 @@ const TeamMemberCard = ({ member }) => (
       {/* Dynamic Glow inside the card */}
       <div className="absolute -top-10 -right-10 w-48 h-48 bg-cyan-600/20 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
-      {/* Profile Picture Container - Made Smaller and Circular */}
+      {/* Profile Picture Container */}
       <div className="relative w-32 h-32 md:w-40 md:h-40 mb-6 rounded-full border-[3px] border-cyan-500/30 overflow-hidden shadow-[0_0_20px_rgba(6,182,212,0.2)] group-hover:border-cyan-400 group-hover:shadow-[0_0_25px_rgba(6,182,212,0.5)] transition-all duration-300">
         <Image
           src={member.image}
@@ -51,7 +44,7 @@ const TeamMemberCard = ({ member }) => (
   </div>
 );
 
-const TeamSection = () => {
+const TeamSection = ({ dict = {} }) => {
   return (
     <section className="py-24 relative px-4 overflow-hidden">
       {/* Global Background Glow */}
@@ -63,19 +56,15 @@ const TeamSection = () => {
           <div>
             <div className="flex items-center text-xs font-bold tracking-widest text-purple-400 uppercase mb-4">
               <span className="w-8 h-px bg-purple-500/50 mr-4"></span>
-              Team
+              {dict.eyebrow || 'Team'}
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-              Our People
+              {dict.title || 'Our People'}
             </h2>
           </div>
           <div className="text-gray-400 leading-relaxed font-light text-lg">
             <p>
-              Our team at EaseSign is composed of dedicated professionals who
-              are passionate about revolutionizing business scheme. With
-              expertise in advanced technology and a commitment to user-friendly
-              solutions, we strive to enhance security, speed, and compliance
-              for businesses of all sizes.
+              {dict.desc || 'Our team at EaseSign is composed of dedicated professionals who are passionate about revolutionizing business scheme. With expertise in advanced technology and a commitment to user-friendly solutions, we strive to enhance security, speed, and compliance for businesses of all sizes.'}
             </p>
           </div>
         </div>

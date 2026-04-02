@@ -1,13 +1,10 @@
 import React from "react";
 import Image from "next/image";
 
-// Digital Signature & Meterai products
-const signatureProducts = [
+// Static styling definitions
+const signatureProductStyles = [
   {
     icon: "/signature-vector.png",
-    title: "Easy Sign",
-    description:
-      "We offer an easy, secure and legally valid digital signature solution for our clients. Users can easily send, receive, and digitally authenticate and sign documents.",
     accentColor: "green",
     glowClass: "bg-green-500",
     borderClass: "border-green-500/30",
@@ -16,9 +13,6 @@ const signatureProducts = [
   },
   {
     icon: "/meterai-vector.png",
-    title: "Easy Stamp",
-    description:
-      "We offer Easy Stamp, an easy, secure, digital form of paper stamps used for electronic document purposes. E-Stamp is fully supported by PERURI (Indonesian Security Printing and Minting Corporation) and DJP (Directorate General of Taxes).",
     accentColor: "cyan",
     glowClass: "bg-cyan-500",
     borderClass: "border-cyan-500/30",
@@ -27,13 +21,9 @@ const signatureProducts = [
   },
 ];
 
-// KYC & Onboarding products
-const kycProducts = [
+const kycProductStyles = [
   {
-    icon: "/identity-verification.png", // Placeholder icon, replace with actual ID icon
-    title: "ID Card Documents OCR",
-    description:
-      "Automate your KYC onboarding with AI-powered OCR to seamlessly extract and validate identity documents in real-time.",
+    icon: "/identity-verification.png",
     accentColor: "purple",
     glowClass: "bg-purple-500",
     borderClass: "border-purple-500/30",
@@ -41,10 +31,7 @@ const kycProducts = [
     textHoverClass: "group-hover:text-purple-400",
   },
   {
-    icon: "/user-verification.png", // Placeholder icon, replace with actual Face Verification icon
-    title: "Face Verification",
-    description:
-      "Ensure the person behind the screen is genuine with high-accuracy facial recognition that compares live selfies to ID photos.",
+    icon: "/user-verification.png",
     accentColor: "blue",
     glowClass: "bg-blue-500",
     borderClass: "border-blue-500/30",
@@ -52,10 +39,7 @@ const kycProducts = [
     textHoverClass: "group-hover:text-blue-400",
   },
   {
-    icon: "/face-detection.png", // Placeholder icon, replace with actual Liveness icon
-    title: "Liveness Detection",
-    description:
-      "Prevent spoofing and presentation attacks instantly with our advanced passive liveness detection algorithms.",
+    icon: "/face-detection.png",
     accentColor: "rose",
     glowClass: "bg-rose-500",
     borderClass: "border-rose-500/30",
@@ -102,7 +86,29 @@ const ProductCard = ({ product, index, isKYC }) => (
   </div>
 );
 
-const ProductsSection = () => {
+const ProductsSection = ({ dict = {} }) => {
+  const dictSigProducts = dict.signatureProducts || [
+    { title: "Easy Sign", description: "We offer an easy, secure and legally valid digital signature solution for our clients." },
+    { title: "Easy Stamp", description: "We offer Easy Stamp, an easy, secure, digital form of paper stamps used for electronic document purposes." }
+  ];
+  
+  const dictKycProducts = dict.kycProducts || [
+    { title: "ID Card Documents OCR", description: "Automate your KYC onboarding with AI-powered OCR." },
+    { title: "Face Verification", description: "Ensure the person behind the screen is genuine with high-accuracy facial recognition." },
+    { title: "Liveness Detection", description: "Prevent spoofing and presentation attacks instantly with our advanced passive liveness detection algorithms." }
+  ];
+
+  const signatureProducts = signatureProductStyles.map((style, i) => ({
+    ...style,
+    title: dictSigProducts[i]?.title,
+    description: dictSigProducts[i]?.description
+  }));
+
+  const kycProducts = kycProductStyles.map((style, i) => ({
+    ...style,
+    title: dictKycProducts[i]?.title,
+    description: dictKycProducts[i]?.description
+  }));
   return (
     <section className="py-24 relative px-4" id="products">
       {/* Background glow for the section */}
@@ -111,13 +117,13 @@ const ProductsSection = () => {
       <div className="container mx-auto max-w-[1200px] relative z-10">
         <div className="text-center mb-16 md:mb-24">
           <span className="inline-block bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs font-bold px-4 py-1.5 rounded-full tracking-[0.2em] uppercase mb-6 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
-            Core Solutions
+            {dict.badge || 'Core Solutions'}
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white">
-            Our Products
+            {dict.title || 'Our Products'}
           </h2>
           <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
-            From legally-binding electronic signatures to military-grade identity verification, we provide everything you need to digitize your onboarding and operations.
+            {dict.subtitle || 'From legally-binding electronic signatures to military-grade identity verification, we provide everything you need to digitize your onboarding and operations.'}
           </p>
         </div>
 
@@ -131,7 +137,7 @@ const ProductsSection = () => {
         {/* KYC Section Divider */}
         <div className="flex items-center justify-center my-20">
           <div className="h-px w-24 bg-gradient-to-r from-transparent to-white/20"></div>
-          <span className="mx-6 text-sm font-bold tracking-[0.3em] text-gray-500 uppercase">KYC & Onboarding</span>
+          <span className="mx-6 text-sm font-bold tracking-[0.3em] text-gray-500 uppercase">{dict.signatureDivider || 'KYC & Onboarding'}</span>
           <div className="h-px w-24 bg-gradient-to-l from-transparent to-white/20"></div>
         </div>
 

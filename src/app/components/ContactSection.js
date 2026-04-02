@@ -70,7 +70,7 @@ const contactDetails = [
   { icon: <EnvelopeIcon />, detail: "info@easesign.id" },
 ];
 
-const ContactSection = () => {
+const ContactSection = ({ dict = {} }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -91,21 +91,21 @@ const ContactSection = () => {
     const trimmedMessage = formData.message.trim();
 
     if (!trimmedName) {
-      tempErrors.name = "Name is required.";
+      tempErrors.name = dict.errNameRequired || "Name is required.";
     } else if (!/^[a-zA-Z\s'-]+$/.test(trimmedName)) {
-      tempErrors.name = "Please enter a valid name (letters and spaces only).";
+      tempErrors.name = dict.errNameInvalid || "Please enter a valid name (letters and spaces only).";
     }
 
     if (!trimmedEmail) {
-      tempErrors.email = "Email is required.";
+      tempErrors.email = dict.errEmailRequired || "Email is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-      tempErrors.email = "Please enter a valid email address.";
+      tempErrors.email = dict.errEmailInvalid || "Please enter a valid email address.";
     }
 
     if (!trimmedMessage) {
-      tempErrors.message = "Message is required.";
+      tempErrors.message = dict.errMessageRequired || "Message is required.";
     } else if (trimmedMessage.length < 10) {
-      tempErrors.message = "Message must be at least 10 characters long.";
+      tempErrors.message = dict.errMessageShort || "Message must be at least 10 characters long.";
     }
 
     setErrors(tempErrors);
@@ -158,13 +158,13 @@ const ContactSection = () => {
               <div className="relative z-10">
                 <div className="flex items-center text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase mb-4">
                   <span className="w-8 h-px bg-cyan-500/50 mr-4"></span>
-                  Get In Touch
+                  {dict.eyebrow || 'Get In Touch'}
                 </div>
                 <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-                  Contact<br className="hidden lg:block"/> Us
+                  {dict.title1 || 'Contact'}<br className="hidden lg:block"/> {dict.title2 || 'Us'}
                 </h1>
                 <p className="mt-8 text-gray-400 text-lg max-w-sm font-light leading-relaxed">
-                  Have questions or need assistance? Our team is here to help you revolutionize your digital document workflows.
+                  {dict.subtitle || 'Have questions or need assistance? Our team is here to help you revolutionize your digital document workflows.'}
                 </p>
               </div>
             </div>
@@ -177,8 +177,8 @@ const ContactSection = () => {
                   <div className="w-20 h-20 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center mb-6 border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
                     <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                   </div>
-                  <h3 className="text-3xl font-bold text-white mb-4">Thank you!</h3>
-                  <p className="text-gray-400 text-lg font-light leading-relaxed">Your message has been sent successfully.<br/>We will get back to you soon.</p>
+                  <h3 className="text-3xl font-bold text-white mb-4">{dict.successTitle || 'Thank you!'}</h3>
+                  <p className="text-gray-400 text-lg font-light leading-relaxed">{dict.successMsg || 'Your message has been sent successfully.'}<br/>{dict.successMsg ? '' : 'We will get back to you soon.'}</p>
                 </div>
               ) : (
                 <form
@@ -202,7 +202,7 @@ const ContactSection = () => {
                         }`}
                       />
                       <label htmlFor="name" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.name ? "text-red-400" : "text-cyan-400"}`}>
-                        Name
+                        {dict.fieldName || 'Name'}
                       </label>
                       {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
                     </div>
@@ -221,7 +221,7 @@ const ContactSection = () => {
                         }`}
                       />
                       <label htmlFor="email" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.email ? "text-red-400" : "text-cyan-400"}`}>
-                        Email Address
+                        {dict.fieldEmail || 'Email Address'}
                       </label>
                       {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
                     </div>
@@ -240,7 +240,7 @@ const ContactSection = () => {
                         }`}
                       ></textarea>
                       <label htmlFor="message" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.message ? "text-red-400" : "text-cyan-400"}`}>
-                        Message
+                        {dict.fieldMessage || 'Message'}
                       </label>
                       {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message}</p>}
                     </div>
@@ -252,7 +252,7 @@ const ContactSection = () => {
                       disabled={status === "submitting"}
                       className="w-full relative group overflow-hidden bg-cyan-600 rounded-full px-8 py-4 text-white font-bold tracking-[0.2em] uppercase hover:bg-cyan-500 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <span className="relative z-10">{status === "submitting" ? "Submitting..." : "Send Message"}</span>
+                      <span className="relative z-10">{status === "submitting" ? (dict.submitting || "Submitting...") : (dict.submit || "Send Message")}</span>
                       {status !== "submitting" && (
                         <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-cyan-400/30"></div>
                       )}
@@ -260,7 +260,7 @@ const ContactSection = () => {
                   </div>
                   {status === "error" && (
                     <p className="text-center mt-6 text-red-400 font-medium">
-                      Oops! Something went wrong. Please try again.
+                      {dict.errorMsg || 'Oops! Something went wrong. Please try again.'}
                     </p>
                   )}
                 </form>

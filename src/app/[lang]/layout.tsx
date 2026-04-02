@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,11 +35,18 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export async function generateStaticParams() {
+  return [{ lang: 'en' }, { lang: 'id' }];
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Corporation',
@@ -59,12 +66,10 @@ export default function RootLayout({
       'postalCode': '12950',
       'addressCountry': 'ID'
     },
-    'sameAs': [
-      // Add links to your social media profiles here
-    ]
+    'sameAs': []
   };
   return (
-    <html lang="id">
+    <html lang={lang}>
       <head>
         <script
           type="application/ld+json"
