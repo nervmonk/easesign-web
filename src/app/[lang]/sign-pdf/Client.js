@@ -8,7 +8,7 @@ import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import { Rnd } from 'react-rnd';
 import { PDFDocument } from 'pdf-lib';
-import { UploadCloud, FileText, Download, Target, Image as ImageIcon, ShieldCheck } from "lucide-react";
+import { UploadCloud, FileText, Download, PenLine, Image as ImageIcon, ShieldCheck } from "lucide-react";
 
 // Configure pdfjs worker to use CDN to avoid next.js turbopack issues
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -255,7 +255,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                             {/* Option 1: Simple Signature */}
                             <div className="bg-[#140e2a]/50 border border-purple-500/20 hover:border-purple-500/50 hover:bg-[#1a1235]/80 backdrop-blur-md p-8 rounded-2xl shadow-xl transition-all flex flex-col items-center text-center group">
                                 <div className="bg-purple-500/10 border border-purple-500/20 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
-                                    <Target className="w-8 h-8 text-purple-400" />
+                                    <PenLine className="w-8 h-8 text-purple-400" />
                                 </div>
                                 <h2 className="text-2xl font-bold text-white mb-2">{dict?.simpleTitle || 'Simple e-Signature'}</h2>
                                 <p className="text-gray-400 mb-8 flex-1">{dict?.simpleDesc || 'Quick and easy electronic signature. Upload your PDF and immediately draw or upload your signature.'}</p>
@@ -334,7 +334,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                                         onClick={() => setShowSignatureModal(true)}
                                         className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap flex-1 md:flex-initial text-sm border border-white/10"
                                     >
-                                        <Target className="w-4 h-4 text-purple-400" /> {dict?.addSignature || 'Add Signature'}
+                                        <PenLine className="w-4 h-4 text-purple-400" /> {dict?.addSignature || 'Add Signature'}
                                     </button>
                                 )}
                                 <button
