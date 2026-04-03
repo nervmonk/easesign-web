@@ -30,43 +30,39 @@ const AboutSection = ({ dict = {} }) => {
               {/* Supporter Logos */}
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-6">
 
-                <div className="h-14 w-24 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+                <div className="h-14 w-28 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
                     src="/kominfo-logo.png"
-                    alt="Kominfo"
-                    width={150}
-                    height={60}
-                    className="max-h-full max-w-full object-contain brightness-0 invert grayscale"
+                    alt="Kominfo - Ministry of Communication and Information Technology Indonesia"
+                    fill
+                    className="object-contain brightness-0 invert grayscale"
                   />
                 </div>
 
-                <div className="h-14 w-24 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+                <div className="h-14 w-24 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
                     src="/psre-footer.png"
-                    alt="PSrE"
-                    width={100}
-                    height={100}
-                    className="max-h-full max-w-full object-contain brightness-0 invert grayscale"
+                    alt="PSrE - Certified Electronic Certificate Provider"
+                    fill
+                    className="object-contain brightness-0 invert grayscale"
                   />
                 </div>
 
-                <div className="h-14 w-24 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+                <div className="h-14 w-24 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
                     src="/djp-logo.png"
-                    alt="DJP"
-                    width={80}
-                    height={80}
-                    className="max-h-full max-w-full object-contain brightness-0 invert grayscale"
+                    alt="DJP - Directorate General of Taxes Indonesia"
+                    fill
+                    className="object-contain brightness-0 invert grayscale"
                   />
                 </div>
 
-                <div className="h-14 w-28 flex justify-center items-center opacity-60 hover:opacity-100 transition-opacity">
+                <div className="h-14 w-28 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
                     src="/peruri-footer.png"
-                    alt="Peruri"
-                    width={200}
-                    height={50}
-                    className="max-h-full max-w-full object-contain brightness-0 invert grayscale"
+                    alt="Peruri - Indonesian Security Printing and Minting Corporation"
+                    fill
+                    className="object-contain brightness-0 invert grayscale"
                   />
                 </div>
 
@@ -82,9 +78,9 @@ const AboutSection = ({ dict = {} }) => {
                 </span>
               </div>
 
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
                 {dict.title1 || 'Building the foundation'} <br className="hidden md:block" /> {dict.title2 || 'of Digital Trust'}
-              </h3>
+              </h2>
 
               <div className="space-y-6 text-gray-400 text-lg leading-relaxed font-light">
                 <p>
