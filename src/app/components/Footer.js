@@ -135,10 +135,10 @@ const Footer = ({ lang = 'id', dict = {} }) => {
             </h3>
             <div className="flex flex-wrap items-center gap-6">
               <div className="h-8 w-12 relative opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                <Image src="/djp-footer.png" alt="DJP Logo" fill className="object-contain object-left brightness-0 invert" />
+                <Image src="/djp-logo.png" alt="DJP Logo" fill className="object-contain object-left brightness-0 invert" />
               </div>
               <div className="h-8 w-24 relative opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                <Image src="/peruri-footer.png" alt="Peruri Logo" fill className="object-contain object-left brightness-0 invert" />
+                <Image src="/peruri-logo.png" alt="Peruri Logo" fill className="object-contain object-left brightness-0 invert" />
               </div>
             </div>
           </div>

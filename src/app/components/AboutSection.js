@@ -59,7 +59,7 @@ const AboutSection = ({ dict = {} }) => {
 
                 <div className="h-14 w-28 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
-                    src="/peruri-footer.png"
+                    src="/peruri-logo.png"
                     alt="Peruri - Indonesian Security Printing and Minting Corporation"
                     fill
                     className="object-contain brightness-0 invert grayscale"
