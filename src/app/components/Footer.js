@@ -66,7 +66,7 @@ const Footer = ({ lang = 'id', dict = {} }) => {
       {/* Main Footer Content */}
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-12">
-          
+
           {/* Column 1: Logo and Button */}
           <div className="space-y-8 flex flex-col items-start">
             <div className="h-10 w-40 relative">
@@ -92,8 +92,8 @@ const Footer = ({ lang = 'id', dict = {} }) => {
           <div>
             <h3 className="font-bold text-white mb-6 uppercase tracking-[0.1em] text-sm">{dict.address || 'Address'}</h3>
             <p className="text-sm leading-relaxed opacity-80">
-              Dea Tower II, 15th Floor Suite<br/>
-              Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2<br/>
+              Dea Tower II, 15th Floor Suite<br />
+              Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2<br />
               South Jakarta, 12950
             </p>
           </div>
@@ -123,13 +123,13 @@ const Footer = ({ lang = 'id', dict = {} }) => {
             </h3>
             <div className="flex flex-wrap items-center gap-6 mb-8">
               <div className="h-8 w-16 relative opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
-                <Image src="/kominfo-footer.png" alt="Kominfo Logo" fill className="object-contain object-left brightness-0 invert" />
+                <Image src="/kominfo-logo.png" alt="Komdigi Logo" fill className="object-contain object-left brightness-0 invert" />
               </div>
               <div className="h-8 w-20 relative opacity-50 hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
                 <Image src="/psre-footer.png" alt="PSrE Logo" fill className="object-contain object-left brightness-0 invert" />
               </div>
             </div>
-            
+
             <h3 className="font-bold text-white mb-4 uppercase tracking-[0.1em] text-xs">
               Powered by
             </h3>
@@ -142,7 +142,7 @@ const Footer = ({ lang = 'id', dict = {} }) => {
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
 

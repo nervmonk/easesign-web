@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -245,10 +246,32 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                 {/* Step 1: Initial Upload Screen */}
                 {!pdfFile ? (
                     <div className="flex-1 flex flex-col items-center justify-center p-4 max-w-5xl mx-auto w-full py-16">
-                        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">{dict?.title || 'Sign PDF'}</h1>
-                        <p className="text-gray-400 text-lg mb-12 text-center max-w-2xl">
-                            {dict?.subtitle || 'Select the signing level that meets your needs. Use simple self-signing or verifiable digital signature compliant with Kominfo standards.'}
-                        </p>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">{dict?.title || 'Sign PDF'}</h1>
+                        
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-16">
+                            {/* Left: Subtitle Words */}
+                            <div className="text-center lg:text-left order-2 lg:order-1">
+                                <p className="text-gray-400 text-lg md:text-2xl font-light leading-relaxed">
+                                    {dict?.subtitle || 'Select the signing level that meets your needs. Use simple self-signing or verifiable digital signature compliant with Komdigi standards.'}
+                                </p>
+                            </div>
+
+                            {/* Right: Tablet Visual Candy */}
+                            <div className="flex justify-center items-center relative group order-1 lg:order-2">
+                                {/* Soft Backlight for Tablet */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-indigo-500/20 rounded-full blur-[100px] opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
+                                
+                                <div className="relative w-full max-w-[400px] aspect-square animate-float">
+                                    <Image 
+                                        src="/tablet.png" 
+                                        alt="Digital Signature on Tablet Illustration" 
+                                        fill
+                                        className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
 
@@ -277,7 +300,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                             {/* Option 2: Digital Certificate (PSrE) */}
                             <div className="bg-[#140e2a]/50 border border-indigo-500/20 hover:border-indigo-500/50 hover:bg-[#1a1235]/80 backdrop-blur-md p-8 rounded-2xl shadow-xl transition-all flex flex-col items-center text-center group relative overflow-hidden">
                                 <div className="absolute top-4 right-4 bg-indigo-500/20 border border-indigo-500/30 text-indigo-300 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                                    {dict?.certBadge || 'Kominfo Verified'}
+                                    {dict?.certBadge || 'Komdigi Verified'}
                                 </div>
                                 <div className="bg-indigo-500/10 border border-indigo-500/20 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
                                     <ShieldCheck className="w-8 h-8 text-indigo-400" />
@@ -478,6 +501,16 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
 
             </div>
             <Footer lang={lang} />
+            <style jsx global>{`
+                @keyframes float {
+                    0% { transform: translateY(0px); }
+                    50% { transform: translateY(-20px); }
+                    100% { transform: translateY(0px); }
+                }
+                .animate-float {
+                    animation: float 6s ease-in-out infinite;
+                }
+            `}</style>
         </>
     );
-}
+};

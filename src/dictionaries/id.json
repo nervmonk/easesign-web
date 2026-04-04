@@ -8,14 +8,14 @@
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Tanda Tangan Digital & E-Meterai Resmi PSrE Kominfo.",
+    "title": "Tanda Tangan Digital & E-Meterai Resmi PSrE Komdigi.",
     "subtitle": "Tanda tangan PDF digital secara sah dan aman. Solusi e-meterai resmi untuk percepatan alur kerja bisnis Anda di Indonesia.",
     "ctaPrimary": "Coba Tanda Tangan PDF",
     "ctaSecondary": "Tonton Video"
   },
   "signPdf": {
     "title": "Tanda Tangan PDF Online",
-    "subtitle": "Platform tanda tangan digital terbaik untuk kebutuhan Anda. Gunakan fitur tanda tangan digital gratis atau layanan tersertifikasi PSrE yang diakui Kominfo.",
+    "subtitle": "Platform tanda tangan digital terbaik untuk kebutuhan Anda. Gunakan fitur tanda tangan digital gratis atau layanan tersertifikasi PSrE yang diakui Komdigi.",
     "simpleTitle": "Tanda Tangan PDF Gratis",
     "simpleDesc": "Cara tercepat tanda tangan PDF online. Unggah dokumen, bubuhkan tanda tangan digital, dan unduh hasilnya secara instan.",
     "selectPdf": "Pilih File PDF",
@@ -59,7 +59,7 @@
       },
       {
         "title": "Dukungan dan Kemitraan Pemerintah",
-        "description": "EaseSign telah menerima izin Penyelenggara Sistem Elektronik dari Kementerian Kominfo. Platform kami sepenuhnya didukung oleh PERURI dan Direktorat Jenderal Pajak. Keabsahan dokumen dipastikan terjamin."
+        "description": "EaseSign telah menerima izin Penyelenggara Sistem Elektronik dari Kementerian Komdigi. Platform kami sepenuhnya didukung oleh PERURI dan Direktorat Jenderal Pajak. Keabsahan dokumen dipastikan terjamin."
       }
     ]
   },
@@ -119,8 +119,8 @@
   },
   "teamSection": {
     "eyebrow": "Tim",
-    "title": "Orang-orang Kami",
-    "desc": "Tim EaseSign terdiri dari para profesional berdedikasi yang bersemangat merevolusi skema bisnis. Dengan keahlian dalam teknologi canggih dan komitmen terhadap solusi yang ramah pengguna, kami berupaya meningkatkan keamanan, kecepatan, dan kepatuhan untuk bisnis dari semua ukuran."
+    "title": "Tim Kami",
+    "desc": "Tim EaseSign terdiri dari para profesional dengan semangat tinggi untuk merevolusi alur kerja dokumen bisnis. Dengan keahlian teknologi dan legalitas hukum, membantu bisnis dari berbagai skala adalah tujuan kami."
   },
   "contactSection": {
     "eyebrow": "Hubungi Kami",

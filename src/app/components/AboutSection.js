@@ -33,7 +33,7 @@ const AboutSection = ({ dict = {} }) => {
                 <div className="h-14 w-28 relative opacity-60 hover:opacity-100 transition-opacity">
                   <Image
                     src="/kominfo-logo.png"
-                    alt="Kominfo - Ministry of Communication and Information Technology Indonesia"
+                    alt="Komdigi - Ministry of Communication and Information Technology Indonesia"
                     fill
                     className="object-contain brightness-0 invert grayscale"
                   />

@@ -9,18 +9,18 @@
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
     "title": "Digital Signature & Official e-Seal (PSrE) Indonesia.",
-    "subtitle": "Legally sign PDF documents online with PSrE & Kominfo-certified electronic seals. Secure, fast, and compliant digital signatures for modern business.",
+    "subtitle": "Legally sign PDF documents online with PSrE & Komdigi-certified electronic seals. Secure, fast, and compliant digital signatures for modern business.",
     "ctaPrimary": "Sign PDF Online",
     "ctaSecondary": "Watch Video"
   },
   "signPdf": {
     "title": "Sign PDF Documents Online",
-    "subtitle": "Choose the best digital signature solution for your needs. Use our free PDF signature tool or elevate your document's legal standing with a Kominfo-certified PSrE seal.",
+    "subtitle": "Choose the best digital signature solution for your needs. Use our free PDF signature tool or elevate your document's legal standing with a Komdigi-certified PSrE seal.",
     "simpleTitle": "Free PDF Signature",
     "simpleDesc": "Fast, secure, and free online PDF signing. Perfect for daily paperwork and internal approvals. Upload, sign, and download in seconds.",
     "selectPdf": "Select PDF file",
     "certTitle": "Certified Digital Signature",
-    "certBadge": "Kominfo Verified",
+    "certBadge": "Komdigi Verified",
     "certDesc": "Cryptographically secure, legally binding signatures backed by Indonesian PSrE infrastructure. Fully validatable worldwide.",
     "gotoConsole": "Go to Dev Console",
     "requiresAccount": "Requires EaseSign registered account",
@@ -59,7 +59,7 @@
       },
       {
         "title": "Government Support and Partnerships",
-        "description": "Our company has received Electronic System Operator permit from Kominfo Ministry of Communications and Informatics. Our Platform is fully supported by PERURI and Directorate General of Taxes. The validity of the document is certainly guaranteed."
+        "description": "Our company has received Electronic System Operator permit from Komdigi Ministry of Communications and Informatics. Our Platform is fully supported by PERURI and Directorate General of Taxes. The validity of the document is certainly guaranteed."
       }
     ]
   },

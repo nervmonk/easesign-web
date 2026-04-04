@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       template: "%s | EaseSign"
     },
     description: isEn 
-      ? "EaseSign provides legally binding digital signature and electronic seal (e-seal) solutions recognized in Indonesia. PSrE & Kominfo certified." 
-      : "EaseSign menyediakan solusi tanda tangan digital dan meterai elektronik (e-meterai) resmi tersertifikasi PSrE & Kominfo. Sah secara hukum di Indonesia.",
+      ? "EaseSign provides legally binding digital signature and electronic seal (e-seal) solutions recognized in Indonesia. PSrE & Komdigi certified." 
+      : "EaseSign menyediakan solusi tanda tangan digital dan meterai elektronik (e-meterai) resmi tersertifikasi PSrE & Komdigi. Sah secara hukum di Indonesia.",
     alternates: {
       canonical: `/${lang}/`,
       languages: {

@@ -14,10 +14,10 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title: isEn 
       ? 'Digital Signature & Official e-Seal (PSrE) Indonesia | EaseSign' 
-      : 'Tanda Tangan Digital & E-Meterai Resmi PSrE Kominfo | EaseSign',
+      : 'Tanda Tangan Digital & E-Meterai Resmi PSrE Komdigi | EaseSign',
     description: isEn 
-      ? 'Secure, legally binding digital signatures and electronic seals (e-seal) recognized by Kominfo Indonesia. Fast, efficient, and PSrE-certified.' 
-      : 'EaseSign: Solusi tanda tangan digital dan e-meterai resmi yang diakui Kominfo & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
+      ? 'Secure, legally binding digital signatures and electronic seals (e-seal) recognized by Komdigi Indonesia. Fast, efficient, and PSrE-certified.' 
+      : 'EaseSign: Solusi tanda tangan digital dan e-meterai resmi yang diakui Komdigi & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
   }
 }
 
