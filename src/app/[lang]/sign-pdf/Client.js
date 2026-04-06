@@ -143,6 +143,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
     const handleDownloadPDF = async () => {
         if (!pdfFile || !signatureFile) return;
         setIsProcessing(true);
+        console.log("Starting PDF generation for download...");
 
         try {
             // 1. Load the original PDF
@@ -171,7 +172,11 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
             // 4. Calculate relative scale
             // Instead of the wrapper div, we target the canvas for perfect precision
             const canvasElement = documentWrapperRef.current?.querySelector('canvas');
-            if (!canvasElement) return;
+            if (!canvasElement) {
+                console.error("Canvas element not found, cannot calculate coordinates.");
+                setIsProcessing(false);
+                return;
+            }
 
             const scaleX = pdfNaturalWidth / canvasElement.clientWidth;
             const scaleY = pdfNaturalHeight / canvasElement.clientHeight;
@@ -211,12 +216,15 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
             document.body.removeChild(link);
 
             // Telemetry Ping (Fire and Forget)
+            const timezone = Intl?.DateTimeFormat()?.resolvedOptions()?.timeZone || "UTC";
+            console.log("Dispatching telemetry:", { timezone });
             fetch("https://dev-api.easesign.site/esign/simple-count", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                keepalive: true,
                 body: JSON.stringify({
                     event: "simple_esign_completed",
-                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    timezone: timezone,
                     timestamp: new Date().toISOString()
                 })
             }).catch(e => console.error("Telemetry error", e));
@@ -247,7 +255,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                 {!pdfFile ? (
                     <div className="flex-1 flex flex-col items-center justify-center p-4 max-w-5xl mx-auto w-full py-16">
                         <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-purple-400 to-indigo-500 bg-clip-text text-transparent">{dict?.title || 'Sign PDF'}</h1>
-                        
+
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mb-16">
                             {/* Left: Subtitle Words */}
                             <div className="text-center lg:text-left order-2 lg:order-1">
@@ -260,11 +268,11 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                             <div className="flex justify-center items-center relative group order-1 lg:order-2">
                                 {/* Soft Backlight for Tablet */}
                                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/20 to-indigo-500/20 rounded-full blur-[100px] opacity-40 group-hover:opacity-70 transition-opacity duration-700"></div>
-                                
+
                                 <div className="relative w-full max-w-[400px] aspect-square animate-float">
-                                    <Image 
-                                        src="/tablet.png" 
-                                        alt="Digital Signature on Tablet Illustration" 
+                                    <Image
+                                        src="/tablet.png"
+                                        alt="Digital Signature on Tablet Illustration"
                                         fill
                                         className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover:scale-105"
                                         priority
