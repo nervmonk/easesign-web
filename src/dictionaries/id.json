@@ -1,153 +1,153 @@
 {
   "navbar": {
-    "home": "Home",
-    "signPdf": "Tanda Tangan PDF",
+    "home": "Beranda",
+    "signPdf": "Tanda Tangan PDF Gratis",
     "about": "Tentang Kami",
     "contact": "Kontak Kami",
     "consoleLogin": "Masuk Konsol"
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Tanda Tangan Digital & E-Meterai Resmi PSrE Komdigi.",
-    "subtitle": "Tanda tangan PDF digital secara sah dan aman. Solusi e-meterai resmi untuk percepatan alur kerja bisnis Anda di Indonesia.",
-    "ctaPrimary": "Coba Tanda Tangan PDF",
-    "ctaSecondary": "Tonton Video"
+    "title": "Tanda Tangan PDF Online Gratis & E-Meterai Resmi PSrE",
+    "subtitle": "Solusi tanda tangan digital PDF yang sah secara hukum, aman, dan gratis. Lengkapi dokumen Anda dengan e-meterai resmi Komdigi untuk mempercepat alur kerja bisnis di Indonesia.",
+    "ctaPrimary": "Buat Tanda Tangan PDF Sekarang",
+    "ctaSecondary": "Lihat Cara Kerja"
   },
   "signPdf": {
-    "title": "Tanda Tangan PDF Online",
-    "subtitle": "Platform tanda tangan digital terbaik untuk kebutuhan Anda. Gunakan fitur tanda tangan digital gratis atau layanan tersertifikasi PSrE yang diakui Komdigi.",
-    "simpleTitle": "Tanda Tangan PDF Gratis",
-    "simpleDesc": "Cara tercepat tanda tangan PDF online. Unggah dokumen, bubuhkan tanda tangan digital, dan unduh hasilnya secara instan.",
+    "title": "Tanda Tangan PDF Online Terpercaya",
+    "subtitle": "Platform tanda tangan elektronik terbaik untuk segala kebutuhan. Gunakan fitur tanda tangan digital gratis atau layanan tersertifikasi PSrE yang diakui resmi oleh Komdigi.",
+    "simpleTitle": "Tanda Tangan PDF Gratis & Praktis",
+    "simpleDesc": "Cara tercepat dan termudah tanda tangan PDF online. Unggah dokumen, buat tanda tangan digital Anda, dan unduh hasilnya secara instan tanpa biaya.",
     "selectPdf": "Pilih File PDF",
-    "certTitle": "Tanda Tangan dengan Sertifikat Digital (PSrE)",
+    "certTitle": "Tanda Tangan Legal dengan Sertifikat Digital (PSrE)",
     "certBadge": "Terverifikasi Komdigi",
-    "certDesc": "Tanda tangan digital yang aman dan mengikat secara hukum dengan Sertifikat PSrE Indonesia. Terverifikasi di portal root CA.",
-    "gotoConsole": "Buka Console",
+    "certDesc": "Tanda tangan elektronik yang aman dan mengikat secara hukum dengan Sertifikat PSrE Indonesia. Dokumen Anda terverifikasi resmi di portal root CA.",
+    "gotoConsole": "Buka Konsol EaseSign",
     "requiresAccount": "Membutuhkan akun EaseSign",
-    "documentName": "Loading document...",
+    "documentName": "Memuat dokumen...",
     "addSignature": "Tambah Tanda Tangan",
-    "signButton": "Tanda Tangani",
-    "processing": "Memproses...",
-    "modalTitle": "Atur detail tanda tangan Anda",
+    "signButton": "Tanda Tangani Sekarang",
+    "processing": "Sedang memproses...",
+    "modalTitle": "Atur Tanda Tangan Digital Anda",
     "uploadTab": "Unggah Gambar",
-    "drawTab": "Gambar Tanda Tangan",
-    "uploadDesc": "Kami menyarankan file PNG transparan untuk hasil terbaik.",
-    "selectImage": "Pilih Gambar",
-    "clearArea": "Bersihkan Area",
-    "useSignature": "Gunakan Tanda Tangan",
-    "signatureHint": "Geser untuk pindah · Seret sudut untuk ubah ukuran"
+    "drawTab": "Gambar Manual",
+    "uploadDesc": "Gunakan file gambar berformat PNG transparan untuk hasil tanda tangan terbaik.",
+    "selectImage": "Pilih Gambar Tanda Tangan",
+    "clearArea": "Hapus",
+    "useSignature": "Gunakan Tanda Tangan Ini",
+    "signatureHint": "Geser untuk memindahkan · Seret sudut untuk mengubah ukuran"
   },
   "aboutSection": {
-    "supportedBy": "Didukung Oleh",
-    "badge": "TENTANG KAMI",
-    "title1": "Membangun fondasi",
-    "title2": "kepercayaan Digital",
-    "desc1": "EaseSign, produk dari PT Paramita Digital Nusantara, menghadirkan platform tanda tangan digital dan verifikasi identitas untuk membantu anda di era modern.",
-    "desc2": "Kami menyederhanakan alur kerja tradisional dengan menyediakan platform tanda tangan digital yang aman, legal, dan instan. Individu atau korporasi, semua dapat merasakan manfaatnya."
+    "supportedBy": "Didukung Resmi Oleh",
+    "badge": "TENTANG EASESIGN",
+    "title1": "Membangun Fondasi",
+    "title2": "Kepercayaan Digital Anda",
+    "desc1": "EaseSign, produk unggulan dari PT Paramita Digital Nusantara, menghadirkan platform tanda tangan digital gratis dan verifikasi identitas (e-KYC) paling aman di Indonesia.",
+    "desc2": "Kami menyederhanakan proses administrasi tradisional menjadi platform tanda tangan PDF online yang legal dan instan. Baik untuk kebutuhan pribadi maupun korporasi, semua dapat bertransaksi digital dengan tenang."
   },
   "featureSection": {
-    "badge": "Platform Kami",
-    "title": "Mengapa memilih EaseSign?",
-    "subtitle": "Rasakan platform tanda tangan digital yang aman, legal, dan fleksibel untuk kebutuhan Anda.",
+    "badge": "Keunggulan Platform",
+    "title": "Mengapa Memilih EaseSign untuk Tanda Tangan PDF?",
+    "subtitle": "Rasakan pengalaman menggunakan platform tanda tangan digital yang 100% aman, diakui hukum, dan dirancang untuk efisiensi Anda.",
     "features": [
       {
-        "title": "Efisiensi dan Produktivitas",
-        "description": "Platform verifikasi identitas, tanda tangan dan meterai digital kami bekerja secara cepat dan legal. Menghemat waktu dan sumber daya dibanding cara kerja administrasi tradisional."
+        "title": "Cepat, Efisien & Gratis",
+        "description": "Tanda tangani dokumen PDF secara online dalam hitungan detik. Hemat waktu dan biaya operasional dibandingkan menggunakan metode cetak dan kurir dokumen."
       },
       {
-        "title": "Standar Keamanan Tinggi",
-        "description": "EaseSign mengimplementasikan teknik enkripsi terkini dan metode otentikasi berlapis untuk melindungi dokumen anda. Keamanan dokumen anda adalah prioritas kami."
+        "title": "Keamanan Tingkat Tinggi",
+        "description": "Dokumen Anda adalah prioritas kami. EaseSign menggunakan enkripsi data tingkat militer dan otentikasi berlapis untuk memastikan tanda tangan elektronik Anda anti-pemalsuan."
       },
       {
-        "title": "Dukungan dan Kemitraan Pemerintah",
-        "description": "EaseSign telah menerima izin Penyelenggara Sistem Elektronik dari Kementerian Komdigi. Platform kami sepenuhnya didukung oleh PERURI dan Direktorat Jenderal Pajak. Keabsahan dokumen dipastikan terjamin."
+        "title": "Legalitas & Kepatuhan Hukum",
+        "description": "Berlisensi sebagai Penyelenggara Sistem Elektronik (PSE) Komdigi dan didukung penuh oleh PERURI serta DJP. Setiap tanda tangan dan e-meterai dijamin sah di mata hukum Indonesia."
       }
     ]
   },
   "valuePropsSection": {
-    "title": "Andal, Aman, dan Efisien",
-    "feature1": "Legal",
-    "feature2": "Hilangkan Jangkauan Jarak",
-    "feature3": "Aman",
-    "feature4": "Ramah Lingkungan"
+    "title": "Solusi Tanda Tangan Digital Terbaik",
+    "feature1": "Sah Secara Hukum",
+    "feature2": "Tanpa Batas Jarak & Waktu",
+    "feature3": "Privasi & Keamanan Terjamin",
+    "feature4": "Ramah Lingkungan (Paperless)"
   },
   "productsSection": {
-    "badge": "Solusi Kami",
-    "title": "Produk Kami",
-    "subtitle": "Dari tanda tangan elektronik legal hingga verifikasi identitas dengan akurasi tinggi, kami bantu anda atau bisnis anda agar lebih efisien.",
-    "signatureDivider": "KYC & Onboarding",
+    "badge": "Layanan Kami",
+    "title": "Produk Kepercayaan Digital",
+    "subtitle": "Dari tanda tangan elektronik legal hingga e-meterai dan verifikasi identitas (e-KYC) berakurasi tinggi, kami optimalkan efisiensi bisnis Anda.",
+    "signatureDivider": "Layanan e-KYC & Onboarding",
     "signatureProducts": [
       {
-        "title": "Easy Sign",
-        "description": "Solusi tanda tangan digital yang mudah, aman, dan legal. Rasakan mudahnya mengirim, menerima, hingga menandatangani dokumen secara digital."
+        "title": "Easy Sign (Tanda Tangan Digital)",
+        "description": "Solusi tanda tangan PDF online yang mudah, gratis, dan legal. Kirim, terima, dan tandatangani dokumen elektronik Anda dari perangkat mana saja."
       },
       {
-        "title": "Easy Stamp",
-        "description": "Bentuk digital dari meterai kertas yang mudah, aman, dan digunakan untuk keperluan dokumen elektronik. Easy Stamp didukung penuh oleh PERURI dan Direktorat Jenderal Pajak (DJP)."
+        "title": "Easy Stamp (E-Meterai Resmi)",
+        "description": "Beli dan bubuhkan e-meterai resmi untuk dokumen elektronik. Easy Stamp terintegrasi langsung dengan sistem PERURI dan Direktorat Jenderal Pajak (DJP)."
       }
     ],
     "kycProducts": [
       {
-        "title": "OCR KTP",
-        "description": "Otomatisasi onboarding identitas dengan OCR bertenaga AI. Ekstrak dan validasi identitas secara cepat dan akurat."
+        "title": "OCR KTP Otomatis",
+        "description": "Percepat proses onboarding dengan teknologi ekstraksi data KTP berbasis AI. Validasi identitas secara instan dengan tingkat akurasi maksimal."
       },
       {
-        "title": "Verifikasi Wajah",
-        "description": "Pastikan orang di balik layar sesuai dengan apa yang dia klaim dengan pengenalan wajah berakurasi tinggi. Bandingkan selfie dengan identitas resminya dari kartu identitas."
+        "title": "Verifikasi Wajah (Face Recognition)",
+        "description": "Cegah penipuan identitas. Bandingkan foto selfie pengguna dengan foto pada kartu identitas resmi menggunakan teknologi pengenalan wajah biometrik."
       },
       {
-        "title": "Deteksi Liveness",
-        "description": "Cegah penipuan secara instan dengan algoritma deteksi liveness kami."
+        "title": "Deteksi Liveness (Anti-Spoofing)",
+        "description": "Pastikan pengguna yang berinteraksi adalah manusia asli, bukan foto atau topeng, menggunakan algoritma deteksi kehidupan (liveness) canggih."
       }
     ]
   },
   "clientSection": {
-    "badge": "Partner Kami",
-    "title": "Dipercaya oleh Perusahaan yang Anda Kenal",
-    "subtitle": "Kami bangga berkolaborasi dengan berbagai bisnis, dari startup fintech inovatif hingga perusahaan besar dengan pengalaman panjang."
+    "badge": "Mitra Kepercayaan",
+    "title": "Dipercaya oleh Berbagai Perusahaan Terkemuka",
+    "subtitle": "Kami bangga menjadi solusi tanda tangan digital bagi berbagai sektor bisnis, dari startup fintech inovatif hingga perusahaan multinasional."
   },
   "aboutHero": {
-    "heading": "Tentang Kami",
-    "desc1": "EaseSign, nama merek dari PT Paramita Digital Nusantara adalah perusahaan yang berfokus pada penawaran produk dan layanan berbasis platform untuk memenuhi tuntutan bisnis yang terus berkembang di era digital.",
-    "desc2": "Dengan fokus pada keandalan, keamanan, dan efisiensi, kami memberdayakan bisnis untuk menyederhanakan proses otentikasi dokumen klien dan merangkul transformasi digital untuk keberlanjutan.",
-    "getInTouch": "Hubungi Kami"
+    "heading": "Tentang EaseSign",
+    "desc1": "EaseSign, di bawah naungan PT Paramita Digital Nusantara, hadir sebagai penyedia layanan otentikasi dokumen digital terdepan di Indonesia, menjawab kebutuhan bisnis di era modern.",
+    "desc2": "Berfokus pada legalitas, keamanan siber, dan kemudahan akses, kami memberdayakan masyarakat dan perusahaan untuk beralih ke tanda tangan PDF online dan mewujudkan transformasi digital yang berkelanjutan.",
+    "getInTouch": "Hubungi Tim Kami"
   },
   "visionSection": {
-    "eyebrow": "Siapa Kami",
-    "title": "Visi Kami",
-    "desc1": "EaseSign bertujuan merevolusi validasi dokumen melalui implementasi tanda tangan dan meterai digital, meningkatkan keamanan, kecepatan, dan kepatuhan. Dengan memanfaatkan teknologi canggih dan mengembangkan solusi yang ramah pengguna, EaseSign berkomitmen untuk melampaui ekspektasi klien.",
-    "desc2": "Dengan mempertahankan standar keamanan dan keandalan yang tinggi, EaseSign memungkinkan perusahaan menangani proses dokumentasi mereka dengan percaya diri. Dedikasi ini memungkinkan bisnis untuk fokus pada kegiatan inti mereka, mengetahui kebutuhan validasi mereka dipenuhi dengan presisi dan kepedulian tertinggi."
+    "eyebrow": "Identitas Kami",
+    "title": "Visi Misi EaseSign",
+    "desc1": "Visi kami adalah merevolusi validasi dokumen di Indonesia melalui tanda tangan digital dan e-meterai yang aman, instan, dan mematuhi standar hukum. Dengan teknologi canggih yang mudah digunakan, EaseSign berkomitmen menjadi partner terbaik Anda.",
+    "desc2": "Kami menjaga standar keamanan tertinggi agar setiap individu dan perusahaan dapat memproses dokumen hukum mereka tanpa rasa khawatir. Dengan EaseSign, Anda bisa lebih fokus pada pertumbuhan bisnis, sementara kami mengurus legalitas dokumen Anda."
   },
   "teamSection": {
-    "eyebrow": "Tim",
-    "title": "Tim Kami",
-    "desc": "Tim EaseSign terdiri dari para profesional dengan semangat tinggi untuk merevolusi alur kerja dokumen bisnis. Dengan keahlian teknologi dan legalitas hukum, membantu bisnis dari berbagai skala adalah tujuan kami."
+    "eyebrow": "Di Balik EaseSign",
+    "title": "Tim Ahli Kami",
+    "desc": "Platform EaseSign dikembangkan oleh tim profesional yang menggabungkan keahlian teknologi informasi, keamanan siber, dan kepatuhan hukum Indonesia. Misi kami adalah mempermudah akses tanda tangan digital yang legal untuk semua skala bisnis."
   },
   "contactSection": {
-    "eyebrow": "Hubungi Kami",
-    "title1": "Kontak",
+    "eyebrow": "Dukungan Pelanggan",
+    "title1": "Hubungi",
     "title2": "Kami",
-    "subtitle": "Punya pertanyaan atau butuh bantuan? Tim kami siap membantu Anda merevolusi alur kerja dokumen digital Anda.",
-    "fieldName": "Nama",
+    "subtitle": "Ingin berkonsultasi mengenai integrasi e-meterai atau butuh bantuan dengan tanda tangan PDF Anda? Tim support kami siap melayani Anda.",
+    "fieldName": "Nama Lengkap",
     "fieldEmail": "Alamat Email",
-    "fieldMessage": "Pesan",
-    "submit": "Kirim Pesan",
-    "submitting": "Mengirim...",
-    "successTitle": "Terima kasih!",
-    "successMsg": "Pesan Anda telah berhasil dikirim. Kami akan segera menghubungi Anda.",
-    "errorMsg": "Oops! Terjadi kesalahan. Silakan coba lagi.",
-    "errNameRequired": "Nama wajib diisi.",
-    "errNameInvalid": "Harap masukkan nama yang valid (hanya huruf dan spasi).",
-    "errEmailRequired": "Email wajib diisi.",
-    "errEmailInvalid": "Harap masukkan alamat email yang valid.",
-    "errMessageRequired": "Pesan wajib diisi.",
-    "errMessageShort": "Pesan harus terdiri dari minimal 10 karakter."
+    "fieldMessage": "Pesan atau Pertanyaan",
+    "submit": "Kirim Pesan Sekarang",
+    "submitting": "Sedang Mengirim...",
+    "successTitle": "Pesan Terkirim!",
+    "successMsg": "Terima kasih telah menghubungi EaseSign. Tim kami akan segera merespons pesan Anda.",
+    "errorMsg": "Maaf, terjadi kesalahan pada sistem. Silakan coba beberapa saat lagi.",
+    "errNameRequired": "Kolom nama wajib diisi.",
+    "errNameInvalid": "Mohon masukkan nama yang valid (hanya huruf).",
+    "errEmailRequired": "Kolom email wajib diisi.",
+    "errEmailInvalid": "Mohon masukkan format alamat email yang benar.",
+    "errMessageRequired": "Kolom pesan tidak boleh kosong.",
+    "errMessageShort": "Pesan terlalu singkat (minimal 10 karakter)."
   },
   "footer": {
-    "tagline": "Transformasikan alur kerja dokumen Anda dengan tanda tangan dan e-meterai digital. Aman, cepat, dan sah secara hukum.",
+    "tagline": "Platform tanda tangan PDF online gratis dan e-meterai resmi terpercaya. Solusi dokumen digital yang aman, cepat, dan sah secara hukum di Indonesia.",
     "privacyNotice": "Kebijakan Privasi",
-    "address": "Alamat",
-    "phone": "Nomor Telepon",
-    "partners": "Mitra"
+    "address": "Alamat Kantor",
+    "phone": "Hubungi Kami",
+    "partners": "Mitra Bisnis"
   }
 }

@@ -1,153 +1,153 @@
 {
   "navbar": {
     "home": "Home",
-    "signPdf": "Sign PDF",
+    "signPdf": "Sign PDF Free",
     "about": "About",
     "contact": "Contact Us",
     "consoleLogin": "Console Login"
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Digital Signature & Official e-Seal (PSrE) Indonesia.",
-    "subtitle": "Legally sign PDF documents online with PSrE & Komdigi-certified electronic seals. Secure, fast, and compliant digital signatures for modern business.",
-    "ctaPrimary": "Sign PDF Online",
-    "ctaSecondary": "Watch Video"
+    "title": "Free Online PDF Signature & Certified Digital Seals",
+    "subtitle": "Legally sign PDF documents online for free. Secure, fast, and globally accessible electronic signatures, backed by government-certified e-seals for enterprise compliance.",
+    "ctaPrimary": "Sign PDF Online Now",
+    "ctaSecondary": "See How It Works"
   },
   "signPdf": {
-    "title": "Sign PDF Documents Online",
-    "subtitle": "Choose the best digital signature solution for your needs. Use our free PDF signature tool or elevate your document's legal standing with a Komdigi-certified PSrE seal.",
-    "simpleTitle": "Free PDF Signature",
-    "simpleDesc": "Fast, secure, and free online PDF signing. Perfect for daily paperwork and internal approvals. Upload, sign, and download in seconds.",
-    "selectPdf": "Select PDF file",
-    "certTitle": "Certified Digital Signature",
-    "certBadge": "Komdigi Verified",
-    "certDesc": "Cryptographically secure, legally binding signatures backed by Indonesian PSrE infrastructure. Fully validatable worldwide.",
-    "gotoConsole": "Go to Console",
-    "requiresAccount": "Requires EaseSign registered account",
+    "title": "Sign PDF Documents Online Free",
+    "subtitle": "The most secure digital signature solution for your documents. Use our free online PDF signer instantly, or upgrade to certified e-seals for absolute legal compliance.",
+    "simpleTitle": "Free & Fast PDF Signature",
+    "simpleDesc": "The quickest way to sign a PDF online for free. Upload your document, create your electronic signature, and download it instantly—no hassle, no cost.",
+    "selectPdf": "Select PDF File",
+    "certTitle": "Legally Binding Certified Signatures (PSrE)",
+    "certBadge": "Government Verified",
+    "certDesc": "Cryptographically secure digital signatures backed by official Indonesian Root CAs. Fully compliant, tamper-proof, and legally binding for enterprise transactions.",
+    "gotoConsole": "Go to EaseSign Console",
+    "requiresAccount": "Requires an EaseSign account",
     "documentName": "Loading document...",
     "addSignature": "Add Signature",
-    "signButton": "Sign",
-    "processing": "Processing...",
-    "modalTitle": "Set your signature details",
+    "signButton": "Sign Document Now",
+    "processing": "Processing securely...",
+    "modalTitle": "Customize Your Digital Signature",
     "uploadTab": "Upload Image",
     "drawTab": "Draw Signature",
-    "uploadDesc": "We highly recommend using a transparent PNG image for best results.",
-    "selectImage": "Select Image",
-    "clearArea": "Clear Area",
-    "useSignature": "Use Signature",
+    "uploadDesc": "We highly recommend using a transparent PNG file for the most professional result.",
+    "selectImage": "Select Signature Image",
+    "clearArea": "Clear",
+    "useSignature": "Apply Signature",
     "signatureHint": "Drag to move · Drag corners to resize"
   },
   "aboutSection": {
-    "supportedBy": "Supported By",
-    "badge": "ABOUT US",
-    "title1": "Building the foundation",
+    "supportedBy": "Officially Supported By",
+    "badge": "ABOUT EASESIGN",
+    "title1": "Building the Global Foundation",
     "title2": "of Digital Trust",
-    "desc1": "EaseSign, a product of PT Paramita Digital Nusantara, delivers enterprise-grade document authentication platforms built for the rigorous demands of the modern economy.",
-    "desc2": "We eliminate workflow bottlenecks by providing secure, legally compliant, and instantaneous digital signatures. Our mission is to empower teams to authenticate documents with absolute confidence and accelerate their digital transformation."
+    "desc1": "EaseSign, a flagship product of PT Paramita Digital Nusantara, delivers an enterprise-grade document authentication platform built for the rigorous demands of the modern, borderless economy.",
+    "desc2": "We eliminate paperwork bottlenecks by providing a fast, free, and legally compliant way to sign PDFs online. From individuals to massive corporations, our mission is to empower everyone to authenticate documents with absolute confidence."
   },
   "featureSection": {
     "badge": "Platform Capabilities",
-    "title": "Why choose EaseSign?",
-    "subtitle": "Experience a secure and legally-binding digital signature platform tailored for your modern business operations.",
+    "title": "Why Choose EaseSign for Electronic Signatures?",
+    "subtitle": "Experience a 100% secure, legally-binding digital signature platform tailored to accelerate your business operations.",
     "features": [
       {
-        "title": "Efficiency and Productivity",
-        "description": "Our tailored platform for digital signatures and stamps based customer needs will streamline document workflows, reducing the time and resources required for manual paperwork."
+        "title": "Fast, Free, & Efficient",
+        "description": "Sign documents online in seconds without spending a dime. Streamline your workflow and eliminate the costly need for printing, scanning, and physical mail."
       },
       {
-        "title": "Enhanced Security Measures",
-        "description": "Our company has employed advanced encryption techniques and authentication methods to safeguard digital documents against unauthorized access and fraud."
+        "title": "Bank-Grade Security Measures",
+        "description": "Your documents remain strictly private. We utilize advanced 256-bit encryption and multi-layered authentication to protect your digital signatures from unauthorized access or fraud."
       },
       {
-        "title": "Government Support and Partnerships",
-        "description": "Our company has received Electronic System Operator permit from Komdigi Ministry of Communications and Informatics. Our Platform is fully supported by PERURI and Directorate General of Taxes. The validity of the document is certainly guaranteed."
+        "title": "Official Legal Compliance",
+        "description": "Licensed by the Ministry of Communications and Informatics (Komdigi) and fully supported by national tax and security authorities. Your e-signatures and e-seals carry full legal weight."
       }
     ]
   },
   "valuePropsSection": {
-    "title": "Reliable, Secure, and Efficient",
-    "feature1": "Legal Comply",
-    "feature2": "Geographic Dispersion",
-    "feature3": "Security & Authentication",
-    "feature4": "Environmental Sustainability"
+    "title": "Reliable, Secure, and Built for Speed",
+    "feature1": "Legally Binding",
+    "feature2": "Sign Anywhere, Anytime",
+    "feature3": "Tamper-Proof Security",
+    "feature4": "100% Paperless & Eco-Friendly"
   },
   "productsSection": {
-    "badge": "Core Solutions",
-    "title": "Our Products",
-    "subtitle": "From legally-binding electronic signatures to military-grade identity verification, we provide everything you need to digitize your onboarding and operations.",
-    "signatureDivider": "KYC & Onboarding",
+    "badge": "Our Core Solutions",
+    "title": "Digital Trust Products",
+    "subtitle": "From free online electronic signatures to military-grade identity verification, we provide everything you need to securely digitize your onboarding and operations.",
+    "signatureDivider": "KYC & Automated Onboarding",
     "signatureProducts": [
       {
-        "title": "Easy Sign",
-        "description": "We offer an easy, secure and legally valid digital signature solution for our clients. Users can easily send, receive, and digitally authenticate and sign documents."
+        "title": "Easy Sign (e-Signature)",
+        "description": "The easiest way to sign a PDF online. Send, receive, and securely e-sign documents instantly from any device with our legally valid electronic signature platform."
       },
       {
-        "title": "Easy Stamp",
-        "description": "We offer Easy Stamp, an easy, secure, digital form of paper stamps used for electronic document purposes. E-Stamp is fully supported by PERURI (Indonesian Security Printing and Minting Corporation) and DJP (Directorate General of Taxes)."
+        "title": "Easy Stamp (Certified e-Seals)",
+        "description": "Secure, official digital stamps for electronic documents. Fully integrated with state-owned security printing (PERURI) and the Directorate General of Taxes for absolute legal certainty."
       }
     ],
     "kycProducts": [
       {
-        "title": "ID Card Documents OCR",
-        "description": "Automate your KYC onboarding with AI-powered OCR to seamlessly extract and validate identity documents in real-time."
+        "title": "ID Card OCR Validation",
+        "description": "Automate your KYC onboarding with AI-powered Optical Character Recognition (OCR) to seamlessly extract and validate identity documents in real-time."
       },
       {
-        "title": "Face Verification",
-        "description": "Ensure the person behind the screen is genuine with high-accuracy facial recognition that compares live selfies to ID photos."
+        "title": "Biometric Face Verification",
+        "description": "Ensure the person behind the screen is genuine. Our high-accuracy facial recognition compares live selfies against official ID photos to prevent identity theft."
       },
       {
-        "title": "Liveness Detection",
-        "description": "Prevent spoofing and presentation attacks instantly with our advanced passive liveness detection algorithms."
+        "title": "Anti-Spoofing Liveness Detection",
+        "description": "Instantly prevent presentation attacks, deepfakes, and spoofing with our advanced passive liveness detection algorithms."
       }
     ]
   },
   "clientSection": {
     "badge": "Industry Leaders",
-    "title": "Trusted by World-Class Teams",
-    "subtitle": "We are proud to collaborate with a diverse range of businesses, from innovative fintech startups to established industry giants."
+    "title": "Trusted by World-Class Organizations",
+    "subtitle": "We are proud to serve as the digital signature solution for a diverse range of businesses, from innovative fintech startups to established multinational enterprises."
   },
   "aboutHero": {
     "heading": "About Us",
-    "desc1": "EaseSign, a brand name of PT Paramita Digital Nusantara is a company focuses in offering a platform based products and services to meet the growing demands of businesses in the digital era.",
-    "desc2": "With a focus on reliability, security, and efficiency, we empower businesses to streamline our client's document authentication processes and embrace digital transformation for sustainability.",
-    "getInTouch": "Get in touch"
+    "desc1": "EaseSign, under the umbrella of PT Paramita Digital Nusantara, is an industry-leading provider of digital authentication platforms designed to meet the evolving demands of today's fast-paced digital era.",
+    "desc2": "With an unwavering focus on compliance, cybersecurity, and user convenience, we empower businesses to simplify document workflows, securely sign PDFs online, and embrace sustainable digital transformation.",
+    "getInTouch": "Contact Our Experts"
   },
   "visionSection": {
-    "eyebrow": "Who we are",
-    "title": "Our Vision",
-    "desc1": "EaseSign aims to revolutionize document validation through the implementation of digital signatures and seals, enhancing security, speed, and compliance. By leveraging advanced technology and developing user-friendly solutions, EaseSign is committed to exceeding client expectations.",
-    "desc2": "By maintaining high standards of security and reliability, EaseSign enables companies to handle their documentation processes confidently. This dedication allows businesses to focus on their core activities, knowing that their validation needs are met with the utmost precision and care."
+    "eyebrow": "Who We Are",
+    "title": "Our Vision & Mission",
+    "desc1": "Our vision is to revolutionize global document validation by providing free, accessible digital signatures and highly secure e-seals. By leveraging cutting-edge technology, EaseSign is committed to delivering unmatched speed, security, and legal compliance.",
+    "desc2": "By maintaining the highest global standards for cybersecurity, EaseSign enables individuals and enterprises to handle their documentation with total confidence. Let us secure your paperwork, so you can focus entirely on scaling your business."
   },
   "teamSection": {
-    "eyebrow": "Team",
-    "title": "Our People",
-    "desc": "Our team at EaseSign is composed of dedicated professionals who are passionate about revolutionizing business scheme. With expertise in advanced technology and a commitment to user-friendly solutions, we strive to enhance security, speed, and compliance for businesses of all sizes."
+    "eyebrow": "The People",
+    "title": "Our Expert Team",
+    "desc": "The EaseSign platform is built by a dedicated team of cybersecurity experts, legal compliance specialists, and top-tier software engineers. We share a common passion: making legally binding digital signatures accessible, secure, and completely effortless for everyone."
   },
   "contactSection": {
     "eyebrow": "Get In Touch",
     "title1": "Contact",
     "title2": "Us",
-    "subtitle": "Have questions or need assistance? Our team is here to help you revolutionize your digital document workflows.",
-    "fieldName": "Name",
+    "subtitle": "Want to integrate certified e-seals or need help signing a PDF online? Our support team is ready to help you revolutionize your digital workflows.",
+    "fieldName": "Full Name",
     "fieldEmail": "Email Address",
-    "fieldMessage": "Message",
+    "fieldMessage": "Your Message or Inquiry",
     "submit": "Send Message",
-    "submitting": "Submitting...",
-    "successTitle": "Thank you!",
-    "successMsg": "Your message has been sent successfully. We will get back to you soon.",
-    "errorMsg": "Oops! Something went wrong. Please try again.",
-    "errNameRequired": "Name is required.",
+    "submitting": "Sending securely...",
+    "successTitle": "Message Sent!",
+    "successMsg": "Thank you for reaching out to EaseSign. One of our experts will get back to you shortly.",
+    "errorMsg": "Oops! Something went wrong on our end. Please try submitting again.",
+    "errNameRequired": "Please provide your name.",
     "errNameInvalid": "Please enter a valid name (letters and spaces only).",
-    "errEmailRequired": "Email is required.",
-    "errEmailInvalid": "Please enter a valid email address.",
-    "errMessageRequired": "Message is required.",
-    "errMessageShort": "Message must be at least 10 characters long."
+    "errEmailRequired": "An email address is required.",
+    "errEmailInvalid": "Please enter a correctly formatted email address.",
+    "errMessageRequired": "Your message cannot be empty.",
+    "errMessageShort": "Your message must be at least 10 characters long."
   },
   "footer": {
-    "tagline": "Transforming your document workflows with secure, legally valid digital signatures and e-meterai.",
-    "privacyNotice": "Privacy Notice",
-    "address": "Address",
-    "phone": "Phone Number",
-    "partners": "Partners"
+    "tagline": "The premier platform for free online PDF signatures and certified digital e-seals. Transform your document workflow with legally binding security.",
+    "privacyNotice": "Privacy Policy",
+    "address": "Office Address",
+    "phone": "Contact Number",
+    "partners": "Business Partners"
   }
 }
