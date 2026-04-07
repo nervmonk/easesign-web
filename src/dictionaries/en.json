@@ -22,7 +22,7 @@
     "certTitle": "Certified Digital Signature",
     "certBadge": "Komdigi Verified",
     "certDesc": "Cryptographically secure, legally binding signatures backed by Indonesian PSrE infrastructure. Fully validatable worldwide.",
-    "gotoConsole": "Go to Dev Console",
+    "gotoConsole": "Go to Console",
     "requiresAccount": "Requires EaseSign registered account",
     "documentName": "Loading document...",
     "addSignature": "Add Signature",
@@ -34,7 +34,8 @@
     "uploadDesc": "We highly recommend using a transparent PNG image for best results.",
     "selectImage": "Select Image",
     "clearArea": "Clear Area",
-    "useSignature": "Use Signature"
+    "useSignature": "Use Signature",
+    "signatureHint": "Drag to move · Drag corners to resize"
   },
   "aboutSection": {
     "supportedBy": "Supported By",

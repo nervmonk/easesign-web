@@ -22,7 +22,7 @@
     "certTitle": "Tanda Tangan dengan Sertifikat Digital (PSrE)",
     "certBadge": "Terverifikasi Komdigi",
     "certDesc": "Tanda tangan digital yang aman dan mengikat secara hukum dengan Sertifikat PSrE Indonesia. Terverifikasi di portal root CA.",
-    "gotoConsole": "Buka Dev Console",
+    "gotoConsole": "Buka Console",
     "requiresAccount": "Membutuhkan akun EaseSign",
     "documentName": "Loading document...",
     "addSignature": "Tambah Tanda Tangan",
@@ -34,7 +34,8 @@
     "uploadDesc": "Kami menyarankan file PNG transparan untuk hasil terbaik.",
     "selectImage": "Pilih Gambar",
     "clearArea": "Bersihkan Area",
-    "useSignature": "Gunakan Tanda Tangan"
+    "useSignature": "Gunakan Tanda Tangan",
+    "signatureHint": "Geser untuk pindah · Seret sudut untuk ubah ukuran"
   },
   "aboutSection": {
     "supportedBy": "Didukung Oleh",

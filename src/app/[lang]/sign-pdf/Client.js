@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -8,8 +8,8 @@ import { Document, Page, pdfjs } from "react-pdf";
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import { Rnd } from 'react-rnd';
-import { PDFDocument } from 'pdf-lib';
-import { UploadCloud, FileText, Download, PenLine, Image as ImageIcon, ShieldCheck } from "lucide-react";
+import { PDFDocument, degrees } from 'pdf-lib';
+import { UploadCloud, FileText, Download, PenLine, Image as ImageIcon, ShieldCheck, Move } from "lucide-react";
 
 // Configure pdfjs worker to use CDN to avoid next.js turbopack issues
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -28,6 +28,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
     const [isProcessing, setIsProcessing] = useState(false);
     const [domReady, setDomReady] = useState(false);
     const [pageWidth, setPageWidth] = useState(800);
+    const [showSignatureHint, setShowSignatureHint] = useState(true);
 
     useEffect(() => {
         setDomReady(true);
@@ -40,21 +41,59 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
     }, []);
 
     const documentWrapperRef = useRef(null);
+    const workspaceRef = useRef(null);
     const canvasRef = useRef(null);
     const isDrawing = useRef(false);
     const lastPos = useRef({ x: 0, y: 0 });
 
-    // Compute image ratio when signature is uploaded
+    // Compute image ratio, center signature on PDF, and scroll workspace into view
     useEffect(() => {
         if (signatureUrl) {
             const img = new window.Image();
             img.onload = () => {
                 const ratio = img.height / img.width;
-                setImageSize({ width: 150, height: 150 * ratio });
+                const newWidth = 150;
+                const newHeight = Math.round(150 * ratio);
+                setImageSize({ width: newWidth, height: newHeight });
+
+                // Center signature on the rendered PDF page
+                const wrapperEl = documentWrapperRef.current;
+                if (wrapperEl) {
+                    const wrapperWidth = wrapperEl.clientWidth;
+                    const wrapperHeight = wrapperEl.clientHeight;
+                    setSignaturePos({
+                        x: Math.max(0, Math.round((wrapperWidth - newWidth) / 2)),
+                        y: Math.max(20, Math.round((wrapperHeight - newHeight) / 3)),
+                    });
+                } else {
+                    setSignaturePos({
+                        x: Math.max(0, Math.round((pageWidth - newWidth) / 2)),
+                        y: 100,
+                    });
+                }
+
+                setShowSignatureHint(true);
+
+                // Scroll to top of workspace so the user sees the PDF
+                setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 100);
             };
             img.src = signatureUrl;
         }
-    }, [signatureUrl]);
+    }, [signatureUrl, pageWidth]);
+
+    // Auto-dismiss hint after 6 seconds
+    useEffect(() => {
+        if (showSignatureHint && signatureUrl) {
+            const timer = setTimeout(() => setShowSignatureHint(false), 6000);
+            return () => clearTimeout(timer);
+        }
+    }, [showSignatureHint, signatureUrl]);
+
+    const dismissHint = useCallback(() => {
+        setShowSignatureHint(false);
+    }, []);
 
     const onFileUpload = (e, type) => {
         const file = e.target.files[0];
@@ -163,14 +202,24 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                 return;
             }
 
-            // 3. Get currently viewed page
+            // 3. Get currently viewed page and its properties
             const pages = pdfDoc.getPages();
             const currentPage = pages[pageNumber - 1];
-            const pdfNaturalWidth = currentPage.getWidth();
-            const pdfNaturalHeight = currentPage.getHeight();
 
-            // 4. Calculate relative scale
-            // Instead of the wrapper div, we target the canvas for perfect precision
+            // MediaBox dimensions (unrotated native PDF coordinates)
+            const mbWidth = currentPage.getWidth();
+            const mbHeight = currentPage.getHeight();
+
+            // Page rotation — react-pdf renders the rotated view,
+            // but pdf-lib coordinates are in the unrotated MediaBox space
+            const rotAngle = currentPage.getRotation().angle;
+            const isRotated = (rotAngle === 90 || rotAngle === 270);
+
+            // Visual dimensions (what the user actually sees in the browser)
+            const visWidth = isRotated ? mbHeight : mbWidth;
+            const visHeight = isRotated ? mbWidth : mbHeight;
+
+            // 4. Get the rendered canvas for coordinate mapping
             const canvasElement = documentWrapperRef.current?.querySelector('canvas');
             if (!canvasElement) {
                 console.error("Canvas element not found, cannot calculate coordinates.");
@@ -178,31 +227,69 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                 return;
             }
 
-            const scaleX = pdfNaturalWidth / canvasElement.clientWidth;
-            const scaleY = pdfNaturalHeight / canvasElement.clientHeight;
+            // Client dimensions of the canvas as rendered in the UI
+            const canvasW = canvasElement.clientWidth;
+            const canvasH = canvasElement.clientHeight;
 
-            // Coordinates relative to the canvas
-            // Rnd is relative to the wrapper, so if there's a border, we subtract it
-            const wrapperRect = documentWrapperRef.current.getBoundingClientRect();
+            console.log('PDF Debug:', { mbWidth, mbHeight, rotAngle, visWidth, visHeight, canvasW, canvasH });
+
+            // Scale from UI pixels to visual PDF points
+            const scaleX = visWidth / canvasW;
+            const scaleY = visHeight / canvasH;
+
+            // Signature visual position in the rendered view (relative to canvas)
             const canvasRect = canvasElement.getBoundingClientRect();
+            // We use client rect to get zero-offset relative to the canvas content
+            const sigVisX = (signaturePos.x - (canvasRect.left - documentWrapperRef.current.getBoundingClientRect().left)) * scaleX;
+            const sigVisY = (signaturePos.y - (canvasRect.top - documentWrapperRef.current.getBoundingClientRect().top)) * scaleY;
+            const sigVisW = imageSize.width * scaleX;
+            const sigVisH = imageSize.height * scaleY;
 
-            const offsetX = canvasRect.left - wrapperRect.left;
-            const offsetY = canvasRect.top - wrapperRect.top;
+            // 5. Transform visual coordinates → MediaBox coordinates and draw
+            // pdf-lib draws in the unrotated MediaBox space (origin bottom-left)
+            let finalX, finalY, finalW, finalH, imgRotation;
 
-            const pdfUiX = signaturePos.x - offsetX;
-            const pdfUiY = signaturePos.y - offsetY;
+            switch (rotAngle) {
+                case 90:
+                    // Visual X→up = MB Y↑, Visual Y→right = MB X→
+                    finalX = sigVisY;
+                    finalY = sigVisX;
+                    finalW = sigVisH;
+                    finalH = sigVisW;
+                    imgRotation = degrees(-90);
+                    break;
+                case 180:
+                    finalX = mbWidth - sigVisX - sigVisW;
+                    finalY = sigVisY;
+                    finalW = sigVisW;
+                    finalH = sigVisH;
+                    imgRotation = degrees(-180);
+                    break;
+                case 270:
+                    finalX = mbWidth - sigVisY - sigVisH;
+                    finalY = mbHeight - sigVisX - sigVisW;
+                    finalW = sigVisH;
+                    finalH = sigVisW;
+                    imgRotation = degrees(-270);
+                    break;
+                default: // 0 — no rotation
+                    finalX = sigVisX;
+                    finalY = visHeight - sigVisY - sigVisH;
+                    finalW = sigVisW;
+                    finalH = sigVisH;
+                    imgRotation = degrees(0);
+                    break;
+            }
 
-            const finalX = pdfUiX * scaleX;
-            // Invert Y coordinate
-            // pdf-lib's drawImage origin (finalX, finalY) is the bottom-left corner of the image
-            const finalY = pdfNaturalHeight - ((pdfUiY + imageSize.height) * scaleY);
+            console.log('Signature placement:', { sigVisX, sigVisY, sigVisW, sigVisH, finalX, finalY, finalW, finalH, rotAngle });
 
-            // 5. Draw image
+            // 6. Draw image with rotation compensation
             currentPage.drawImage(signatureImage, {
                 x: finalX,
                 y: finalY,
-                width: imageSize.width * scaleX,
-                height: imageSize.height * scaleY,
+                width: finalW,
+                height: finalH,
+                rotate: imgRotation,
             });
 
             // 6. Save and Download
@@ -245,6 +332,52 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
             setIsProcessing(false);
         }
     };
+
+    // Shared page navigation component
+    const PageNavigation = ({ compact = false }) => {
+        if (!numPages || numPages <= 1) return null;
+        return (
+            <div className={`flex items-center gap-1 text-sm bg-white/5 border border-white/10 rounded-lg flex-shrink-0 ${compact ? 'px-1.5 py-0.5' : 'px-2 py-1'}`}>
+                <button
+                    onClick={() => setPageNumber(p => Math.max(1, p - 1))}
+                    disabled={pageNumber <= 1}
+                    className="hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 p-1 rounded"
+                >
+                    ◀
+                </button>
+                <span className={`font-semibold text-purple-200 whitespace-nowrap px-1 ${compact ? 'text-xs' : ''}`}>{pageNumber} / {numPages}</span>
+                <button
+                    onClick={() => setPageNumber(p => Math.min(numPages, p + 1))}
+                    disabled={pageNumber >= numPages}
+                    className="hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 p-1 rounded"
+                >
+                    ▶
+                </button>
+            </div>
+        );
+    };
+
+    // Shared action buttons component
+    const ActionButtons = ({ compact = false }) => (
+        <div className={`flex items-center ${compact ? 'gap-2' : 'gap-2 md:gap-3'}`}>
+            {!signatureUrl && (
+                <button
+                    onClick={() => setShowSignatureModal(true)}
+                    className={`flex items-center justify-center gap-1.5 bg-white/10 hover:bg-white/20 text-white rounded-lg font-medium transition-colors whitespace-nowrap border border-white/10 ${compact ? 'px-3 py-2 text-xs' : 'px-4 py-2 text-sm'}`}
+                >
+                    <PenLine className={compact ? "w-3.5 h-3.5 text-purple-400" : "w-4 h-4 text-purple-400"} /> {dict?.addSignature || 'Add Signature'}
+                </button>
+            )}
+            <button
+                onClick={handleDownloadPDF}
+                disabled={isProcessing || !signatureUrl}
+                className={`flex items-center justify-center gap-1.5 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white rounded-lg font-bold transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/20 ${compact ? 'px-4 py-2 text-xs' : 'px-6 py-2 text-sm'}`}
+            >
+                <Download className={compact ? "w-3.5 h-3.5" : "w-4 h-4"} />
+                {isProcessing ? (dict?.processing || "Processing...") : (dict?.signButton || 'Sign')}
+            </button>
+        </div>
+    );
 
     return (
         <>
@@ -317,7 +450,7 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                                 <p className="text-gray-400 mb-8 flex-1">{dict?.certDesc || 'Secure, legally binding digital signature involving Indonesian PSrE Certificate. Verifiable on root CA portals.'}</p>
 
                                 <a href="https://dev-console.easesign.site" target="_blank" rel="noopener noreferrer" className="bg-[#1f1642] hover:bg-indigo-600 border border-indigo-500/30 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-md transition-colors w-full inline-block">
-                                    {dict?.gotoConsole || 'Go to Dev Console'}
+                                    {dict?.gotoConsole || 'Go to Console'}
                                 </a>
                                 <p className="text-xs text-gray-500 mt-4">{dict?.requiresAccount || 'Requires EaseSign registered account'}</p>
                             </div>
@@ -327,64 +460,34 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                     </div>
                 ) : (
                     /* Step 2: Interactive Workspace View */
-                    <div className="flex-1 flex flex-col">
+                    <div ref={workspaceRef} className="flex-1 flex flex-col">
 
-                        {/* Sticky Toolbar Area */}
-                        <div className="sticky top-0 bg-[#140e2a]/95 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-3 shadow-xl z-20">
+                        {/* Mobile: Compact filename header */}
+                        <div className="md:hidden bg-[#140e2a]/95 backdrop-blur-xl border-b border-white/10 px-4 py-2.5 flex items-center gap-2">
+                            <FileText className="w-4 h-4 text-purple-400 flex-shrink-0" />
+                            <span className="font-medium text-white truncate text-sm">{pdfFile.name}</span>
+                        </div>
+
+                        {/* Desktop: Full sticky top toolbar */}
+                        <div className="hidden md:flex sticky top-0 bg-[#140e2a]/95 backdrop-blur-xl border-b border-white/10 px-4 md:px-6 py-3 items-center justify-between gap-3 shadow-xl z-20">
                             {/* Left: File name + page nav */}
-                            <div className="flex items-center gap-3 w-full md:w-auto">
-                                <div className="flex items-center gap-2 min-w-0 flex-1 md:flex-initial">
+                            <div className="flex items-center gap-3">
+                                <div className="flex items-center gap-2 min-w-0">
                                     <FileText className="w-4 h-4 text-purple-400 flex-shrink-0" />
                                     <span className="font-medium text-white truncate text-sm">{pdfFile.name}</span>
                                 </div>
-                                {numPages && numPages > 1 && (
-                                    <div className="flex items-center gap-1 text-sm bg-white/5 border border-white/10 px-2 py-1 rounded-lg flex-shrink-0">
-                                        <button
-                                            onClick={() => setPageNumber(p => Math.max(1, p - 1))}
-                                            disabled={pageNumber <= 1}
-                                            className="hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 p-1 rounded"
-                                        >
-                                            ◀
-                                        </button>
-                                        <span className="font-semibold text-purple-200 whitespace-nowrap px-1">{pageNumber} / {numPages}</span>
-                                        <button
-                                            onClick={() => setPageNumber(p => Math.min(numPages, p + 1))}
-                                            disabled={pageNumber >= numPages}
-                                            className="hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 p-1 rounded"
-                                        >
-                                            ▶
-                                        </button>
-                                    </div>
-                                )}
+                                <PageNavigation />
                             </div>
-
                             {/* Right: Actions */}
-                            <div className="flex items-center gap-2 md:gap-3 w-full md:w-auto">
-                                {!signatureUrl && (
-                                    <button
-                                        onClick={() => setShowSignatureModal(true)}
-                                        className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap flex-1 md:flex-initial text-sm border border-white/10"
-                                    >
-                                        <PenLine className="w-4 h-4 text-purple-400" /> {dict?.addSignature || 'Add Signature'}
-                                    </button>
-                                )}
-                                <button
-                                    onClick={handleDownloadPDF}
-                                    disabled={isProcessing || !signatureUrl}
-                                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-400 hover:to-indigo-500 text-white px-6 py-2 rounded-lg font-bold transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/20 flex-1 md:flex-initial text-sm"
-                                >
-                                    <Download className="w-4 h-4" />
-                                    {isProcessing ? (dict?.processing || "Processing...") : (dict?.signButton || 'Sign')}
-                                </button>
-                            </div>
+                            <ActionButtons />
                         </div>
 
-                        {/* Document Render Area */}
-                        <div className="flex-1 bg-[#050505] overflow-auto p-4 md:p-8 flex justify-center shadow-inner relative z-0">
+                        {/* Document Render Area — extra bottom padding on mobile for fixed bar */}
+                        <div className="flex-1 bg-[#050505] overflow-auto p-4 md:p-8 pb-24 md:pb-8 flex justify-center shadow-inner relative z-0">
                             {domReady && (
                                 <div
                                     ref={documentWrapperRef}
-                                    className="relative flex max-w-full border border-white/10 shadow-2xl bg-white select-none overflow-hidden"
+                                    className="relative inline-block max-w-full select-none"
                                 >
                                     <Document
                                         file={pdfFile}
@@ -396,17 +499,19 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                                             renderTextLayer={false}
                                             renderAnnotationLayer={false}
                                             width={pageWidth}
-                                            className="bg-white [&>canvas]:!max-w-full [&>canvas]:!h-auto"
+                                            className="bg-white border border-white/10 shadow-2xl [&>canvas]:block"
                                         />
                                     </Document>
 
-                                    {/* Draggable & Resizable Overlay */}
+                                    {/* Draggable & Resizable Signature Overlay */}
                                     {signatureUrl && (
                                         <Rnd
                                             bounds="parent"
                                             position={{ x: signaturePos.x, y: signaturePos.y }}
                                             size={{ width: imageSize.width, height: imageSize.height }}
+                                            onDragStart={dismissHint}
                                             onDragStop={(e, d) => setSignaturePos({ x: d.x, y: d.y })}
+                                            onResizeStart={dismissHint}
                                             onResizeStop={(e, direction, ref, delta, position) => {
                                                 setImageSize({
                                                     width: parseInt(ref.style.width, 10),
@@ -415,17 +520,44 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                                                 setSignaturePos(position);
                                             }}
                                             lockAspectRatio={true}
-                                            className="z-10 cursor-move border-2 border-dashed border-purple-500 bg-purple-500/10 hover:bg-purple-500/20 rounded-sm overflow-hidden"
+                                            className={`z-10 cursor-move border-2 border-dashed rounded-sm ${showSignatureHint ? 'border-purple-400 bg-purple-500/10 animate-signature-pulse' : 'border-purple-500/50 hover:border-purple-400 bg-transparent'} transition-colors`}
+                                            style={{ overflow: 'visible' }}
                                         >
                                             <img
                                                 src={signatureUrl}
                                                 alt="Signature"
                                                 className="w-full h-full object-contain pointer-events-none"
                                             />
+
+                                            {/* Corner resize grip indicators */}
+                                            <div className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-purple-500 rounded-full border-2 border-white shadow-md pointer-events-none" />
+                                            <div className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-purple-500 rounded-full border-2 border-white shadow-md pointer-events-none" />
+                                            <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-purple-500 rounded-full border-2 border-white shadow-md pointer-events-none" />
+                                            <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-purple-500 rounded-full border-2 border-white shadow-md pointer-events-none" />
+
+                                            {/* Drag/resize hint tooltip */}
+                                            {showSignatureHint && (
+                                                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#1a1235]/95 text-purple-300 text-[11px] px-3 py-1.5 rounded-full shadow-lg border border-purple-500/30 animate-bounce-gentle pointer-events-none z-20 backdrop-blur-sm">
+                                                    <span className="flex items-center gap-1.5">
+                                                        <Move className="w-3 h-3" /> {dict?.signatureHint || 'Drag to move · Drag corners to resize'}
+                                                    </span>
+                                                </div>
+                                            )}
                                         </Rnd>
                                     )}
                                 </div>
                             )}
+                        </div>
+
+                        {/* Mobile: Fixed bottom bar with page nav + sign button */}
+                        <div className="md:hidden fixed bottom-0 left-0 right-0 z-20 bg-[#140e2a]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.3)] safe-bottom">
+                            {/* Left: page navigation */}
+                            {numPages && numPages > 1 ? (
+                                <PageNavigation compact />
+                            ) : <div />}
+
+                            {/* Right: action buttons */}
+                            <ActionButtons compact />
                         </div>
 
                     </div>
@@ -517,6 +649,29 @@ export default function SignPdfPage({ lang = 'id', dict = {}, navbarDict = {} })
                 }
                 .animate-float {
                     animation: float 6s ease-in-out infinite;
+                }
+                @keyframes signature-pulse {
+                    0%, 100% {
+                        border-color: rgba(192, 132, 252, 0.5);
+                        box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.3);
+                    }
+                    50% {
+                        border-color: rgba(192, 132, 252, 1);
+                        box-shadow: 0 0 14px 4px rgba(168, 85, 247, 0.15);
+                    }
+                }
+                .animate-signature-pulse {
+                    animation: signature-pulse 2s ease-in-out infinite;
+                }
+                @keyframes bounce-gentle {
+                    0%, 100% { transform: translateX(-50%) translateY(0); }
+                    50% { transform: translateX(-50%) translateY(-4px); }
+                }
+                .animate-bounce-gentle {
+                    animation: bounce-gentle 1.5s ease-in-out infinite;
+                }
+                .safe-bottom {
+                    padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));
                 }
             `}</style>
         </>
