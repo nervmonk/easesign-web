@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     metadataBase: new URL('https://easesign.site'),
     title: {
-      default: isEn ? "Digital Signature & Official e-Seal (PSrE) Indonesia" : "Tanda Tangan Digital & E-Meterai Resmi PSrE",
+      default: isEn ? "Digital Signature & Official e-Seal (PSrE) Indonesia" : "Tanda Tangan Digital & E-Meterai Digital Resmi",
       template: "%s | EaseSign"
     },
     description: isEn 

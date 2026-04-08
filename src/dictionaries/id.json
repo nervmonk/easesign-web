@@ -8,8 +8,8 @@
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
-    "title": "Tanda Tangan PDF Online Gratis & E-Meterai Resmi PSrE",
-    "subtitle": "Solusi tanda tangan digital PDF yang sah secara hukum, aman, dan gratis. Lengkapi dokumen Anda dengan e-meterai resmi Komdigi untuk mempercepat alur kerja bisnis di Indonesia.",
+    "title": "Tanda Tangan PDF Online Gratis & E-Meterai Digital Resmi",
+    "subtitle": "Solusi tanda tangan digital PDF yang sah secara hukum, aman, dan gratis. Lengkapi dokumen Anda dengan e-meterai digital resmi Komdigi untuk mempercepat alur kerja bisnis di Indonesia.",
     "ctaPrimary": "Buat Tanda Tangan PDF Sekarang",
     "ctaSecondary": "Lihat Cara Kerja"
   },
@@ -82,8 +82,8 @@
         "description": "Solusi tanda tangan PDF online yang mudah, gratis, dan legal. Kirim, terima, dan tandatangani dokumen elektronik Anda dari perangkat mana saja."
       },
       {
-        "title": "Easy Stamp (E-Meterai Resmi)",
-        "description": "Beli dan bubuhkan e-meterai resmi untuk dokumen elektronik. Easy Stamp terintegrasi langsung dengan sistem PERURI dan Direktorat Jenderal Pajak (DJP)."
+        "title": "Easy Stamp (E-Meterai Digital Resmi)",
+        "description": "Beli dan bubuhkan e-meterai digital resmi untuk dokumen elektronik. Easy Stamp terintegrasi langsung dengan sistem PERURI dan Direktorat Jenderal Pajak (DJP)."
       }
     ],
     "kycProducts": [
@@ -144,10 +144,38 @@
     "errMessageShort": "Pesan terlalu singkat (minimal 10 karakter)."
   },
   "footer": {
-    "tagline": "Platform tanda tangan PDF online gratis dan e-meterai resmi terpercaya. Solusi dokumen digital yang aman, cepat, dan sah secara hukum di Indonesia.",
+    "tagline": "Platform tanda tangan PDF online gratis dan e-meterai digitalresmi terpercaya. Solusi dokumen digital yang aman, cepat, dan sah secara hukum di Indonesia.",
     "privacyNotice": "Kebijakan Privasi",
     "address": "Alamat Kantor",
     "phone": "Hubungi Kami",
     "partners": "Mitra Bisnis"
+  },
+  "consoleSection": {
+    "badge": "KONSOL EASESIGN",
+    "title": "Efisiensi Tanpa Batas dalam Genggaman Anda",
+    "subtitle": "Dari pelacakan dokumen real-time hingga manajemen pengeluaran, lakukan semuanya lebih cepat dengan ekosistem digital EaseSign.",
+    "features": [
+      {
+        "title": "Dasbor Utama",
+        "desc": "Ringkasan statistik dan aktivitas dokumen Anda secara menyeluruh.",
+        "image": "/dashboard-light.jpeg"
+      },
+      {
+        "title": "Pelacakan Canggih",
+        "desc": "Pantau proses penandatanganan dokumen secara real-time dan transparan.",
+        "image": "/document-sign-tracking.jpeg"
+      },
+      {
+        "title": "Detail Transaksi",
+        "desc": "Lacak detail pengeluaran untuk setiap dokumen dengan laporan yang rapi.",
+        "image": "/transaction-details.jpeg"
+      },
+      {
+        "title": "Pembayaran Mudah",
+        "desc": "Dukungan pembayaran melalui Bank transfer hingga E-wallet favorit Anda.",
+        "image": "/easy-payment.jpeg"
+      }
+    ],
+    "cta": "Mulai Sekarang"
   }
 }

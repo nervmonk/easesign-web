@@ -1,9 +1,10 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
-import FeatureSection from '../components/FeatureSection';
-import ProductsSection from '../components/ProductsSection';
-import ClientSection from '../components/ClientSection';
+import FeatureSection from "@/app/components/FeatureSection";
+import ProductsSection from "@/app/components/ProductsSection";
+import ConsoleSection from "@/app/components/ConsoleSection";
+import ClientSection from "@/app/components/ClientSection";
 import Footer from '../components/Footer';
 import { Metadata } from 'next';
 import { getDictionary } from '../dictionaries';
@@ -14,10 +15,10 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return {
     title: isEn 
       ? 'Digital Signature & Official e-Seal (PSrE) Indonesia | EaseSign' 
-      : 'Tanda Tangan Digital & E-Meterai Resmi PSrE Komdigi | EaseSign',
+      : 'Tanda Tangan Digital & E-Meterai Digital Resmi PSrE Komdigi | EaseSign',
     description: isEn 
       ? 'Secure, legally binding digital signatures and electronic seals (e-seal) recognized by Komdigi Indonesia. Fast, efficient, and PSrE-certified.' 
-      : 'EaseSign: Solusi tanda tangan digital dan e-meterai resmi yang diakui Komdigi & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
+      : 'EaseSign: Solusi tanda tangan digital dan e-meterai digital resmi yang diakui Komdigi & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
   }
 }
 
@@ -30,6 +31,7 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <main className="flex-grow">
         <Navbar lang={lang} dict={dict.navbar} />
         <Hero lang={lang} dict={dict.hero} valuePropsDict={dict.valuePropsSection} />
+        <ConsoleSection lang={lang} dict={dict.consoleSection} />
         <AboutSection dict={dict.aboutSection} />
         <FeatureSection dict={dict.featureSection} />
         <ProductsSection dict={dict.productsSection} />

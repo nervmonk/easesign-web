@@ -149,5 +149,33 @@
     "address": "Office Address",
     "phone": "Contact Number",
     "partners": "Business Partners"
+  },
+  "consoleSection": {
+    "badge": "EASESIGN CONSOLE",
+    "title": "Limitless Efficiency at Your Fingertips",
+    "subtitle": "From real-time document tracking to expense management, get everything done faster with EaseSign's digital ecosystem.",
+    "features": [
+      {
+        "title": "Main Dashboard",
+        "desc": "A comprehensive summary of your document statistics and activities.",
+        "image": "/dashboard-light.jpeg"
+      },
+      {
+        "title": "Sophisticated Tracking",
+        "desc": "Monitor the document signing process in real-time with full transparency.",
+        "image": "/document-sign-tracking.jpeg"
+      },
+      {
+        "title": "Transaction Details",
+        "desc": "Track expense details for every document with organized reports.",
+        "image": "/transaction-details.jpeg"
+      },
+      {
+        "title": "Easy Payment",
+        "desc": "Support for payments via Bank transfer to your favorite E-wallets.",
+        "image": "/easy-payment.jpeg"
+      }
+    ],
+    "cta": "Get Started Now"
   }
 }
