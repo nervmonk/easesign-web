@@ -3,7 +3,9 @@ import Hero from '../components/Hero';
 import AboutSection from '../components/AboutSection';
 import FeatureSection from "@/app/components/FeatureSection";
 import ProductsSection from "@/app/components/ProductsSection";
+import FreeSignatureHook from "@/app/components/FreeSignatureHook";
 import ConsoleSection from "@/app/components/ConsoleSection";
+import UserProfilesSection from "@/app/components/UserProfilesSection";
 import ClientSection from "@/app/components/ClientSection";
 import Footer from '../components/Footer';
 import { Metadata } from 'next';
@@ -31,11 +33,13 @@ export default async function Home({ params }: { params: { lang: string } }) {
       <main className="flex-grow">
         <Navbar lang={lang} dict={dict.navbar} />
         <Hero lang={lang} dict={dict.hero} valuePropsDict={dict.valuePropsSection} />
-        <ConsoleSection lang={lang} dict={dict.consoleSection} />
-        <AboutSection dict={dict.aboutSection} />
+        <FreeSignatureHook lang={lang} dict={dict.freeHook} />
         <FeatureSection dict={dict.featureSection} />
+        <ConsoleSection lang={lang} dict={dict.consoleSection} />
+        <UserProfilesSection lang={lang} dict={dict.userProfiles} />
         <ProductsSection dict={dict.productsSection} />
         <ClientSection dict={dict.clientSection} />
+        <AboutSection dict={dict.aboutSection} />
       </main>
       <Footer lang={lang} dict={dict.footer} />
       {/* You can add the rest of your page sections here */}

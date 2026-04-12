@@ -177,5 +177,37 @@
       }
     ],
     "cta": "Mulai Sekarang"
+  },
+  "userProfiles": {
+    "badge": "SOLUSI FLEKSIBEL",
+    "title": "Dibangun untuk Semua Kebutuhan",
+    "subtitle": "Baik untuk tanda tangan dokumen pribadi mapun otomatisasi alur kerja korporasi, EaseSign menyediakan alat yang tepat untuk profil Anda.",
+    "individual": {
+      "title": "Profil Individu",
+      "desc": "Sempurna untuk pekerja lepas (freelancer) dan penggunaan pribadi.",
+      "features": [
+        "Tanda Tangan Digital",
+        "Pembubuhan E-Meterai Resmi",
+        "Riwayat & Pelacakan Dokumen"
+      ],
+      "cta": "Mulai Gratis"
+    },
+    "corporate": {
+      "title": "Profil Korporasi",
+      "desc": "Fitur canggih untuk perusahaan skala menengah hingga besar.",
+      "features": [
+        "Integrasi REST API & Webhooks",
+        "Layanan KYC dan Onboarding",
+        "Tanda Tangan Digital Massal",
+        "Opsi Pembayaran Prabayar & Pascabayar"
+      ],
+      "cta": "Daftar Sekarang"
+    }
+  },
+  "freeHook": {
+    "badge": "100% GRATIS TANPA LOGIN",
+    "title": "Perlu edit PDF dengan cepat?",
+    "subtitle": "Tanpa perlu daftar. Cukup unggah dokumen Anda, tempelkan tanda tangan, dan unduh PDF Anda secara instan.",
+    "cta": "Mulai Tanda Tangan Gratis"
   }
 }

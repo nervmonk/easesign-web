@@ -177,5 +177,37 @@
       }
     ],
     "cta": "Get Started Now"
+  },
+  "userProfiles": {
+    "badge": "FLEXIBLE SOLUTIONS",
+    "title": "Built for Every Scale",
+    "subtitle": "Whether you're signing personal documents or fully automating enterprise workflows, we have the right tools tailored for your profile.",
+    "individual": {
+      "title": "Individual Profile",
+      "desc": "Perfect for freelancers and personal use.",
+      "features": [
+        "Digital Signatures",
+        "Official E-Meterai Stamping",
+        "Document History & Tracking"
+      ],
+      "cta": "Start for Free"
+    },
+    "corporate": {
+      "title": "Corporate Profile",
+      "desc": "Advanced features for modern enterprises.",
+      "features": [
+        "REST API Integration & Webhooks",
+        "KYC and Onboarding Services",
+        "Bulk Digital Signatures",
+        "Flexible Prepaid & Postpaid Options"
+      ],
+      "cta": "Contact Sales"
+    }
+  },
+  "freeHook": {
+    "badge": "100% FREE UTILITY",
+    "title": "Need to quickly sign a PDF?",
+    "subtitle": "No sign-up. No credit card. Just upload your document, securely drop your signature, and download it instantly.",
+    "cta": "Sign a PDF for Free"
   }
 }
