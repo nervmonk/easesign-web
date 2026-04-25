@@ -4,7 +4,7 @@
     "signPdf": "Sign PDF Free",
     "about": "About",
     "contact": "Contact Us",
-    "consoleLogin": "Console Login"
+    "consoleLogin": "Login"
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
@@ -22,7 +22,7 @@
     "certTitle": "Legally Binding Certified Signatures (PSrE)",
     "certBadge": "Government Verified",
     "certDesc": "Cryptographically secure digital signatures backed by official Indonesian Root CAs. Fully compliant, tamper-proof, and legally binding for enterprise transactions.",
-    "gotoConsole": "Go to EaseSign Console",
+    "gotoConsole": "Go to EaseSign Platform",
     "requiresAccount": "Requires an EaseSign account",
     "documentName": "Loading document...",
     "addSignature": "Add Signature",
@@ -151,7 +151,7 @@
     "partners": "Business Partners"
   },
   "consoleSection": {
-    "badge": "EASESIGN CONSOLE",
+    "badge": "EASESIGN PLATFORM",
     "title": "Limitless Efficiency at Your Fingertips",
     "subtitle": "From real-time document tracking to expense management, get everything done faster with EaseSign's digital ecosystem.",
     "features": [

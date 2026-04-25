@@ -71,8 +71,8 @@ const ConsoleSection = ({ lang = 'id', dict = {} }) => {
                   key={index}
                   onClick={() => setActiveTab(index)}
                   className={`flex items-start gap-4 p-5 rounded-2xl border transition-all duration-300 text-left cursor-pointer ${activeTab === index
-                      ? 'bg-indigo-500/10 border-indigo-500/40 shadow-[0_0_20px_rgba(99,102,241,0.1)]'
-                      : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                    ? 'bg-indigo-500/10 border-indigo-500/40 shadow-[0_0_20px_rgba(99,102,241,0.1)]'
+                    : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
                     }`}
                 >
                   <div className={`mt-1 transition-colors duration-300 ${activeTab === index ? 'text-cyan-400' : 'text-gray-500'}`}>
@@ -114,7 +114,7 @@ const ConsoleSection = ({ lang = 'id', dict = {} }) => {
                   <div className="w-3 h-3 rounded-full bg-amber-500/50"></div>
                   <div className="w-3 h-3 rounded-full bg-emerald-500/50"></div>
                 </div>
-                <div className="text-[10px] text-gray-500 font-mono tracking-widest uppercase opacity-50">EaseSign Console Preview</div>
+                <div className="text-[10px] text-gray-500 font-mono tracking-widest uppercase opacity-50">EaseSign Platform Preview</div>
               </div>
 
               {/* Image Showcase */}
@@ -195,8 +195,8 @@ const ConsoleSection = ({ lang = 'id', dict = {} }) => {
                     key={index}
                     onClick={() => setActiveTab(index)}
                     className={`transition-all duration-300 rounded-full ${activeTab === index
-                        ? 'w-6 h-1.5 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]'
-                        : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
+                      ? 'w-6 h-1.5 bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]'
+                      : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
                       }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />

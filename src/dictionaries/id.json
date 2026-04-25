@@ -4,7 +4,7 @@
     "signPdf": "Tanda Tangan PDF Gratis",
     "about": "Tentang Kami",
     "contact": "Kontak Kami",
-    "consoleLogin": "Masuk Konsol"
+    "consoleLogin": "Login"
   },
   "hero": {
     "badge": "PT Paramita Digital Nusantara",
@@ -22,7 +22,7 @@
     "certTitle": "Tanda Tangan Legal dengan Sertifikat Digital (PSrE)",
     "certBadge": "Terverifikasi Komdigi",
     "certDesc": "Tanda tangan elektronik yang aman dan mengikat secara hukum dengan Sertifikat PSrE Indonesia. Dokumen Anda terverifikasi resmi di portal root CA.",
-    "gotoConsole": "Buka Konsol EaseSign",
+    "gotoConsole": "Buka Platform EaseSign",
     "requiresAccount": "Membutuhkan akun EaseSign",
     "documentName": "Memuat dokumen...",
     "addSignature": "Tambah Tanda Tangan",
@@ -151,7 +151,7 @@
     "partners": "Mitra Bisnis"
   },
   "consoleSection": {
-    "badge": "KONSOL EASESIGN",
+    "badge": "PLATFORM EASESIGN",
     "title": "Efisiensi Tanpa Batas dalam Genggaman Anda",
     "subtitle": "Dari pelacakan dokumen real-time hingga manajemen pengeluaran, lakukan semuanya lebih cepat dengan ekosistem digital EaseSign.",
     "features": [
