@@ -26,7 +26,7 @@ const Navbar = ({ lang = "id", dict = {} }) => {
     <header className="sticky top-0 z-50 bg-white/85 backdrop-blur-xl border-b border-slate-200/70 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
+
           {/* Left: Brand + Status Chip */}
           <div className="flex items-center gap-3.5 lg:gap-4 shrink-0">
             <Link href={`/${lang}`} className="flex items-center focus:outline-none">
@@ -55,11 +55,10 @@ const Navbar = ({ lang = "id", dict = {} }) => {
           <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
             <Link
               href={`/${lang}/sign-pdf`}
-              className={`px-3 py-1.5 rounded-lg text-[13px] font-medium tracking-tight whitespace-nowrap transition-all duration-150 ${
-                isActive("/sign-pdf")
+              className={`px-3 py-1.5 rounded-lg text-[13px] font-medium tracking-tight whitespace-nowrap transition-all duration-150 ${isActive("/sign-pdf")
                   ? "text-[#003366] bg-slate-100/90 font-semibold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
-              }`}
+                }`}
             >
               {dict?.signPdf || "Tanda Tangan Online"}
             </Link>
@@ -83,11 +82,10 @@ const Navbar = ({ lang = "id", dict = {} }) => {
             </a>
             <Link
               href={`/${lang}/contact-us`}
-              className={`px-3 py-1.5 rounded-lg text-[13px] font-medium tracking-tight whitespace-nowrap transition-all duration-150 ${
-                isActive("/contact-us")
+              className={`px-3 py-1.5 rounded-lg text-[13px] font-medium tracking-tight whitespace-nowrap transition-all duration-150 ${isActive("/contact-us")
                   ? "text-[#003366] bg-slate-100/90 font-semibold"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/60"
-              }`}
+                }`}
             >
               {dict?.contact || "Kontak"}
             </Link>
@@ -99,21 +97,19 @@ const Navbar = ({ lang = "id", dict = {} }) => {
             <div className="flex items-center bg-slate-100/90 p-0.5 rounded-full border border-slate-200/70 text-[11px] font-bold text-slate-600">
               <Link
                 href={redirectedPathName("id")}
-                className={`px-2.5 py-0.5 rounded-full transition-all duration-150 ${
-                  lang === "id"
+                className={`px-2.5 py-0.5 rounded-full transition-all duration-150 ${lang === "id"
                     ? "bg-white text-slate-900 shadow-2xs"
                     : "hover:text-slate-900"
-                }`}
+                  }`}
               >
                 ID
               </Link>
               <Link
                 href={redirectedPathName("en")}
-                className={`px-2.5 py-0.5 rounded-full transition-all duration-150 ${
-                  lang === "en"
+                className={`px-2.5 py-0.5 rounded-full transition-all duration-150 ${lang === "en"
                     ? "bg-white text-slate-900 shadow-2xs"
                     : "hover:text-slate-900"
-                }`}
+                  }`}
               >
                 EN
               </Link>
@@ -145,17 +141,15 @@ const Navbar = ({ lang = "id", dict = {} }) => {
             <div className="flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200 text-[11px] font-bold">
               <Link
                 href={redirectedPathName("id")}
-                className={`px-2 py-0.5 rounded-full ${
-                  lang === "id" ? "bg-white text-slate-900 shadow-2xs" : "text-slate-500"
-                }`}
+                className={`px-2 py-0.5 rounded-full ${lang === "id" ? "bg-white text-slate-900 shadow-2xs" : "text-slate-500"
+                  }`}
               >
                 ID
               </Link>
               <Link
                 href={redirectedPathName("en")}
-                className={`px-2 py-0.5 rounded-full ${
-                  lang === "en" ? "bg-white text-slate-900 shadow-2xs" : "text-slate-500"
-                }`}
+                className={`px-2 py-0.5 rounded-full ${lang === "en" ? "bg-white text-slate-900 shadow-2xs" : "text-slate-500"
+                  }`}
               >
                 EN
               </Link>
@@ -184,11 +178,10 @@ const Navbar = ({ lang = "id", dict = {} }) => {
           <div className="space-y-1 pt-1">
             <Link
               href={`/${lang}/sign-pdf`}
-              className={`block px-3 py-2 rounded-lg text-sm font-medium ${
-                isActive("/sign-pdf")
+              className={`block px-3 py-2 rounded-lg text-sm font-medium ${isActive("/sign-pdf")
                   ? "bg-slate-100 text-[#003366] font-semibold"
                   : "text-slate-700 hover:bg-slate-50"
-              }`}
+                }`}
               onClick={() => setIsOpen(false)}
             >
               {dict?.signPdf || "Tanda Tangan Online"}
@@ -216,11 +209,10 @@ const Navbar = ({ lang = "id", dict = {} }) => {
             </a>
             <Link
               href={`/${lang}/contact-us`}
-              className={`block px-3 py-2 rounded-lg text-sm font-medium ${
-                isActive("/contact-us")
+              className={`block px-3 py-2 rounded-lg text-sm font-medium ${isActive("/contact-us")
                   ? "bg-slate-100 text-[#003366] font-semibold"
                   : "text-slate-700 hover:bg-slate-50"
-              }`}
+                }`}
               onClick={() => setIsOpen(false)}
             >
               {dict?.contact || "Kontak Kami"}

@@ -78,7 +78,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
       {/* HERO SECTION */}
       <section className="relative pt-12 pb-20 lg:pt-16 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto text-center">
-          
+
           {/* Regulatory Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[#003366] text-xs font-bold mb-6 shadow-2xs">
             <ShieldCheck className="w-4 h-4 text-[#0B57D0]" />
@@ -87,7 +87,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.15] mb-6">
-            {dict?.hero?.title || "Tanda Tangan Digital Sah UU ITE & e-Meterai Resmi Indonesia"}
+            {dict?.hero?.title}
           </h1>
 
           {/* Subtitle */}
@@ -136,7 +136,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
       {/* SECTION: PRODUCT OFFERINGS MATRIX */}
       <section id="layanan" className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#003366] text-xs font-bold mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#0B57D0]" />
@@ -153,7 +153,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
 
           {/* 4 Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+
             {/* Product 1: Tanda Tangan Cepat (Gratis) */}
             <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-6 flex flex-col justify-between hover:shadow-md transition-all">
               <div>
@@ -342,7 +342,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
       {/* SECTION: WORKPLACE USE CASES */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold mb-3">
               <Briefcase className="w-3.5 h-3.5 text-emerald-600" />
@@ -404,7 +404,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
       {/* SECTION: STATUTORY LEGAL FOUNDATIONS */}
       <section id="legalitas" className="py-20 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="max-w-3xl mx-auto text-center mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold mb-3">
               <Scale className="w-3.5 h-3.5 text-slate-700" />

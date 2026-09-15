@@ -12,11 +12,11 @@
     "badgeOfficial": "PSrE Berinduk Komdigi"
   },
   "hero": {
-    "badge": "PT Paramita Digital Nusantara · Terdaftar Komdigi",
-    "title": "Tanda Tangan Digital Sah UU ITE & e-Meterai Resmi Indonesia",
-    "subtitle": "Langsung tanda tangani kontrak bisnis, perjanjian kerja, dan faktur tanpa ribet daftar. Dilengkapi sertifikat PSrE resmi, verifikasi e-KYC Dukcapil, atau tanda tangan cepat gratis.",
-    "dropzoneTitle": "Tarik & Lepas Dokumen PDF di Sini",
-    "dropzoneSubtitle": "atau klik untuk memilih file dari komputer atau HP Anda",
+    "badge": "PT Paramita Digital Nusantara",
+    "title": "Tanda Tangan Digital & e-Meterai Resmi Indonesia",
+    "subtitle": "Tanda tangani kontrak bisnis, perjanjian kerja, atau file pdf apapun tanpa ribet. Dilengkapi sertifikat PSrE resmi, verifikasi e-KYC Dukcapil, atau tanda tangan cepat gratis.",
+    "dropzoneTitle": "Tandatangani Dokumen PDF di Sini",
+    "dropzoneSubtitle": "klik untuk pilih file dari komputer atau smartphone Anda",
     "dropzoneFormat": "Mendukung file PDF resmi hingga 25MB",
     "dropzoneSecurity": "Enkripsi AES-256 · Privasi UU PDP · Dihapus otomatis dalam 48 jam",
     "dropzoneButton": "Pilih File PDF",
