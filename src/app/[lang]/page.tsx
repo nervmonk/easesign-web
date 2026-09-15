@@ -1,48 +1,39 @@
-import Navbar from '../components/Navbar'
-import Hero from '../components/Hero';
-import AboutSection from '../components/AboutSection';
-import FeatureSection from "@/app/components/FeatureSection";
-import ProductsSection from "@/app/components/ProductsSection";
-import FreeSignatureHook from "@/app/components/FreeSignatureHook";
-import ConsoleSection from "@/app/components/ConsoleSection";
-import UserProfilesSection from "@/app/components/UserProfilesSection";
-import ClientSection from "@/app/components/ClientSection";
-import Footer from '../components/Footer';
-import { Metadata } from 'next';
-import { getDictionary } from '../dictionaries';
+import { Metadata } from "next";
+import { getDictionary } from "../dictionaries";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import HomeClient from "./HomeClient";
 
-export async function generateMetadata({ params }: { params: { lang: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
   const { lang } = await params;
-  const isEn = lang === 'en';
+  const isEn = lang === "en";
   return {
-    title: isEn 
-      ? 'Digital Signature & Official e-Seal (PSrE) Indonesia | EaseSign' 
-      : 'Tanda Tangan Digital & E-Meterai Digital Resmi PSrE Komdigi | EaseSign',
-    description: isEn 
-      ? 'Secure, legally binding digital signatures and electronic seals (e-seal) recognized by Komdigi Indonesia. Fast, efficient, and PSrE-certified.' 
-      : 'EaseSign: Solusi tanda tangan digital dan e-meterai digital resmi yang diakui Komdigi & PSrE. Tanda tangan PDF gratis, aman, dan sah secara hukum.'
-  }
+    title: isEn
+      ? "Digital Signature & Official e-Meterai Indonesia | EaseSign"
+      : "Tanda Tangan Digital Sah UU ITE & e-Meterai Resmi Indonesia | EaseSign",
+    description: isEn
+      ? "Legally binding electronic signatures (PSrE) and official Peruri e-Meterai in Indonesia. Sign contracts without login friction."
+      : "Solusi tanda tangan digital sah UU ITE berinduk Komdigi dan e-meterai resmi Peruri. Tanpa ribet daftar, bayar instan via QRIS.",
+  };
 }
 
-export default async function Home({ params }: { params: { lang: string } }) {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#180f33] via-[#0d0d1a] to-[#050505] text-white font-sans overflow-x-hidden">
-      <main className="flex-grow">
-        <Navbar lang={lang} dict={dict.navbar} />
-        <Hero lang={lang} dict={dict.hero} valuePropsDict={dict.valuePropsSection} />
-        <FreeSignatureHook lang={lang} dict={dict.freeHook} />
-        <FeatureSection dict={dict.featureSection} />
-        <ConsoleSection lang={lang} dict={dict.consoleSection} />
-        <UserProfilesSection lang={lang} dict={dict.userProfiles} />
-        <ProductsSection dict={dict.productsSection} />
-        <ClientSection dict={dict.clientSection} />
-        <AboutSection dict={dict.aboutSection} />
-      </main>
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <Navbar lang={lang} dict={dict.navbar} />
+      <HomeClient lang={lang} dict={dict} />
       <Footer lang={lang} dict={dict.footer} />
-      {/* You can add the rest of your page sections here */}
     </div>
   );
 }

@@ -1,213 +1,221 @@
 {
   "navbar": {
     "home": "Home",
-    "signPdf": "Sign PDF Free",
-    "about": "About",
+    "signPdf": "Sign PDF Online",
+    "emeterai": "Buy e-Meterai",
+    "legality": "Legal Compliance",
+    "useCases": "Workplace Solutions",
+    "faq": "FAQ",
     "contact": "Contact Us",
-    "consoleLogin": "Login"
+    "consoleLogin": "Console Login",
+    "startFree": "Start Free",
+    "badgeOfficial": "Licensed Komdigi PSrE"
   },
   "hero": {
-    "badge": "PT Paramita Digital Nusantara",
-    "title": "Free Online PDF Signature & Certified Digital Seals",
-    "subtitle": "Legally sign PDF documents online for free. Secure, fast, and globally accessible electronic signatures, backed by government-certified e-seals for enterprise compliance.",
-    "ctaPrimary": "Sign PDF Online Now",
-    "ctaSecondary": "See How It Works"
+    "badge": "PT Paramita Digital Nusantara · Licensed by Komdigi",
+    "title": "Legally Binding Digital Signatures & Official Indonesian e-Meterai",
+    "subtitle": "Sign contracts, employment agreements, and invoices without registration friction. Backed by licensed Indonesian PSrE certificates, Dukcapil identity verification, or free quick cosmetic signing.",
+    "dropzoneTitle": "Drag & Drop Your PDF Here",
+    "dropzoneSubtitle": "or click to select a document from your computer or phone",
+    "dropzoneFormat": "Supports official PDF files up to 25MB",
+    "dropzoneSecurity": "AES-256 Encryption · Privacy Act Compliant · Auto-purged after 48h",
+    "dropzoneButton": "Choose PDF Document",
+    "dropzoneOrSample": "Try a sample document"
   },
-  "signPdf": {
-    "title": "Sign PDF Documents Online Free",
-    "subtitle": "The most secure digital signature solution for your documents. Use our free online PDF signer instantly, or upgrade to certified e-seals for absolute legal compliance.",
-    "simpleTitle": "Free & Fast PDF Signature",
-    "simpleDesc": "The quickest way to sign a PDF online for free. Upload your document, create your electronic signature, and download it instantly—no hassle, no cost.",
-    "selectPdf": "Select PDF File",
-    "certTitle": "Legally Binding Certified Signatures (PSrE)",
-    "certBadge": "Government Verified",
-    "certDesc": "Cryptographically secure digital signatures backed by official Indonesian Root CAs. Fully compliant, tamper-proof, and legally binding for enterprise transactions.",
-    "gotoConsole": "Go to EaseSign Platform",
-    "requiresAccount": "Requires an EaseSign account",
-    "documentName": "Loading document...",
-    "addSignature": "Add Signature",
-    "signButton": "Sign Document Now",
-    "processing": "Processing securely...",
-    "modalTitle": "Customize Your Digital Signature",
-    "uploadTab": "Upload Image",
-    "drawTab": "Draw Signature",
-    "uploadDesc": "We highly recommend using a transparent PNG file for the most professional result.",
-    "selectImage": "Select Signature Image",
-    "clearArea": "Clear",
-    "useSignature": "Apply Signature",
-    "signatureHint": "Drag to move · Drag corners to resize"
+  "trustBar": {
+    "title": "National Regulatory & Security Compliance",
+    "psre": "Komdigi Licensed PSrE (Tilaka)",
+    "dukcapil": "Dukcapil Identity Verification",
+    "peruri": "Official Peruri e-Meterai",
+    "uite": "Enforceable under UU ITE",
+    "iso": "ISO 27001 Certified Security"
   },
-  "aboutSection": {
-    "supportedBy": "Officially Supported By",
-    "badge": "ABOUT EASESIGN",
-    "title1": "Building the Global Foundation",
-    "title2": "of Digital Trust",
-    "desc1": "EaseSign, a flagship product of PT Paramita Digital Nusantara, delivers an enterprise-grade document authentication platform built for the rigorous demands of the modern, borderless economy.",
-    "desc2": "We eliminate paperwork bottlenecks by providing a fast, free, and legally compliant way to sign PDFs online. From individuals to massive corporations, our mission is to empower everyone to authenticate documents with absolute confidence."
-  },
-  "featureSection": {
-    "badge": "Platform Capabilities",
-    "title": "Why Choose EaseSign for Electronic Signatures?",
-    "subtitle": "Experience a 100% secure, legally-binding digital signature platform tailored to accelerate your business operations.",
-    "features": [
-      {
-        "title": "Fast, Free, & Efficient",
-        "description": "Sign documents online in seconds without spending a dime. Streamline your workflow and eliminate the costly need for printing, scanning, and physical mail."
-      },
-      {
-        "title": "Bank-Grade Security Measures",
-        "description": "Your documents remain strictly private. We utilize advanced 256-bit encryption and multi-layered authentication to protect your digital signatures from unauthorized access or fraud."
-      },
-      {
-        "title": "Official Legal Compliance",
-        "description": "Licensed by the Ministry of Communications and Informatics (Komdigi) and fully supported by national tax and security authorities. Your e-signatures and e-seals carry full legal weight."
-      }
-    ]
-  },
-  "valuePropsSection": {
-    "title": "Reliable, Secure, and Built for Speed",
-    "feature1": "Legally Binding",
-    "feature2": "Sign Anywhere, Anytime",
-    "feature3": "Tamper-Proof Security",
-    "feature4": "100% Paperless & Eco-Friendly"
-  },
-  "productsSection": {
-    "badge": "Our Core Solutions",
-    "title": "Digital Trust Products",
-    "subtitle": "From free online electronic signatures to military-grade identity verification, we provide everything you need to securely digitize your onboarding and operations.",
-    "signatureDivider": "KYC & Automated Onboarding",
-    "signatureProducts": [
-      {
-        "title": "Easy Sign (e-Signature)",
-        "description": "The easiest way to sign a PDF online. Send, receive, and securely e-sign documents instantly from any device with our legally valid electronic signature platform."
-      },
-      {
-        "title": "Easy Stamp (Certified e-Seals)",
-        "description": "Secure, official digital stamps for electronic documents. Fully integrated with state-owned security printing (PERURI) and the Directorate General of Taxes for absolute legal certainty."
-      }
-    ],
-    "kycProducts": [
-      {
-        "title": "ID Card OCR Validation",
-        "description": "Automate your KYC onboarding with AI-powered Optical Character Recognition (OCR) to seamlessly extract and validate identity documents in real-time."
-      },
-      {
-        "title": "Biometric Face Verification",
-        "description": "Ensure the person behind the screen is genuine. Our high-accuracy facial recognition compares live selfies against official ID photos to prevent identity theft."
-      },
-      {
-        "title": "Anti-Spoofing Liveness Detection",
-        "description": "Instantly prevent presentation attacks, deepfakes, and spoofing with our advanced passive liveness detection algorithms."
-      }
-    ]
-  },
-  "clientSection": {
-    "badge": "Industry Leaders",
-    "title": "Trusted by World-Class Organizations",
-    "subtitle": "We are proud to serve as the digital signature solution for a diverse range of businesses, from innovative fintech startups to established multinational enterprises."
-  },
-  "aboutHero": {
-    "heading": "About Us",
-    "desc1": "EaseSign, under the umbrella of PT Paramita Digital Nusantara, is an industry-leading provider of digital authentication platforms designed to meet the evolving demands of today's fast-paced digital era.",
-    "desc2": "With an unwavering focus on compliance, cybersecurity, and user convenience, we empower businesses to simplify document workflows, securely sign PDFs online, and embrace sustainable digital transformation.",
-    "getInTouch": "Contact Our Experts"
-  },
-  "visionSection": {
-    "eyebrow": "Who We Are",
-    "title": "Our Vision & Mission",
-    "desc1": "Our vision is to revolutionize global document validation by providing free, accessible digital signatures and highly secure e-seals. By leveraging cutting-edge technology, EaseSign is committed to delivering unmatched speed, security, and legal compliance.",
-    "desc2": "By maintaining the highest global standards for cybersecurity, EaseSign enables individuals and enterprises to handle their documentation with total confidence. Let us secure your paperwork, so you can focus entirely on scaling your business."
-  },
-  "teamSection": {
-    "eyebrow": "The People",
-    "title": "Our Expert Team",
-    "desc": "The EaseSign platform is built by a dedicated team of cybersecurity experts, legal compliance specialists, and top-tier software engineers. We share a common passion: making legally binding digital signatures accessible, secure, and completely effortless for everyone."
-  },
-  "contactSection": {
-    "eyebrow": "Get In Touch",
-    "title1": "Contact",
-    "title2": "Us",
-    "subtitle": "Want to integrate certified e-seals or need help signing a PDF online? Our support team is ready to help you revolutionize your digital workflows.",
-    "fieldName": "Full Name",
-    "fieldEmail": "Email Address",
-    "fieldMessage": "Your Message or Inquiry",
-    "submit": "Send Message",
-    "submitting": "Sending securely...",
-    "successTitle": "Message Sent!",
-    "successMsg": "Thank you for reaching out to EaseSign. One of our experts will get back to you shortly.",
-    "errorMsg": "Oops! Something went wrong on our end. Please try submitting again.",
-    "errNameRequired": "Please provide your name.",
-    "errNameInvalid": "Please enter a valid name (letters and spaces only).",
-    "errEmailRequired": "An email address is required.",
-    "errEmailInvalid": "Please enter a correctly formatted email address.",
-    "errMessageRequired": "Your message cannot be empty.",
-    "errMessageShort": "Your message must be at least 10 characters long."
-  },
-  "footer": {
-    "tagline": "The premier platform for free online PDF signatures and certified digital e-seals. Transform your document workflow with legally binding security.",
-    "privacyNotice": "Privacy Policy",
-    "address": "Office Address",
-    "phone": "Contact Number",
-    "partners": "Business Partners"
-  },
-  "consoleSection": {
-    "badge": "EASESIGN PLATFORM",
-    "title": "Limitless Efficiency at Your Fingertips",
-    "subtitle": "From real-time document tracking to expense management, get everything done faster with EaseSign's digital ecosystem.",
-    "features": [
-      {
-        "title": "Main Dashboard",
-        "desc": "A comprehensive summary of your document statistics and activities.",
-        "image": "/dashboard-light.jpeg"
-      },
-      {
-        "title": "Sophisticated Tracking",
-        "desc": "Monitor the document signing process in real-time with full transparency.",
-        "image": "/document-sign-tracking.jpeg"
-      },
-      {
-        "title": "Transaction Details",
-        "desc": "Track expense details for every document with organized reports.",
-        "image": "/transaction-details.jpeg"
-      },
-      {
-        "title": "Easy Payment",
-        "desc": "Support for payments via Bank transfer to your favorite E-wallets.",
-        "image": "/easy-payment.jpeg"
-      }
-    ],
-    "cta": "Get Started Now"
-  },
-  "userProfiles": {
-    "badge": "FLEXIBLE SOLUTIONS",
-    "title": "Built for Every Scale",
-    "subtitle": "Whether you're signing personal documents or fully automating enterprise workflows, we have the right tools tailored for your profile.",
-    "individual": {
-      "title": "Individual Profile",
-      "desc": "Perfect for freelancers and personal use.",
+  "offerings": {
+    "badge": "PRODUCT OFFERINGS",
+    "title": "Document Solutions Tailored to Your Workflows",
+    "subtitle": "From quick internal sign-offs to high-stakes contracts with undeniable courtroom evidentiary weight.",
+    "free": {
+      "tag": "Always Free",
+      "title": "Quick Cosmetic Signature",
+      "price": "Rp 0",
+      "desc": "Perfect for internal sign-offs, approval slips, school papers, and non-litigation documents.",
       "features": [
-        "Digital Signatures",
-        "Official E-Meterai Stamping",
-        "Document History & Tracking"
+        "Transparent signature stamping on PDF",
+        "Cryptographic SHA-256 integrity hash",
+        "Official Audit Trail Page attached",
+        "Instant download with zero login required"
       ],
-      "cta": "Start for Free"
+      "cta": "Sign Quickly for Free"
     },
-    "corporate": {
-      "title": "Corporate Profile",
-      "desc": "Advanced features for modern enterprises.",
+    "psre": {
+      "tag": "Most Recommended",
+      "title": "Certified PSrE Signature",
+      "price": "Pay-per-Sign via QRIS",
+      "desc": "Government-recognized digital certificate (Tilaka PSrE) with undeniable legal evidentiary weight.",
       "features": [
-        "REST API Integration & Webhooks",
-        "KYC and Onboarding Services",
-        "Bulk Digital Signatures",
-        "Flexible Prepaid & Postpaid Options"
+        "Fully enforceable under UU ITE Article 11",
+        "Dukcapil biometric e-KYC & liveness detection",
+        "Encrypted certificate with non-repudiation guarantee",
+        "Automatic voucher refund if biometric verification fails"
       ],
-      "cta": "Contact Sales"
+      "cta": "Use PSrE Certified Sign"
+    },
+    "meterai": {
+      "tag": "Official Peruri",
+      "title": "Electronic Stamp (e-Meterai)",
+      "price": "Rp 11,500 / Document",
+      "desc": "Official Peruri digital tax stamp for civil, commercial, and financial agreements.",
+      "features": [
+        "Direct Peruri & Directorate General of Taxes integration",
+        "Unique serial number & verifiable security QR code",
+        "Compliant with Stamp Duty Law No. 10/2020",
+        "Pixel-precise coordinate placement on PDF"
+      ],
+      "cta": "Affix e-Meterai"
+    },
+    "multi": {
+      "tag": "Anti-Phishing Shield",
+      "title": "Multi-Signer Dispatch",
+      "price": "Pay Per Recipient Signer",
+      "desc": "Dispatch contracts to external partners or clients with sender 6-digit OTP verification.",
+      "features": [
+        "6-digit sender OTP prevents email spoofing fraud",
+        "Tokenized secure access link per recipient",
+        "Real-time signature completion tracking",
+        "Final sealed PDF automatically delivered to all parties"
+      ],
+      "cta": "Dispatch Contract Now"
     }
   },
-  "freeHook": {
-    "badge": "100% FREE UTILITY",
-    "title": "Need to quickly sign a PDF?",
-    "subtitle": "No sign-up. No credit card. Just upload your document, securely drop your signature, and download it instantly.",
-    "cta": "Sign a PDF for Free"
+  "useCases": {
+    "badge": "ENTERPRISE & WORKPLACE SOLUTIONS",
+    "title": "Trusted by Indonesian Professionals & Companies",
+    "subtitle": "Designed to eliminate bureaucratic delays and paperwork in modern corporate environments.",
+    "items": [
+      {
+        "role": "Legal, Notaries & In-House Counsel",
+        "headline": "Irrefutable Legal Validity",
+        "desc": "Execute Service Agreements (PKS), NDAs, and Powers of Attorney with certified digital certificates recognized in Indonesian courts under UU ITE."
+      },
+      {
+        "role": "HR & Talent Acquisition",
+        "headline": "Onboard Candidates in Minutes",
+        "desc": "Send job offers, fixed-term employment contracts (PKWT), and integrity pacts to candidates nationwide without waiting for physical mail."
+      },
+      {
+        "role": "Finance, Tax & Procurement",
+        "headline": "Valid Tax Invoices with e-Meterai",
+        "desc": "Affix official e-Meterai onto invoices above Rp 5,000,000, Work Orders (SPK), POs, and receipts complying with Directorate General of Taxes regulations."
+      },
+      {
+        "role": "Freelancers & SME Business Owners",
+        "headline": "Close Client Deals Faster",
+        "desc": "Sign client proposals and freelance contracts from your phone or laptop with no expensive subscriptions or printers required."
+      }
+    ]
+  },
+  "legalSection": {
+    "badge": "LEGAL COMPLIANCE IN INDONESIA",
+    "title": "Statutory Foundations & Evidentiary Value",
+    "subtitle": "Every signature and electronic stamp processed on EaseSign adheres to Indonesian statutory standards:",
+    "laws": [
+      {
+        "title": "Law No. 1/2024 (Second Amendment to UU ITE)",
+        "desc": "Affirms the legal admissibility and evidentiary weight of electronic documents and certified electronic signatures in Indonesian legal proceedings."
+      },
+      {
+        "title": "Government Regulation No. 71/2019 (PSTE)",
+        "desc": "Specifies security standards and operational requirements for licensed Electronic Certification Authorities (PSrE) registered with Komdigi."
+      },
+      {
+        "title": "Law No. 10/2020 on Stamp Duty",
+        "desc": "Establishes the legal framework for electronic stamp duties (e-Meterai) on civil, legal, and financial instruments."
+      },
+      {
+        "title": "Law No. 27/2022 on Personal Data Protection (UU PDP)",
+        "desc": "Guarantees strict privacy for NIK and biometric credentials, including automated purging of guest files after 48 hours."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "HELP CENTER & FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Essential information regarding legality, payments, and guest signing flows.",
+    "items": [
+      {
+        "q": "Are signatures on EaseSign legally recognized in Indonesia?",
+        "a": "Yes. For documents requiring the highest courtroom evidentiary weight, select our Certified PSrE Signature (Tilaka), licensed by Komdigi under UU ITE Article 11. For internal sign-offs and routine paperwork, our free Quick Signature comes with a SHA-256 cryptographic hash and an official Audit Trail page."
+      },
+      {
+        "q": "Do I need to create an account to sign a document?",
+        "a": "No. EaseSign uses a Guest / No-Login model. You can directly drop your PDF, place your signature or e-Meterai, and pay per document using instant QRIS without sign-up friction."
+      },
+      {
+        "q": "How does payment work for PSrE or e-Meterai?",
+        "a": "After placing your signature or e-Meterai on the PDF, an instant dynamic QRIS code appears. You can scan and pay with BCA Mobile, Livin by Mandiri, GoPay, OVO, ShopeePay, or any Indonesian banking app."
+      },
+      {
+        "q": "What happens if I accidentally close the tab after paying?",
+        "a": "Do not worry. The moment QRIS is generated, a secure Magic Link is sent to your email. You can click that link anytime to resume right where you left off."
+      },
+      {
+        "q": "How long are documents retained on EaseSign?",
+        "a": "In compliance with Indonesia's Personal Data Protection Act (UU PDP), unclaimed guest documents are securely stored and automatically purged after 48 hours. You can permanently save your document in your free vault by entering a password upon download."
+      }
+    ]
+  },
+  "signPdf": {
+    "title": "PDF Signature Studio",
+    "subtitle": "Upload your PDF, position your signature, or affix official e-Meterai.",
+    "selectPdf": "Select PDF Document",
+    "addSignature": "Add Signature",
+    "addMeterai": "Affix e-Meterai",
+    "signButton": "Finish & Download PDF",
+    "processing": "Processing document...",
+    "modalTitle": "Create Digital Signature",
+    "drawTab": "Draw",
+    "uploadTab": "Upload Image",
+    "typeTab": "Type Name",
+    "clearArea": "Clear",
+    "useSignature": "Apply Signature",
+    "signatureHint": "Drag to move · Drag corners to resize",
+    "auditNote": "This document will include a cryptographic SHA-256 seal and an official Audit Trail page.",
+    "downloadSuccess": "Document signed successfully!",
+    "upsellTitle": "Need official courtroom legal enforceability?",
+    "upsellDesc": "Upgrade to a Komdigi-licensed Tilaka PSrE certificate with Dukcapil e-KYC for high-stakes contracts."
+  },
+  "footer": {
+    "company": "PT Paramita Digital Nusantara",
+    "tagline": "Provider of licensed PSrE digital signatures and official Indonesian e-Meterai. Secure, instant, and legally compliant under UU ITE.",
+    "privacyNotice": "Privacy Policy & UU PDP",
+    "terms": "Terms & Conditions",
+    "address": "Head Office",
+    "addressDetail": "Dea Tower II, 15th Floor Suite, Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2, South Jakarta, 12950",
+    "phone": "Official Phone",
+    "email": "Support Email",
+    "regulated": "Registered Electronic System Operator (PSE) with the Ministry of Communication and Digital Affairs (Komdigi).",
+    "allRights": "All Rights Reserved."
+  },
+  "contactSection": {
+    "badge": "CONSULTATION & INQUIRIES",
+    "title": "Contact EaseSign Enterprise Team",
+    "subtitle": "Consult our legal and tech experts regarding certified digital signatures, corporate e-Meterai stamping, or REST API integrations.",
+    "addressTitle": "Headquarters Address",
+    "address": "Dea Tower II, 15th Floor Suite, Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2, South Jakarta, 12950",
+    "phoneTitle": "Official Phone",
+    "phone": "021 - 38915110",
+    "emailTitle": "Support Email",
+    "email": "info@easesign.id",
+    "formTitle": "Document Consultation Form",
+    "fieldName": "Full Name",
+    "fieldEmail": "Business Email Address",
+    "fieldPhone": "Phone / WhatsApp Number",
+    "fieldCategory": "Inquiry Category",
+    "fieldMessage": "Your Message or Requirements",
+    "submit": "Send Message Now",
+    "submitting": "Sending...",
+    "successTitle": "Message Received!",
+    "successMsg": "Thank you for contacting EaseSign. Our enterprise team will respond within 1 business day.",
+    "errorMsg": "Sorry, there was an error sending your message. Please try again or email us directly."
   }
 }

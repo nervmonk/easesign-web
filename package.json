@@ -12,7 +12,7 @@
     "@formatjs/intl-localematcher": "^0.8.2",
     "lucide-react": "^1.7.0",
     "negotiator": "^1.0.0",
-    "next": "15.5.4",
+    "next": "^16.3.5",
     "pdf-lib": "^1.17.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",

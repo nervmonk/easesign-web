@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Google Material Design 3 (M3) Enterprise Palette */
+  --md-primary: #003366;
+  --md-primary-hover: #0B57D0;
+  --md-primary-container: #E8F0FE;
+  --md-on-primary-container: #001D36;
+
+  --md-secondary: #475569;
+  --md-secondary-container: #F1F5F9;
+
+  --md-surface-lowest: #FFFFFF;
+  --md-surface-low: #F8FAFC;
+  --md-surface: #F1F5F9;
+  --md-surface-high: #E2E8F0;
+  --md-surface-highest: #CBD5E1;
+
+  --md-outline: #E2E8F0;
+  --md-outline-variant: #CBD5E1;
+
+  --md-emerald: #059669;
+  --md-emerald-bg: #ECFDF5;
+  --md-emerald-border: #A7F3D0;
+
+  --md-amber: #D97706;
+  --md-amber-bg: #FEF3C7;
+  --md-amber-border: #FDE68A;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-plus-jakarta), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-navy: var(--md-primary);
+  --color-primary-blue: var(--md-primary-hover);
+  --color-surface-lowest: var(--md-surface-lowest);
+  --color-surface-low: var(--md-surface-low);
+  --color-surface-default: var(--md-surface);
+  --color-surface-high: var(--md-surface-high);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-plus-jakarta), "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #F8FAFC;
+  color: #0F172A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material Design 3 Elevation & Tonal Surface Utilities */
+.m3-surface-low {
+  background-color: #F8FAFC;
+}
+
+.m3-surface-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+}
+
+.m3-surface-card-elevated {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+}
+
+.m3-button-primary {
+  background-color: #003366;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.m3-button-primary:hover {
+  background-color: #0B57D0;
+  box-shadow: 0 2px 6px rgba(11, 87, 208, 0.25);
+}
+
+.m3-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.m3-chip-verified {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #A7F3D0;
+}
+
+.m3-chip-primary {
+  background-color: #EFF6FF;
+  color: #1E40AF;
+  border: 1px solid #BFDBFE;
+}
+
+.m3-chip-amber {
+  background-color: #FFFBEB;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }

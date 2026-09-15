@@ -16,10 +16,10 @@ export default async function ContactPage({ params }) {
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-[#180f33] via-[#0d0d1a] to-[#050505] text-white font-sans overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] text-slate-900 font-sans">
+      <Navbar lang={lang} dict={dict.navbar} />
       <main className="flex-grow">
-        <Navbar lang={lang} dict={dict.navbar} />
-        <ContactSection dict={dict.contactSection} />
+        <ContactSection dict={dict.contactSection} lang={lang} />
       </main>
       <Footer lang={lang} dict={dict.footer} />
     </div>

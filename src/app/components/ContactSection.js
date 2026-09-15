@@ -1,87 +1,34 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
+import {
+  Building2,
+  Mail,
+  Phone,
+  Clock,
+  ShieldCheck,
+  Send,
+  CheckCircle2,
+  AlertCircle,
+} from "lucide-react";
 
-const PhoneIcon = () => (
-  <svg
-    className="h-7 w-7"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
-      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-    />
-  </svg>
-);
-
-const MapPinIcon = () => (
-  <svg
-    className="h-7 w-7"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
-      d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-    />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
-      d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-    />
-  </svg>
-);
-
-const EnvelopeIcon = () => (
-  <svg
-    className="h-7 w-7"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
-      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-    />
-  </svg>
-);
-
-const contactDetails = [
-  { icon: <PhoneIcon />, detail: "021 - 38915119" },
-  {
-    icon: <MapPinIcon />,
-    detail:
-      "Dea Tower II 15th Floor Suite,\nJl. Mega Kuningan Barat Kav. E4.3 No 1-2,\nSouth Jakarta, 12950",
-  },
-  { icon: <EnvelopeIcon />, detail: "info@easesign.id" },
-];
-
-const ContactSection = ({ dict = {} }) => {
+const ContactSection = ({ dict = {}, lang = "id" }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
+    category: "psre",
     message: "",
   });
   const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(""); // "" | "submitting" | "success" | "error"
 
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
+    if (errors[id]) {
+      setErrors((prev) => ({ ...prev, [id]: "" }));
+    }
   };
 
   const validateForm = () => {
@@ -91,21 +38,26 @@ const ContactSection = ({ dict = {} }) => {
     const trimmedMessage = formData.message.trim();
 
     if (!trimmedName) {
-      tempErrors.name = dict.errNameRequired || "Name is required.";
-    } else if (!/^[a-zA-Z\s'-]+$/.test(trimmedName)) {
-      tempErrors.name = dict.errNameInvalid || "Please enter a valid name (letters and spaces only).";
+      tempErrors.name =
+        lang === "id" ? "Nama lengkap wajib diisi." : "Full name is required.";
     }
 
     if (!trimmedEmail) {
-      tempErrors.email = dict.errEmailRequired || "Email is required.";
+      tempErrors.email =
+        lang === "id" ? "Alamat email wajib diisi." : "Email address is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-      tempErrors.email = dict.errEmailInvalid || "Please enter a valid email address.";
+      tempErrors.email =
+        lang === "id" ? "Format alamat email tidak valid." : "Invalid email address.";
     }
 
     if (!trimmedMessage) {
-      tempErrors.message = dict.errMessageRequired || "Message is required.";
+      tempErrors.message =
+        lang === "id" ? "Pesan tidak boleh kosong." : "Message cannot be empty.";
     } else if (trimmedMessage.length < 10) {
-      tempErrors.message = dict.errMessageShort || "Message must be at least 10 characters long.";
+      tempErrors.message =
+        lang === "id"
+          ? "Pesan terlalu singkat (minimal 10 karakter)."
+          : "Message must be at least 10 characters.";
     }
 
     setErrors(tempErrors);
@@ -128,166 +80,337 @@ const ContactSection = ({ dict = {} }) => {
       });
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", category: "psre", message: "" });
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
 
   return (
-    <section className="py-20 md:py-32 relative px-4 overflow-hidden">
-      {/* Background Glows */}
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[150px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-[150px] pointer-events-none"></div>
-
-      <div className="container mx-auto max-w-[1100px] relative z-10">
+    <section className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
         
-        {/* Main Glass Card Wrapper */}
-        <div className="bg-[#0d0c1e]/60 backdrop-blur-xl border border-white/10 rounded-[2.5rem] shadow-[0_4px_40px_rgba(0,0,0,0.5)] overflow-hidden">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            
-            {/* Left Side (Title / Graphic) */}
-            <div className="relative p-10 md:p-16 flex flex-col justify-center min-h-[400px]">
-              {/* Optional: Subtle grid background */}
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00MCAwaC0xdjQwaDFWMHoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMSkiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPgo8cGF0aCBkPSJNMCA0MGgxVjBoLTF2NDB6IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDEpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz4KPC9zdmc+')] opacity-50 z-0"></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase mb-4">
-                  <span className="w-8 h-px bg-cyan-500/50 mr-4"></span>
-                  {dict.eyebrow || 'Get In Touch'}
-                </div>
-                <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight">
-                  {dict.title1 || 'Contact'}<br className="hidden lg:block"/> {dict.title2 || 'Us'}
-                </h1>
-                <p className="mt-8 text-gray-400 text-lg max-w-sm font-light leading-relaxed">
-                  {dict.subtitle || 'Have questions or need assistance? Our team is here to help you revolutionize your digital document workflows.'}
+        {/* Left Column: Office & Entity Info */}
+        <div className="lg:col-span-5 space-y-8">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-[#003366] text-xs font-bold mb-4">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#0B57D0]" />
+              <span>{dict?.badge || "KONSULTASI & DUKUNGAN RESMI"}</span>
+            </div>
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+              {dict?.title || "Hubungi Tim EaseSign"}
+            </h1>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {dict?.subtitle ||
+                "Konsultasikan kebutuhan tanda tangan digital resmi, e-meterai korporasi, atau integrasi API untuk bisnis Anda."}
+            </p>
+          </div>
+
+          {/* Contact Details Cards */}
+          <div className="space-y-4">
+            {/* Address */}
+            <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-4">
+              <div className="p-3 rounded-xl bg-blue-50 text-[#003366] shrink-0">
+                <Building2 className="w-5 h-5" />
+              </div>
+              <div className="text-xs sm:text-sm">
+                <h4 className="font-bold text-slate-900 mb-1">
+                  {dict?.addressTitle || "Kantor Pusat Operasional"}
+                </h4>
+                <p className="text-slate-600 leading-relaxed">
+                  Dea Tower II, Lantai 15 Suite<br />
+                  Jl. Mega Kuningan Barat Kav. E4.3 No. 1-2<br />
+                  Jakarta Selatan, DKI Jakarta 12950
                 </p>
               </div>
             </div>
 
-            {/* Right Side (Form) */}
-            <div className="bg-[#15132d]/40 backdrop-blur-sm border-t lg:border-t-0 lg:border-l border-white/10 p-10 md:p-16 relative">
-              
-              {status === "success" ? (
-                <div className="h-full flex flex-col items-center justify-center text-center">
-                  <div className="w-20 h-20 bg-cyan-500/10 text-cyan-400 rounded-2xl flex items-center justify-center mb-6 border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                  </div>
-                  <h3 className="text-3xl font-bold text-white mb-4">{dict.successTitle || 'Thank you!'}</h3>
-                  <p className="text-gray-400 text-lg font-light leading-relaxed">{dict.successMsg || 'Your message has been sent successfully.'}<br/>{dict.successMsg ? '' : 'We will get back to you soon.'}</p>
+            {/* Phone & Email */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-blue-50 text-[#003366] shrink-0">
+                  <Phone className="w-4 h-4" />
                 </div>
-              ) : (
-                <form
-                  onSubmit={handleSubmit}
-                  action="https://formspree.io/f/meoredvv"
-                  method="POST"
-                  className="flex flex-col h-full w-full max-w-md mx-auto"
+                <div className="text-xs">
+                  <p className="font-bold text-slate-900">
+                    {dict?.phoneTitle || "Telepon"}
+                  </p>
+                  <p className="text-slate-600 mt-0.5">021 - 38915110</p>
+                </div>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-blue-50 text-[#003366] shrink-0">
+                  <Mail className="w-4 h-4" />
+                </div>
+                <div className="text-xs">
+                  <p className="font-bold text-slate-900">
+                    {dict?.emailTitle || "Email"}
+                  </p>
+                  <a
+                    href="mailto:info@easesign.id"
+                    className="text-slate-600 hover:text-[#003366] mt-0.5 block transition-colors"
+                  >
+                    info@easesign.id
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Business Hours */}
+            <div className="p-4 rounded-2xl bg-slate-100/70 border border-slate-200 flex items-center gap-3 text-xs text-slate-600">
+              <Clock className="w-4 h-4 text-slate-500 shrink-0" />
+              <span>
+                {lang === "id"
+                  ? "Jam Layanan: Senin – Jumat, 08:30 – 17:30 WIB"
+                  : "Business Hours: Monday – Friday, 08:30 – 17:30 WIB"}
+              </span>
+            </div>
+          </div>
+
+          {/* Regulatory Note */}
+          <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-xs text-emerald-900 flex items-start gap-2.5">
+            <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+            <p className="leading-relaxed">
+              <span className="font-bold">Keamanan & Kepatuhan: </span>
+              {lang === "id"
+                ? "PT Paramita Digital Nusantara adalah PSE resmi berlisensi Komdigi. Seluruh data dilindungi regulasi UU PDP No. 27/2022."
+                : "PT Paramita Digital Nusantara is a Komdigi-licensed PSE. All communications comply with UU PDP No. 27/2022."}
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column: Contact Form */}
+        <div className="lg:col-span-7">
+          <div className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-lg">
+            {status === "success" ? (
+              <div className="py-12 flex flex-col items-center text-center space-y-4">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+                <h3 className="text-2xl font-bold text-slate-900">
+                  {dict?.successTitle || "Pesan Berhasil Terkirim!"}
+                </h3>
+                <p className="text-slate-600 text-sm max-w-md leading-relaxed">
+                  {dict?.successMsg ||
+                    "Terima kasih telah menghubungi EaseSign. Tim enterprise kami akan segera merespons pesan Anda dalam 1x24 jam kerja."}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setStatus("")}
+                  className="mt-4 px-6 py-2.5 rounded-xl border border-slate-300 text-xs font-bold text-slate-800 hover:bg-slate-50 transition-all"
                 >
-                  <div className="flex-grow space-y-10">
-                    {/* Name */}
-                    <div className="relative">
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className={`peer w-full bg-transparent border-b-2 placeholder-transparent focus:outline-none transition-colors py-2 text-white font-light text-lg ${
-                          errors.name ? "border-red-400 focus:border-red-400" : "border-white/20 focus:border-cyan-400"
-                        }`}
-                      />
-                      <label htmlFor="name" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.name ? "text-red-400" : "text-cyan-400"}`}>
-                        {dict.fieldName || 'Name'}
-                      </label>
-                      {errors.name && <p className="text-red-400 text-sm mt-2">{errors.name}</p>}
-                    </div>
-                    
-                    {/* Email */}
-                    <div className="relative">
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className={`peer w-full bg-transparent border-b-2 placeholder-transparent focus:outline-none transition-colors py-2 text-white font-light text-lg ${
-                          errors.email ? "border-red-400 focus:border-red-400" : "border-white/20 focus:border-cyan-400"
-                        }`}
-                      />
-                      <label htmlFor="email" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.email ? "text-red-400" : "text-cyan-400"}`}>
-                        {dict.fieldEmail || 'Email Address'}
-                      </label>
-                      {errors.email && <p className="text-red-400 text-sm mt-2">{errors.email}</p>}
-                    </div>
-                    
-                    {/* Message */}
-                    <div className="relative">
-                      <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Message"
-                        rows="4"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className={`peer w-full bg-transparent border-b-2 placeholder-transparent focus:outline-none transition-colors py-2 text-white font-light text-lg resize-none ${
-                          errors.message ? "border-red-400 focus:border-red-400" : "border-white/20 focus:border-cyan-400"
-                        }`}
-                      ></textarea>
-                      <label htmlFor="message" className={`absolute p-0 left-0 -top-4 text-xs transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-xs font-bold uppercase tracking-[0.1em] ${errors.message ? "text-red-400" : "text-cyan-400"}`}>
-                        {dict.fieldMessage || 'Message'}
-                      </label>
-                      {errors.message && <p className="text-red-400 text-sm mt-2">{errors.message}</p>}
-                    </div>
-                  </div>
-                  
-                  <div className="mt-12 pt-4">
-                    <button
-                      type="submit"
-                      disabled={status === "submitting"}
-                      className="w-full relative group overflow-hidden bg-cyan-600 rounded-full px-8 py-4 text-white font-bold tracking-[0.2em] uppercase hover:bg-cyan-500 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.6)] disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <span className="relative z-10">{status === "submitting" ? (dict.submitting || "Submitting...") : (dict.submit || "Send Message")}</span>
-                      {status !== "submitting" && (
-                        <div className="absolute inset-0 h-full w-full scale-0 rounded-full transition-all duration-300 group-hover:scale-100 group-hover:bg-cyan-400/30"></div>
-                      )}
-                    </button>
-                  </div>
-                  {status === "error" && (
-                    <p className="text-center mt-6 text-red-400 font-medium">
-                      {dict.errorMsg || 'Oops! Something went wrong. Please try again.'}
+                  {lang === "id" ? "Kirim Pesan Lainnya" : "Send Another Message"}
+                </button>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                action="https://formspree.io/f/meoredvv"
+                method="POST"
+                className="space-y-6"
+              >
+                <div className="border-b border-slate-100 pb-4 mb-6">
+                  <h3 className="text-lg font-bold text-slate-900">
+                    {dict?.formTitle || "Formulir Konsultasi Dokumen"}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    {lang === "id"
+                      ? "Isi formulir berikut dan tim kami akan segera menghubungi Anda."
+                      : "Fill in the form below and our team will get in touch shortly."}
+                  </p>
+                </div>
+
+                {/* Name */}
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
+                  >
+                    {dict?.fieldName || "Nama Lengkap"} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder={lang === "id" ? "Contoh: Budi Pratama" : "e.g. John Doe"}
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                      errors.name
+                        ? "border-red-300 focus:ring-red-200 focus:border-red-500 bg-red-50/20"
+                        : "border-slate-300 focus:ring-[#003366]/20 focus:border-[#003366] bg-white"
+                    }`}
+                  />
+                  {errors.name && (
+                    <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      <span>{errors.name}</span>
                     </p>
                   )}
-                </form>
-              )}
-            </div>
-          </div>
-          
-          {/* Bottom Section (Contact Details) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-white/10 bg-[#0a0914]/80">
-            {contactDetails.map((item, index) => (
-              <div
-                key={index}
-                className={`py-12 px-8 flex flex-col xl:flex-row items-center gap-6 justify-center text-center xl:text-left ${
-                  index < 2 ? "border-b md:border-b-0 md:border-r border-white/10" : ""
-                } hover:bg-white/[0.03] transition-colors duration-300`}
-              >
-                <div className="h-16 w-16 min-w-[64px] rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shadow-[0_0_15px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_25px_rgba(6,182,212,0.3)] transition-shadow">
-                  {item.icon}
                 </div>
-                <p className="text-gray-300 whitespace-pre-line font-light leading-relaxed text-base">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
-          </div>
 
+                {/* Email & Phone Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                      {dict?.fieldEmail || "Email Kerja"} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="nama@perusahaan.com"
+                      className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                        errors.email
+                          ? "border-red-300 focus:ring-red-200 focus:border-red-500 bg-red-50/20"
+                          : "border-slate-300 focus:ring-[#003366]/20 focus:border-[#003366] bg-white"
+                      }`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
+                        <AlertCircle className="w-3.5 h-3.5" />
+                        <span>{errors.email}</span>
+                      </p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
+                    >
+                      {dict?.fieldPhone || "Nomor Telepon / WhatsApp"}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="0812xxxxxxxx"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#003366]/20 focus:border-[#003366] text-sm text-slate-900 bg-white transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Inquiry Category */}
+                <div>
+                  <label
+                    htmlFor="category"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
+                  >
+                    {dict?.fieldCategory || "Kategori Kebutuhan"}
+                  </label>
+                  <select
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#003366]/20 focus:border-[#003366] text-sm text-slate-900 bg-white transition-all"
+                  >
+                    <option value="psre">
+                      {lang === "id"
+                        ? "Tanda Tangan Bersertifikat PSrE (Tilaka)"
+                        : "Certified PSrE Digital Signature (Tilaka)"}
+                    </option>
+                    <option value="meterai">
+                      {lang === "id"
+                        ? "Pembubuhan e-Meterai Korporasi (Peruri)"
+                        : "Corporate e-Meterai Stamping (Peruri)"}
+                    </option>
+                    <option value="api">
+                      {lang === "id"
+                        ? "Integrasi REST API / SDK EaseSign"
+                        : "EaseSign REST API / SDK Integration"}
+                    </option>
+                    <option value="partnership">
+                      {lang === "id"
+                        ? "Kemitraan Bisnis / Notaris / B2B"
+                        : "Business Partnership / Notary / Enterprise"}
+                    </option>
+                    <option value="other">
+                      {lang === "id" ? "Pertanyaan Lainnya" : "Other Inquiries"}
+                    </option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2"
+                  >
+                    {dict?.fieldMessage || "Pesan atau Kebutuhan Dokumen"}{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={
+                      lang === "id"
+                        ? "Jelaskan kebutuhan dokumen atau perkiraan volume penandatanganan perusahaan Anda..."
+                        : "Describe your document signing requirements or estimated monthly volume..."
+                    }
+                    className={`w-full px-4 py-3 rounded-xl border text-sm text-slate-900 focus:outline-none focus:ring-2 transition-all ${
+                      errors.message
+                        ? "border-red-300 focus:ring-red-200 focus:border-red-500 bg-red-50/20"
+                        : "border-slate-300 focus:ring-[#003366]/20 focus:border-[#003366] bg-white"
+                    }`}
+                  />
+                  {errors.message && (
+                    <p className="text-red-600 text-xs mt-1.5 flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      <span>{errors.message}</span>
+                    </p>
+                  )}
+                </div>
+
+                {status === "error" && (
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>
+                      {dict?.errorMsg ||
+                        "Maaf, terjadi kendala pengiriman. Silakan coba lagi atau hubungi info@easesign.id"}
+                    </span>
+                  </div>
+                )}
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="w-full bg-[#003366] hover:bg-[#0B57D0] disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm py-3.5 px-6 rounded-xl shadow-xs hover:shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <Send className="w-4 h-4" />
+                  <span>
+                    {status === "submitting"
+                      ? dict?.submitting || "Sedang Mengirim..."
+                      : dict?.submit || "Kirim Pesan Sekarang"}
+                  </span>
+                </button>
+
+                <p className="text-[11px] text-slate-400 text-center">
+                  {lang === "id"
+                    ? "Kami menghormati privasi Anda. Data tidak akan dibagikan ke pihak ketiga."
+                    : "We respect your privacy. Information is strictly confidential."}
+                </p>
+              </form>
+            )}
+          </div>
         </div>
+
       </div>
     </section>
   );
