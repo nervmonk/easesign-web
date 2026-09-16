@@ -2,26 +2,125 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { UploadCloud, FileText, ShieldCheck, ArrowRight, Sparkles } from "lucide-react";
+import {
+  UploadCloud,
+  FileText,
+  ShieldCheck,
+  ArrowRight,
+  Sparkles,
+  PenLine,
+  Stamp,
+  Users,
+} from "lucide-react";
+
+export type ProductTier = "free" | "psre" | "meterai" | "multi";
 
 interface HomeHeroDropzoneProps {
   lang?: string;
-  dict?: {
-    dropzoneTitle?: string;
-    dropzoneSubtitle?: string;
-    dropzoneButton?: string;
-  };
-  onFileSelected?: (file: File) => void;
+  dict?: any;
+  activeTier?: ProductTier;
+  onTierChange?: (tier: ProductTier) => void;
+  onFileSelected?: (file: File, tier: ProductTier) => void;
 }
 
 export default function HomeHeroDropzone({
   lang = "id",
   dict = {},
+  activeTier,
+  onTierChange,
   onFileSelected,
 }: HomeHeroDropzoneProps) {
   const router = useRouter();
+  const [internalTier, setInternalTier] = useState<ProductTier>("free");
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const currentTier = activeTier ?? internalTier;
+
+  const handleTierSelect = (tier: ProductTier) => {
+    if (onTierChange) {
+      onTierChange(tier);
+    } else {
+      setInternalTier(tier);
+    }
+  };
+
+  const tabs = [
+    {
+      id: "free" as ProductTier,
+      label: lang === "id" ? "Tanda Tangan Cepat" : "Quick Sign",
+      sub: lang === "id" ? "Gratis · Rp 0" : "Free · $0",
+      badge: lang === "id" ? "Gratis Tanpa Login" : "100% Free",
+      icon: PenLine,
+      title:
+        lang === "id"
+          ? "Tarik & Lepas Dokumen untuk Tanda Tangan Cepat"
+          : "Drop Document for Quick Signature",
+      subtitle:
+        lang === "id"
+          ? "Tanda tangan cepat dengan Halaman Bukti Audit SHA-256 tanpa login atau biaya."
+          : "Instant signature with SHA-256 audit trail without login.",
+      btnText:
+        lang === "id" ? "Pilih PDF Tanda Tangan Gratis" : "Choose PDF to Sign Free",
+      colorClasses: "border-blue-600 text-[#003366]",
+    },
+    {
+      id: "psre" as ProductTier,
+      label: lang === "id" ? "Sah UU ITE (PSrE)" : "Certified PSrE",
+      sub: lang === "id" ? "Tilaka PSrE · Rp 15rb" : "Legal PSrE",
+      badge: lang === "id" ? "Kekuatan Hukum Penuh UU ITE" : "Full Legal Enforceability",
+      icon: ShieldCheck,
+      title:
+        lang === "id"
+          ? "Tarik & Lepas Dokumen untuk Tanda Tangan PSrE"
+          : "Drop Document for Tilaka PSrE Signature",
+      subtitle:
+        lang === "id"
+          ? "Sertifikat elektronik resmi berinduk Komdigi (Tilaka) & verifikasi biometrik e-KYC Dukcapil."
+          : "Certified digital certificate with Dukcapil e-KYC verification.",
+      btnText:
+        lang === "id" ? "Pilih PDF untuk PSrE Resmi" : "Choose PDF for PSrE",
+      colorClasses: "border-emerald-600 text-emerald-800",
+    },
+    {
+      id: "meterai" as ProductTier,
+      label: lang === "id" ? "Meterai Elektronik" : "e-Meterai",
+      sub: lang === "id" ? "Resmi Peruri · Rp 11.5rb" : "Peruri · 10.000",
+      badge: lang === "id" ? "Resmi Peruri & DJP" : "Official Peruri Stamp",
+      icon: Stamp,
+      title:
+        lang === "id"
+          ? "Tarik & Lepas Dokumen untuk Pembubuhan e-Meterai"
+          : "Drop Document for Official e-Meterai",
+      subtitle:
+        lang === "id"
+          ? "Bubuhkan meterai elektronik resmi 10.000 dengan QR code validasi & nomor seri unik Peruri."
+          : "Official 10,000 tax stamp with unique serial number and QR verification.",
+      btnText:
+        lang === "id" ? "Pilih PDF untuk e-Meterai" : "Choose PDF for e-Meterai",
+      colorClasses: "border-amber-600 text-amber-900",
+    },
+    {
+      id: "multi" as ProductTier,
+      label: lang === "id" ? "Kirim Multi-Signer" : "Send to Others",
+      sub: lang === "id" ? "Anti-Phishing OTP" : "Multi-Signer",
+      badge: lang === "id" ? "Proteksi OTP Pengirim" : "Sender OTP Verified",
+      icon: Users,
+      title:
+        lang === "id"
+          ? "Tarik & Lepas Dokumen untuk Dikirim ke Pihak Lain"
+          : "Drop Document to Send for Signatures",
+      subtitle:
+        lang === "id"
+          ? "Kirim kontrak ke satu atau lebih penanda tangan melalui email bertoken aman & terverifikasi."
+          : "Invite multiple signers with sender OTP verification and real-time tracking.",
+      btnText:
+        lang === "id" ? "Pilih PDF untuk Dikirim" : "Choose PDF to Send",
+      colorClasses: "border-purple-600 text-purple-900",
+    },
+  ];
+
+  const currentTab = tabs.find((t) => t.id === currentTier) || tabs[0];
 
   const handleSelectFile = (file?: File) => {
     if (!file) return;
@@ -50,9 +149,9 @@ export default function HomeHeroDropzone({
     }
 
     if (onFileSelected) {
-      onFileSelected(file);
+      onFileSelected(file, currentTier);
     } else {
-      router.push(`/${lang}/sign-pdf`);
+      router.push(`/${lang}/sign-pdf?tier=${currentTier}`);
     }
   };
 
@@ -94,7 +193,56 @@ export default function HomeHeroDropzone({
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-3xl mx-auto">
+      {/* 4-Product Segmented Intent Tabs */}
+      <div className="mb-4">
+        <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2.5 text-center">
+          {lang === "id" ? "1. Pilih Jenis Layanan yang Anda Butuhkan:" : "1. Choose Your Signing Service:"}
+        </p>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200 shadow-inner">
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            const isActive = tab.id === currentTier;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => handleTierSelect(tab.id)}
+                className={`relative flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-white text-slate-900 shadow-sm border border-slate-200/80 font-bold scale-[1.01]"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-white/60 font-medium"
+                }`}
+              >
+                <div className="flex items-center gap-1.5 mb-0.5">
+                  <Icon
+                    className={`w-4 h-4 shrink-0 ${
+                      isActive ? "text-[#003366]" : "text-slate-500"
+                    }`}
+                  />
+                  <span className="text-xs font-bold leading-tight truncate">
+                    {tab.label}
+                  </span>
+                </div>
+                <span
+                  className={`text-[10px] ${
+                    isActive ? "text-[#0B57D0] font-semibold" : "text-slate-400"
+                  }`}
+                >
+                  {tab.sub}
+                </span>
+
+                {isActive && (
+                  <div className="absolute -bottom-1 w-6 h-1 bg-[#003366] rounded-full" />
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Main Interactive Dropzone */}
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -124,20 +272,23 @@ export default function HomeHeroDropzone({
           }}
         />
 
-        {/* M3 Upload Container */}
-        <div className="w-16 h-16 rounded-2xl bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center text-[#003366] group-hover:text-[#0B57D0] transition-colors mb-4 shadow-xs">
+        {/* Dynamic Badge per Selected Tier */}
+        <div className="mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700 border border-slate-200">
+          <currentTab.icon className="w-3.5 h-3.5 text-[#003366]" />
+          <span>{currentTab.badge}</span>
+        </div>
+
+        {/* M3 Upload Icon */}
+        <div className="w-16 h-16 rounded-2xl bg-blue-50 group-hover:bg-blue-100 flex items-center justify-center text-[#003366] group-hover:text-[#0B57D0] transition-colors mb-3.5 shadow-xs">
           <UploadCloud className="w-8 h-8" />
         </div>
 
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5">
-          {dict?.dropzoneTitle || (lang === "id" ? "Tarik & Lepas Dokumen PDF di Sini" : "Drag & Drop Your PDF Here")}
+        <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1.5 max-w-lg">
+          {currentTab.title}
         </h3>
 
-        <p className="text-xs sm:text-sm text-slate-500 max-w-sm mb-6">
-          {dict?.dropzoneSubtitle ||
-            (lang === "id"
-              ? "atau klik tombol di bawah untuk langsung membuka dokumen di Studio Tanda Tangan"
-              : "or click below to open your document instantly in the Signature Studio")}
+        <p className="text-xs sm:text-sm text-slate-500 max-w-md mb-6 leading-relaxed">
+          {currentTab.subtitle}
         </p>
 
         {/* Action Buttons */}
@@ -151,7 +302,7 @@ export default function HomeHeroDropzone({
             className="bg-[#003366] hover:bg-[#0B57D0] text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl shadow-xs hover:shadow-md transition-all flex items-center gap-2 cursor-pointer"
           >
             <FileText className="w-4 h-4" />
-            <span>{dict?.dropzoneButton || (lang === "id" ? "Pilih File PDF" : "Choose PDF Document")}</span>
+            <span>{currentTab.btnText}</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </button>
 
@@ -174,10 +325,17 @@ export default function HomeHeroDropzone({
           <span className="text-slate-300">•</span>
           <span>Maksimal 25MB</span>
           <span className="text-slate-300">•</span>
-          <span className="text-slate-600 font-semibold">100% Gratis Tanpa Login</span>
+          <span className="text-slate-700 font-semibold">
+            {currentTier === "free"
+              ? lang === "id" ? "100% Gratis Tanpa Login" : "100% Free No Login"
+              : currentTier === "psre"
+              ? lang === "id" ? "Sertifikat Tilaka PSrE" : "Tilaka PSrE Certificate"
+              : currentTier === "meterai"
+              ? lang === "id" ? "Meterai Resmi Peruri" : "Official Peruri Stamp"
+              : lang === "id" ? "Proteksi OTP Pengirim" : "Sender OTP Protection"}
+          </span>
         </div>
       </div>
     </div>
   );
 }
-

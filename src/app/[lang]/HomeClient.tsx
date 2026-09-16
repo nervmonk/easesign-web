@@ -15,7 +15,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-import HomeHeroDropzone from "../components/HomeHeroDropzone";
+import HomeHeroDropzone, { ProductTier } from "../components/HomeHeroDropzone";
 import FaqSection from "../components/FaqSection";
 
 // Dynamically import SigningStudioWorkspace to prevent SSR issues with canvas / react-pdf
@@ -43,6 +43,7 @@ interface HomeClientProps {
 
 export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) {
   const [pdfFile, setPdfFile] = useState<File | null>(null);
+  const [selectedTier, setSelectedTier] = useState<ProductTier>("free");
 
   const corporateClients = [
     { name: "Bank BNI", logo: "/BNI-logo.png" },
@@ -58,12 +59,18 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleSelectProductTier = (tier: ProductTier) => {
+    setSelectedTier(tier);
+    handleScrollToHero();
+  };
+
   // If user dropped or selected a PDF, seamlessly switch to SigningStudioWorkspace
   if (pdfFile) {
     return (
       <main className="flex-1 flex flex-col">
         <SigningStudioWorkspace
           pdfFile={pdfFile}
+          initialTier={selectedTier}
           onDiscard={() => setPdfFile(null)}
           lang={lang}
           dict={dict}
@@ -101,7 +108,12 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
             <HomeHeroDropzone
               lang={lang}
               dict={dict.hero}
-              onFileSelected={(file) => setPdfFile(file)}
+              activeTier={selectedTier}
+              onTierChange={(tier) => setSelectedTier(tier)}
+              onFileSelected={(file, tier) => {
+                setSelectedTier(tier);
+                setPdfFile(file);
+              }}
             />
           </div>
 
@@ -191,7 +203,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
 
               <button
                 type="button"
-                onClick={handleScrollToHero}
+                onClick={() => handleSelectProductTier("free")}
                 className="w-full py-2.5 px-4 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold transition-all text-center block shadow-2xs hover:bg-slate-50 cursor-pointer"
               >
                 {dict?.offerings?.free?.cta || "Mulai Gratis"}
@@ -238,7 +250,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
 
               <button
                 type="button"
-                onClick={handleScrollToHero}
+                onClick={() => handleSelectProductTier("psre")}
                 className="w-full py-2.5 px-4 rounded-xl bg-[#003366] hover:bg-[#0B57D0] text-white text-xs font-bold transition-all text-center block shadow-xs cursor-pointer"
               >
                 {dict?.offerings?.psre?.cta || "Gunakan Sertifikat PSrE"}
@@ -282,7 +294,7 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
 
               <button
                 type="button"
-                onClick={handleScrollToHero}
+                onClick={() => handleSelectProductTier("meterai")}
                 className="w-full py-2.5 px-4 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold transition-all text-center block shadow-2xs hover:bg-slate-50 cursor-pointer"
               >
                 {dict?.offerings?.meterai?.cta || "Bubuhkan e-Meterai"}
@@ -324,14 +336,13 @@ export default function HomeClient({ lang = "id", dict = {} }: HomeClientProps) 
                 </ul>
               </div>
 
-              <a
-                href="https://dev-console.easesign.site"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold transition-all text-center block shadow-2xs hover:bg-slate-50"
+              <button
+                type="button"
+                onClick={() => handleSelectProductTier("multi")}
+                className="w-full py-2.5 px-4 rounded-xl border border-slate-300 hover:border-slate-400 bg-white text-slate-800 text-xs font-bold transition-all text-center block shadow-2xs hover:bg-slate-50 cursor-pointer"
               >
-                {dict?.offerings?.multi?.cta || "Buka Console Kirim"}
-              </a>
+                {dict?.offerings?.multi?.cta || "Kirim Kontrak Sekarang"}
+              </button>
             </div>
 
           </div>
